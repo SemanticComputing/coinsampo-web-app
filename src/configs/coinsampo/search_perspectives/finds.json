@@ -1,0 +1,173 @@
+{
+    "id": "finds",
+    "endpoint": {
+        "url": "http://localhost:3056/ds/sparql",
+        "useAuth": false,
+        "prefixesFile": "SparqlQueriesPrefixes.js"
+    },
+    "sparqlQueriesFile": "SparqlQueriesFinds.js",
+    "baseURI": "http://ldf.fi/coinsampo",
+    "URITemplate": "<BASE_URI>/objects/<LOCAL_ID>",
+    "facetClass": "coin-schema:Coin",
+    "frontPageImage": "main_page/works-452x262.jpg",
+    "searchMode": "faceted-search",
+    "defaultActiveFacets": [
+        "prefLabel"
+    ],
+    "defaultTab": "table",
+    "defaultInstancePageTab": "table",
+    "resultClasses": {
+        "finds": {
+            "paginatedResultsConfig": {
+                "tabID": 0,
+                "component": "ResultTable",
+                "tabPath": "table",
+                "tabIcon": "CalendarViewDay",
+                "propertiesQueryBlock": "findPropertiesFacetResults",
+                "pagesize": 10,
+                "sortBy": null,
+                "sortDirection": "asc"
+            },
+            "instanceConfig": {
+                "propertiesQueryBlock": "findPropertiesInstancePage",
+                "instancePageResultClasses": {
+                    "instancePageTable": {
+                        "tabID": 0,
+                        "component": "InstancePageTable",
+                        "tabPath": "table",
+                        "tabIcon": "CalendarViewDay"
+                    }
+                }
+            }           
+        },
+        "findsPlaces": {
+            "tabID": 2,
+            "tabPath": "map",
+            "tabIcon": "AddLocation",
+            "component": "LeafletMap",
+            "showInstanceCountInClusters": false,
+            "showExternalLayers": true,
+            "customMapControl": true,
+            "sparqlQuery": "findsPlacesQuery",
+            "facetClass": "finds",
+            "filterTarget": "id",
+            "resultMapper": "mapPlaces",
+            "instanceConfig": {
+                "propertiesQueryBlock": "findPropertiesInstancePage",
+                "createPopUpContent": "createPopUpContentFindSampo"
+            }
+        },
+        "findsPlacesHeatmap": {
+            "tabID": 3,
+            "tabPath": "heatmap",
+            "tabIcon": "AddLocation",
+            "component": "Deck",
+            "layerType": "heatmapLayer",
+            "sparqlQuery": "findsPlacesQuery",
+            "facetClass": "finds",
+            "filterTarget": "id",
+            "resultMapper": "mapPlaces"
+        },
+        "findsKnowledgeGraphMetadata": {
+            "sparqlQuery": "knowledgeGraphMetadataQuery",
+            "resultMapper": "makeObjectList"
+        }
+    },
+    "maps": {
+        "findsPlaces": {
+            "center": [
+                65.184809,
+                27.314050
+            ],
+            "zoom": 5
+        },
+        "findsPlacesHeatmap": {
+            "center": [
+                65.184809,
+                27.314050
+            ],
+            "zoom": 4
+        },
+        "findInstancePageMap": {
+            "center": [
+                65.184809,
+                27.314050
+            ],
+            "zoom": 5
+        },
+        "findInstancePageNearbyFinds": {
+            "center": [
+                65.184809,
+                27.314050
+            ],
+            "zoom": 5
+        }
+    },
+    "properties": [
+        {
+            "id": "nomination",
+            "valueType": "string",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 140
+        },
+        {
+            "id": "mint",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 180
+        },
+        {
+            "id": "municipality",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 130
+        }
+    ],
+    "facets": {
+        "nomination": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "coin-schema:nomination",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "coin-schema:nomination",
+            "sortDirection": "desc",
+            "literal": true
+        },
+        "municipality": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "coin-schema:municipality",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "coin-schema:municipality",
+            "sortDirection": "desc",
+            "literal": true
+        },
+        "mint": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "coin-schema:mint",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "coin-schema:mint",
+            "sortDirection": "desc",
+            "literal": true
+        }
+    }
+}
