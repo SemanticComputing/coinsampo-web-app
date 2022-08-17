@@ -105,7 +105,7 @@
     },
     "properties": [
         {
-            "id": "nomination",
+            "id": "denomination",
             "valueType": "string",
             "makeLink": true,
             "externalLink": false,
@@ -130,10 +130,37 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 130
+        },
+        {
+            "id": "period",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 130
+        },
+        {
+            "id": "ruler",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 130
+        },
+        {
+            "id": "find_context",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 130
         }
     ],
     "facets": {
-        "nomination": {
+        "denomination": {
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
@@ -154,6 +181,42 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "coin-schema:municipality",
+            "sortDirection": "desc",
+            "literal": true
+        },
+        "period": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "coin-schema:period",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "coin-schema:period",
+            "sortDirection": "desc",
+            "literal": true
+        },
+        "ruler": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "coin-schema:ruler",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "coin-schema:ruler",
+            "sortDirection": "desc",
+            "literal": true
+        },
+        "context": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "coin-schema:find_context",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "coin-schema:find_context",
             "sortDirection": "desc",
             "literal": true
         },

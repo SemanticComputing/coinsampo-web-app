@@ -1,4 +1,8 @@
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+
+# CoinSampo Web Application based on the Sampo-UI framework
+
+
 # Sampo-UI
 
 A framework for building user interfaces for semantic portals. 

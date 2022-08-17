@@ -137,8 +137,8 @@ export const findPropertiesInstancePage =
 
 export const findPropertiesFacetResults = `   
   {
-    ?id coin-schema:nomination ?nomination .
-    # BIND (?nomination__id as ?nomination__prefLabel)
+    ?id coin-schema:nomination ?denomination .
+    # BIND (?nomination__id as ?denomination__prefLabel)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?findName__dataProviderUrl)
   }
   UNION
@@ -148,6 +148,18 @@ export const findPropertiesFacetResults = `
   UNION
   {
     ?id coin-schema:municipality ?municipality .
+  }
+  UNION
+  {
+    ?id coin-schema:ruler ?ruler .
+  }
+  UNION
+  {
+    ?id coin-schema:find_context ?context .
+  }
+  UNION
+  {
+    ?id coin-schema:period ?period .
   }
 
 `
