@@ -150,7 +150,7 @@
             "minWidth": 130
         },
         {
-            "id": "find_context",
+            "id": "context",
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,
