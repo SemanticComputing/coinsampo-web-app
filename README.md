@@ -2,6 +2,8 @@
 
 # CoinSampo Web Application based on the Sampo-UI framework
 
+Localhost // "url": "http://localhost:3056/ds/sparql",
+
 
 # Sampo-UI
 

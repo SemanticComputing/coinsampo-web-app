@@ -1,7 +1,7 @@
 {
     "id": "finds",
     "endpoint": {
-        "url": "http://localhost:3056/ds/sparql",
+        "url": "https://ldf.fi/semparl/sparql",
         "useAuth": false,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
@@ -170,6 +170,7 @@
             "sortBy": "instanceCount",
             "sortByPredicate": "coin-schema:nomination",
             "sortDirection": "desc",
+            "pieChartButton": true,
             "literal": true
         },
         "municipality": {
@@ -182,6 +183,7 @@
             "sortBy": "instanceCount",
             "sortByPredicate": "coin-schema:municipality",
             "sortDirection": "desc",
+            "pieChartButton": true,
             "literal": true
         },
         "period": {
@@ -194,6 +196,7 @@
             "sortBy": "instanceCount",
             "sortByPredicate": "coin-schema:period",
             "sortDirection": "desc",
+            "pieChartButton": true,
             "literal": true
         },
         "ruler": {
@@ -206,6 +209,7 @@
             "sortBy": "instanceCount",
             "sortByPredicate": "coin-schema:ruler",
             "sortDirection": "desc",
+            "pieChartButton": true,
             "literal": true
         },
         "context": {
@@ -218,6 +222,7 @@
             "sortBy": "instanceCount",
             "sortByPredicate": "coin-schema:find_context",
             "sortDirection": "desc",
+            "pieChartButton": true,
             "literal": true
         },
         "mint": {
@@ -230,6 +235,7 @@
             "sortBy": "instanceCount",
             "sortByPredicate": "coin-schema:mint",
             "sortDirection": "desc",
+            "pieChartButton": true,
             "literal": true
         }
     }

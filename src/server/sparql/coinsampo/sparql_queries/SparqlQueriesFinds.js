@@ -8,138 +8,21 @@ export const findPropertiesInstancePage =
       BIND(?id as ?uri__prefLabel)
       BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
     }
-    UNION
-    {
-      ?id ltk-s:find_name ?prefLabel__id .
-      BIND (?prefLabel__id as ?prefLabel__prefLabel)
-    }
-    UNION
-    {
-      ?id ltk-s:find_name ?findName__id .
-      BIND (?findName__id as ?findName__prefLabel)
-    }
-    UNION
-    {
-      ?id :identifier ?findNumber .
-    }
-    UNION
-    {
-      ?id ltk-s:type ?type .
-    }
-    UNION
-    {
-      ?id :object_type ?objectType__id .
-      ?objectType__id skos:prefLabel ?objectType__prefLabel .
-      FILTER (LANG(?objectType__prefLabel) = '<LANG>')
-      BIND(CONCAT("/types/page/", REPLACE(STR(?objectType__id ), "^.*\\\\/(.+)", "$1")) AS ?objectType__dataProviderUrl)
-    }
-    UNION
-    {
-      ?id ltk-s:sub_category ?subCategory .
-    }
-    UNION
-    {
-      ?id ltk-s:material ?materialLiteral .
-    }
-    UNION
-    {
-      ?id ltk-s:description ?description .
-    }
-    UNION
-    {
-      ?id :material ?material__id .
-      ?material__id skos:prefLabel ?material__prefLabel .
-    }
-    UNION
-    {
-      #?id ltk-s:period ?period__id .
-      #BIND(?period__id AS ?period__prefLabel )
-      ?id :period ?period__id .
-      ?period__id skos:prefLabel ?period__prefLabel .
-      BIND(CONCAT("/periods/page/", REPLACE(STR(?period__id ), "^.*\\\\/(.+)", "$1")) AS ?period__dataProviderUrl)
-    }
-    UNION
-    {
-      ?id ltk-s:municipality ?municipalityLiteral .
-    }
-    UNION
-    {
-      ?id :found_in_municipality ?municipality__id .
-      ?municipality__id skos:exactMatch/skos:prefLabel ?municipality__prefLabel .
-      FILTER (LANG(?municipality__prefLabel) = '<LANG>')
-    }
-    UNION
-    {
-      ?id :found_in_province ?province__id .
-      ?province__id skos:exactMatch/skos:prefLabel ?province__prefLabel .
-      FILTER (LANG(?province__prefLabel) = '<LANG>')
-    }
-    UNION
-    {
-      ?id :has_creation_time_span/crm:P82a_begin_of_the_begin ?earliestStart .
-      BIND (IF (STRSTARTS(str(?earliestStart), '-'), SUBSTR(STR(?earliestStart), 1, 5), SUBSTR(STR(?earliestStart), 1, 4)) AS ?earliestStartYear) .
-    }
-    UNION
-    {
-      ?id :has_creation_time_span/crm:P82b_end_of_the_end ?latestEnd .
-      BIND (IF (STRSTARTS(str(?latestEnd), '-'), SUBSTR(STR(?latestEnd), 1, 5), SUBSTR(STR(?latestEnd), 1, 4)) AS ?latestEndYear) .
-    }
-    UNION
-    {
-      ?image__id a :Image .
-      ?image__id :documents ?id .
-      ?image__id ltk-s:image_url ?image__url .
-      # BIND(REPLACE(?image__url_, "http", "https") as ?image__url)
-      OPTIONAL {
-        ?image__id skos:prefLabel ?image__title .
-        BIND(CONCAT(STR(?image__title), ' (kuvan oikeudet: Museovirasto)') AS ?image__description)
-      }
-    }
-    UNION
-    {
-      ?id :identifier ?findNumber .
-    }
-    UNION
-    {
-      ?id :weight ?weight .
-    }
-    UNION
-    {
-      ?id :length ?length .
-    }
-    UNION
-    {
-      ?id :max_thickness ?maxThickness .
-    }
-    UNION
-    {
-      ?id :min_thickness ?minThickness .
-    }
-    UNION
-    {
-      ?id :width ?width .
-    }
-    UNION
-    {
-      ?id :diameter ?diameter .
-    }
-    UNION
-    {
-      ?id ltk-s:z_coordinate ?foundAtHeight .
-    }
-    UNION
-    {
-      ?id ltk-s:archaeological_site_url ?archaeologicalSiteUrl__id .
-      BIND(URI(?archaeologicalSiteUrl__id) AS ?archaeologicalSiteUrl__dataProviderUrl)
-      BIND(URI(?archaeologicalSiteUrl__id) AS ?archaeologicalSiteUrl__prefLabel)
-    }
+    #UNION
+    #{
+      #?id ltk-s:find_name ?prefLabel__id .
+      #BIND (?prefLabel__id as ?prefLabel__prefLabel)
+    #}
+
 `
 
 export const findPropertiesFacetResults = `   
   {
     ?id coin-schema:nomination ?denomination .
     # BIND (?nomination__id as ?denomination__prefLabel)
-    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?findName__dataProviderUrl)
+    BIND (?denomination as ?prefLabel__id)
+    BIND (?denomination as ?prefLabel__prefLabel)
+    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
   }
   UNION
   {
