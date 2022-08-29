@@ -2,14 +2,14 @@
     "id": "finds",
     "endpoint": {
         "url": "https://ldf.fi/coinsampo/sparql",
-        "useAuth": false,
+        "useAuth": true,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
     "sparqlQueriesFile": "SparqlQueriesFinds.js",
     "baseURI": "http://ldf.fi/coinsampo",
     "URITemplate": "<BASE_URI>/objects/<LOCAL_ID>",
     "facetClass": "coin-schema:Coin",
-    "frontPageImage": "main_page/works-452x262.jpg",
+    "frontPageImage": "main_page/dirhemi.png",
     "searchMode": "faceted-search",
     "defaultActiveFacets": [
         "prefLabel"
