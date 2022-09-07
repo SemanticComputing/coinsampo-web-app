@@ -18,7 +18,7 @@ export const findPropertiesInstancePage =
 
 export const findPropertiesFacetResults = `   
   {
-    ?id coin-schema:nomination ?denomination .
+    ?id coin-schema:denomination ?denomination .
     # BIND (?nomination__id as ?denomination__prefLabel)
     BIND (?denomination as ?prefLabel__id)
     BIND (?denomination as ?prefLabel__prefLabel)
@@ -43,6 +43,18 @@ export const findPropertiesFacetResults = `
   UNION
   {
     ?id coin-schema:period ?period .
+  }
+  UNION
+  {
+    ?id coin-schema:period ?period .
+  }
+  UNION
+  {
+    ?id findsampo-core:earliest_creation_year ?earliest_year .
+  }
+  UNION
+  {
+    ?id findsampo-core:latest_creation_year ?latest_year .
   }
 
 `

@@ -157,18 +157,37 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 130
+        },
+        {
+            "id": "earliest_year",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 120
+        },
+        {
+            "id": "latest_year",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 120
         }
+
     ],
     "facets": {
         "denomination": {
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
-            "predicate": "coin-schema:nomination",
+            "predicate": "coin-schema:denomination",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:nomination",
+            "sortByPredicate": "coin-schema:denomination",
             "sortDirection": "desc",
             "pieChartButton": true,
             "literal": true

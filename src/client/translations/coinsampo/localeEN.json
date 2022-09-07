@@ -230,8 +230,16 @@
           "description": "The linguistic versions of the works contained in the manuscript."
         },
         "mint": {
-          "label": " Mint",
+          "label": "Mint",
           "description": "The source dataset(s) (Bibale, Bodleian, or SDBM) contributing the information on the manuscript. If two or more source datasets include the same manuscript and this has been manually verified, the information from the source datasets have been merged into one manuscript (table row). Click on the links to view the original record on the source’s website."
+        },
+        "earliest_year": {
+          "label": "Earliest year",
+          "description": ""
+        },
+        "latest_year": {
+          "label": "Latest year",
+          "description": ""
         }
       }
     },
