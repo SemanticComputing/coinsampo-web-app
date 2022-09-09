@@ -1,28 +1,17 @@
 const perspectiveID = 'finds'
 
 export const findPropertiesInstancePage =
-`   {
-      ?id skos:prefLabel [] .
-      BIND(?id as ?uri__id)
-      BIND(?id as ?uri__dataProviderUrl)
-      BIND(?id as ?uri__prefLabel)
-      BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
-    }
-    #UNION
-    #{
-      #?id ltk-s:find_name ?prefLabel__id .
-      #BIND (?prefLabel__id as ?prefLabel__prefLabel)
-    #}
-
-`
-
-export const findPropertiesFacetResults = `   
+`   
   {
     ?id coin-schema:denomination ?denomination .
-    # BIND (?nomination__id as ?denomination__prefLabel)
+    BIND(?id as ?uri__id)
+    BIND(?id as ?uri__dataProviderUrl)
+    BIND(?id as ?uri__prefLabel)
+    BIND (?denomination as ?denomination__id)
+    BIND (?denomination__id as ?denomination__prefLabel)
     BIND (?denomination as ?prefLabel__id)
     BIND (?denomination as ?prefLabel__prefLabel)
-    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
+    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
   }
   UNION
   {
@@ -50,11 +39,83 @@ export const findPropertiesFacetResults = `
   }
   UNION
   {
-    ?id findsampo-core:earliest_creation_year ?earliest_year .
+    ?id coin-schema:note ?note .
   }
   UNION
   {
-    ?id findsampo-core:latest_creation_year ?latest_year .
+    ?id coin-schema:ascension_number ?ascensionNumber .
+  }
+  UNION
+  {
+    ?id findsampo-core:earliest_creation_year ?earliestYear .
+  }
+  UNION
+  {
+    ?id findsampo-core:latest_creation_year ?latestYear .
+  }
+  UNION
+  {
+    ?id coin-schema:registration_year ?registrationYear .
+  }
+
+
+`
+
+export const findPropertiesFacetResults = `
+  {
+    ?id coin-schema:denomination ?denomination .
+    BIND(?id as ?uri__id)
+    BIND(?id as ?uri__dataProviderUrl)
+    BIND(?id as ?uri__prefLabel)
+    BIND (?denomination as ?denomination__id)
+    BIND (?denomination__id as ?denomination__prefLabel)
+    BIND (?denomination as ?prefLabel__id)
+    BIND (?denomination as ?prefLabel__prefLabel)
+    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id coin-schema:mint ?mint .
+  }
+  UNION
+  {
+    ?id coin-schema:municipality ?municipality .
+  }
+  UNION
+  {
+    ?id coin-schema:ruler ?ruler .
+  }
+  UNION
+  {
+    ?id coin-schema:find_context ?context .
+  }
+  UNION
+  {
+    ?id coin-schema:period ?period .
+  }
+  UNION
+  {
+    ?id coin-schema:period ?period .
+  }
+  UNION
+  {
+    ?id findsampo-core:earliest_creation_year ?earliestYear .
+  }
+  UNION
+  {
+    ?id findsampo-core:latest_creation_year ?latestYear .
+  }
+  UNION
+  {
+    ?id coin-schema:note ?note .
+  }
+  UNION
+  {
+    ?id coin-schema:ascension_number ?ascensionNumber .
+  }
+  UNION
+  {
+    ?id coin-schema:registration_year ?registrationYear .
   }
 
 `

@@ -106,7 +106,7 @@
     "properties": [
         {
             "id": "denomination",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": true,
             "externalLink": false,
             "sortValues": true,
@@ -159,7 +159,34 @@
             "minWidth": 130
         },
         {
-            "id": "earliest_year",
+            "id": "note",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 130
+        },
+        {
+            "id": "registrationYear",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 130
+        },
+        {
+            "id": "ascensionNumber",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 130
+        },
+        {
+            "id": "earliestYear",
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,
@@ -168,7 +195,7 @@
             "minWidth": 120
         },
         {
-            "id": "latest_year",
+            "id": "latestYear",
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,
@@ -253,6 +280,19 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "coin-schema:mint",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "literal": true
+        },
+        "registrationYear": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "coin-schema:registration_year",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "coin-schema:registration_year",
             "sortDirection": "desc",
             "pieChartButton": true,
             "literal": true
