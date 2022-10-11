@@ -486,3 +486,95 @@ export const findsByWeightQuery = `
   GROUP BY ?category
   ORDER BY ?category
 `
+
+export const findsByPeriodQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?find) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?find a coin-schema:Coin .
+      ?find coin-schema:period ?category .
+      BIND (CONCAT(STR(?category), ' ') AS ?prefLabel)
+    }
+    UNION
+    {
+      ?find a coin-schema:Coin .
+      FILTER NOT EXISTS {
+        ?find coin-schema:period [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown " as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const findsByRulerQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?find) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?find a coin-schema:Coin .
+      ?find coin-schema:ruler ?category .
+      BIND (CONCAT(STR(?category), ' ') AS ?prefLabel)
+    }
+    UNION
+    {
+      ?find a coin-schema:Coin .
+      FILTER NOT EXISTS {
+        ?find coin-schema:ruler [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown " as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const findsByMintQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?find) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?find a coin-schema:Coin .
+      ?find coin-schema:mint ?category .
+      BIND (CONCAT(STR(?category), ' ') AS ?prefLabel)
+    }
+    UNION
+    {
+      ?find a coin-schema:Coin .
+      FILTER NOT EXISTS {
+        ?find coin-schema:mint [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown " as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const findsByContextQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?find) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?find a coin-schema:Coin .
+      ?find coin-schema:find_context ?category .
+      BIND (CONCAT(STR(?category), ' ') AS ?prefLabel)
+    }
+    UNION
+    {
+      ?find a coin-schema:Coin .
+      FILTER NOT EXISTS {
+        ?find coin-schema:find_context [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown " as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`

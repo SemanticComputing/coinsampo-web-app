@@ -107,6 +107,23 @@
     "receivedCount": "Received",
     "allCount": "All"
   },
+  "apexCharts": {
+    "grouping": "Sort by:",
+    "property": "Property:",
+    "numberOfFinds": "Number of finds",
+    "chartType": "Chart type:",
+    "pie": "Pie chart",
+    "bar": "Bar chart",
+    "resultClasses": {
+      "findsByPeriod": "period",
+      "findsByRuler": "ruler",
+      "findsByContext": "context",
+      "findsByMint": "mint"
+    },
+    "findsByWidthXaxis": "Leveys (mm)",
+    "findsByLengthXaxis": "Pituus (mm)",
+    "findsByWeightXaxis": "Paino (g)"
+  },
   "exportToYasgui": "open the result table query in yasgui sparql editor",
   "openInLinkedDataBrowser": "open in linked data browser",
   "resultsAsCSV": "download the search results as a CSV table",

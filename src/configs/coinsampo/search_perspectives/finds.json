@@ -40,33 +40,85 @@
                 }
             }           
         },
-        "findsPlaces": {
-            "tabID": 2,
-            "tabPath": "map",
-            "tabIcon": "AddLocation",
-            "component": "LeafletMap",
-            "showInstanceCountInClusters": false,
-            "showExternalLayers": true,
-            "customMapControl": true,
-            "sparqlQuery": "findsPlacesQuery",
+        "findsByProperty": {
+            "tabID": 5,
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "pie_chart",
+            "tabIcon": "PieChart",
             "facetClass": "finds",
-            "filterTarget": "id",
-            "resultMapper": "mapPlaces",
-            "instanceConfig": {
-                "propertiesQueryBlock": "findPropertiesInstancePage",
-                "createPopUpContent": "createPopUpContentFindSampo"
+            "dropdownForResultClasses": true,
+            "defaultResultClass": "findsByPeriod",
+            "resultClasses": {
+                "findsByPeriod": {
+                    "sparqlQuery": "findsByPeriodQuery",
+                    "filterTarget": "find",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "findsByRuler": {
+                    "sparqlQuery": "findsByRulerQuery",
+                    "filterTarget": "find",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "findsByMint": {
+                    "sparqlQuery": "findsByMintQuery",
+                    "filterTarget": "find",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "findsByContext": {
+                    "sparqlQuery": "findsByContextQuery",
+                    "filterTarget": "find",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                }
             }
-        },
-        "findsPlacesHeatmap": {
-            "tabID": 3,
-            "tabPath": "heatmap",
-            "tabIcon": "AddLocation",
-            "component": "Deck",
-            "layerType": "heatmapLayer",
-            "sparqlQuery": "findsPlacesQuery",
-            "facetClass": "finds",
-            "filterTarget": "id",
-            "resultMapper": "mapPlaces"
         },
         "findsKnowledgeGraphMetadata": {
             "sparqlQuery": "knowledgeGraphMetadataQuery",
