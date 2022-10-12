@@ -2,7 +2,7 @@ const perspectiveID = 'finds'
 
 export const findPropertiesInstancePage =
 `   
-  {
+    {BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
     ?id coin-schema:denomination ?denomination .
     BIND(?id as ?uri__id)
     BIND(?id as ?uri__dataProviderUrl)
@@ -125,8 +125,8 @@ export const findsPlacesQuery = `
   (1 as ?instanceCount) # for heatmap
   WHERE {
     <FILTER>
-    ?id :find_site_coordinates/wgs84:lat ?lat ;
-        :find_site_coordinates/wgs84:long ?long .   
+    ?id coin-schema:find_site_coordinates/wgs84:lat ?lat ;
+        coin-schema:find_site_coordinates/wgs84:long ?long .
   }
 `
 

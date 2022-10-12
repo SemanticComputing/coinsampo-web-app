@@ -40,8 +40,36 @@
                 }
             }           
         },
+        "findsPlaces": {
+            "tabID": 2,
+            "tabPath": "map",
+            "tabIcon": "AddLocation",
+            "component": "LeafletMap",
+            "showInstanceCountInClusters": false,
+            "showExternalLayers": true,
+            "customMapControl": true,
+            "sparqlQuery": "findsPlacesQuery",
+            "filterTarget": "id",
+            "facetClass": "finds",
+            "resultMapper": "mapPlaces",
+            "instanceConfig": {
+                "propertiesQueryBlock": "findPropertiesInstancePage",
+                "createPopUpContent": "createPopUpContentFindSampo"
+            }
+        },
+        "findsPlacesHeatmap": {
+            "tabID": 3,
+            "tabPath": "heatmap",
+            "tabIcon": "AddLocation",
+            "component": "Deck",
+            "layerType": "heatmapLayer",
+            "sparqlQuery": "findsPlacesQuery",
+            "facetClass": "finds",
+            "filterTarget": "id",
+            "resultMapper": "mapPlaces"
+        },
         "findsByProperty": {
-            "tabID": 5,
+            "tabID": 4,
             "component": "ApexCharts",
             "doNotRenderOnMount": true,
             "tabPath": "pie_chart",

@@ -93,7 +93,8 @@
     "emloLetterNetwork": "Network of letters",
     "emloSentReceived": "Sent and received letters",
     "download": "download",
-    "recommendations": "recommendations"
+    "recommendations": "recommendations",
+    "pie_chart": "pie/bar chart"
   },
   "table": {
     "rowsPerPage": "Rows per page",
