@@ -13,6 +13,7 @@ import {
 import { getTreeFromFlatData } from '@nosferatu500/react-sortable-tree'
 import { ckmeans } from 'simple-statistics'
 import { Counter } from './Utils'
+import { streetviewpublish } from 'googleapis/build/src/apis/streetviewpublish'
 
 export const mapPlaces = sparqlBindings => {
   const results = sparqlBindings.map(b => {
@@ -233,7 +234,91 @@ export const mapPieChart = sparqlBindings => {
       instanceCount: parseInt(b.instanceCount.value)
     }
   })
+  console.log(results)
   return results
+}
+
+
+export const mapAoristicChart = sparqlBindings => {
+  //console.log(sparqlBindings)
+  const min_year = getMinYear(sparqlBindings)
+  const max_year = getMaxYear(sparqlBindings)
+
+  const results = sparqlBindings.map(b => {
+    return {
+      find: b.find.value,
+      earliestYear: parseInt(b.earliestYear.value),
+      latestYear: parseInt(b.latestYear.value)
+    }
+  })
+
+  let aoristic_results = []
+
+  let interval = 50
+  let current_start = 1
+  let current_end = current_start + interval - 1
+
+  while (current_start <= min_year) {
+    current_start = current_start + interval
+    current_end = current_start + interval - 1
+  }
+
+
+  while (current_end < max_year) {
+    let count = 0
+    results.forEach(find => {
+      count = count + getPercentageWithinInterval(find, current_start, current_end, interval) / 2 / 100
+      // console.log(getPercentageWithinInterval(find, current_start, current_end))
+    })
+    aoristic_results.push({
+      category: current_start.toString() + '-' + current_end.toString(),
+      prefLabel: current_start.toString() + '-' + current_end.toString(),
+      instanceCount: count
+    })
+    current_start = current_start + interval
+    current_end = current_start + interval - 1
+  }
+
+  //console.log(aoristic_results)
+  return aoristic_results
+  //results.forEach(item => {
+
+}
+
+function getPercentageWithinInterval(find, start, end, interval) {
+  if (find.earliestYear >= start && find.latestYear <= end) {
+    return 100
+  }
+  if (find.earliestYear > end || find.latestYear < start) {
+    return 0
+  }
+  let absolute_amount = Math.abs((find.earliestYear - start) - interval)
+  console.log(absolute_amount)
+  console.log(find)
+  return (absolute_amount / interval) * 100
+}
+
+
+const getMinYear = bindings => {
+  let minYear = 999999999
+  bindings.forEach(item => {
+    // console.log(item.earliestYear.value)
+    if (item.earliestYear.value < minYear) {
+      minYear = item.earliestYear.value
+    }
+  });
+  return parseInt(minYear)
+}
+
+const getMaxYear = bindings => {
+  let maxYear = -999999999
+  bindings.forEach(item => {
+    // console.log(item.earliestYear.value)
+    if (item.latestYear.value > maxYear) {
+      maxYear = item.latestYear.value
+    }
+  });
+  return parseInt(maxYear)
 }
 
 export const linearScale = ({ data, config }) => {

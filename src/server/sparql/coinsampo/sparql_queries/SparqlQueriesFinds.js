@@ -578,3 +578,20 @@ export const findsByContextQuery = `
   GROUP BY ?category ?prefLabel
   ORDER BY DESC(?instanceCount)
 `
+
+export const findsByTimeSpansQuery = `
+  SELECT DISTINCT ?find ?earliestYear ?latestYear
+  WHERE {
+    <FILTER>
+    {
+      ?find a coin-schema:Coin .
+      ?find findsampo-core:has_creation_time_span ?span .
+      ?span crm:P82a_begin_of_the_begin ?earliestTime .
+      ?span crm:P82b_end_of_the_end ?latestTime .
+      BIND(xsd:integer(YEAR(xsd:dateTime(?earliestTime))) AS ?earliestYear)
+      BIND(xsd:integer(YEAR(xsd:dateTime(?latestTime))) AS ?latestYear)
+    }
+  }
+  ORDER BY ?earliestYear
+
+`

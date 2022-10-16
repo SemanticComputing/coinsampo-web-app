@@ -148,6 +148,32 @@
                 }
             }
         },
+        "aoristicFinds": {
+            "tabID": 5,
+            "component": "ApexCharts",
+            "doNotRenderOnMount": true,
+            "tabPath": "aoristic_chart",
+            "tabIcon": "PieChart",
+            "facetClass": "finds",
+            "dropdownForResultClasses": true,
+            "defaultResultClass": "findsByAoristicTime",
+            "resultClasses": {
+                "findsByAoristicTime": {
+                    "sparqlQuery": "findsByTimeSpansQuery",
+                    "filterTarget": "find",
+                    "resultMapper": "mapAoristicChart",
+                    "sliceVisibilityThreshold": false,
+                    "dropdownForChartTypes": "false",
+                    "chartTypes": [
+
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                }
+            }
+        },
         "findsKnowledgeGraphMetadata": {
             "sparqlQuery": "knowledgeGraphMetadataQuery",
             "resultMapper": "makeObjectList"
