@@ -94,7 +94,8 @@
     "emloSentReceived": "Sent and received letters",
     "download": "download",
     "recommendations": "recommendations",
-    "pie_chart": "pie/bar chart"
+    "pie_chart": "pie/bar chart",
+    "aoristic_chart": "aoristic chart"
   },
   "table": {
     "rowsPerPage": "Rows per page",

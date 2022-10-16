@@ -264,10 +264,10 @@ export const mapAoristicChart = sparqlBindings => {
   }
 
 
-  while (current_end < max_year) {
+  while (true) {
     let count = 0
     results.forEach(find => {
-      count = count + getPercentageWithinInterval(find, current_start, current_end, interval) / 2 / 100
+      count = count + getPercentageWithinInterval(find, current_start, current_end, interval) / 100
       // console.log(getPercentageWithinInterval(find, current_start, current_end))
     })
     aoristic_results.push({
@@ -277,6 +277,9 @@ export const mapAoristicChart = sparqlBindings => {
     })
     current_start = current_start + interval
     current_end = current_start + interval - 1
+    if (current_start > max_year) {
+      break
+    }
   }
 
   //console.log(aoristic_results)
@@ -286,16 +289,29 @@ export const mapAoristicChart = sparqlBindings => {
 }
 
 function getPercentageWithinInterval(find, start, end, interval) {
+  let earliestYear
+  let latestYear
   if (find.earliestYear >= start && find.latestYear <= end) {
     return 100
   }
   if (find.earliestYear > end || find.latestYear < start) {
     return 0
   }
-  let absolute_amount = Math.abs((find.earliestYear - start) - interval)
-  console.log(absolute_amount)
-  console.log(find)
-  return (absolute_amount / interval) * 100
+  if (find.earliestYear < start) {
+    earliestYear = start
+  } else {
+    earliestYear = find.earliestYear
+  }
+  if (find.latestYear > end) {
+    latestYear = end
+  } else {
+    latestYear = find.latestYear
+  }
+  let absolute_amount = latestYear - earliestYear
+
+  let percentage = absolute_amount / (find.latestYear - find.earliestYear) * 100
+
+  return percentage
 }
 
 
