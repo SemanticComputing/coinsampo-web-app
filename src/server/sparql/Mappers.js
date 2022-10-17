@@ -281,10 +281,7 @@ export const mapAoristicChart = sparqlBindings => {
       break
     }
   }
-
-  //console.log(aoristic_results)
   return aoristic_results
-  //results.forEach(item => {
 
 }
 

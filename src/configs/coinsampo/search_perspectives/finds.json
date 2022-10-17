@@ -163,12 +163,12 @@
                     "filterTarget": "find",
                     "resultMapper": "mapAoristicChart",
                     "sliceVisibilityThreshold": false,
-                    "dropdownForChartTypes": "false",
+                    "dropdownForChartTypes": false,
                     "chartTypes": [
 
                         {
                             "id": "bar",
-                            "createChartData": "createApexBarChartData"
+                            "createChartData": "createApexBarChartAoristictData"
                         }
                     ]
                 }
