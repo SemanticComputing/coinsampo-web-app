@@ -517,7 +517,8 @@ const apexBarChartAoristicOptions = {
         maxItems: 100,
         hideOverflowingLabels: true,
         orientation: 'horizontal'
-      }
+      },
+      columnWidth: "100%"
     }
   }
 }
