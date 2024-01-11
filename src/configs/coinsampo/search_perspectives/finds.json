@@ -390,6 +390,32 @@
             "pieChartButton": true,
             "literal": true
         },
+        "material": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "coin-schema:material",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "coin-schema:material",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "literal": true
+        },
+        "type": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "coin-schema:type",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "coin-schema:type",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "literal": true
+        },
         "registrationYear": {
             "containerClass": "ten",
             "facetType": "list",
