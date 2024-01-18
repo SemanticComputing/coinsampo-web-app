@@ -252,6 +252,10 @@
           "label": "Mint",
           "description": "The source dataset(s) (Bibale, Bodleian, or SDBM) contributing the information on the manuscript. If two or more source datasets include the same manuscript and this has been manually verified, the information from the source datasets have been merged into one manuscript (table row). Click on the links to view the original record on the source’s website."
         },
+        "mintCountry": {
+          "label": "Country",
+          "description": ""
+        },
         "material": {
           "label": "Material",
           "description": "The main material of the coin."
