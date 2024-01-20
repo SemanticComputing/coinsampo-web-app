@@ -89,6 +89,7 @@
     "map_clusters": "clustered map",
     "map_markers": "map",
     "heatmap": "heatmap",
+    "mintsheatmap": "mints",
     "statistics": "statistics",
     "emloLetterNetwork": "Network of letters",
     "emloSentReceived": "Sent and received letters",

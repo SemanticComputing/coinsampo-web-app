@@ -68,8 +68,19 @@
             "filterTarget": "id",
             "resultMapper": "mapPlaces"
         },
-        "findsByProperty": {
+        " mintsPlacesHeatmap": {
             "tabID": 4,
+            "tabPath": "mintsheatmap",
+            "tabIcon": "AddLocation",
+            "component": "Deck",
+            "layerType": "heatmapLayer",
+            "sparqlQuery": "mintsPlacesQuery",
+            "facetClass": "finds",
+            "filterTarget": "id",
+            "resultMapper": "mapPlaces"
+        },
+        "findsByProperty": {
+            "tabID": 5,
             "component": "ApexCharts",
             "doNotRenderOnMount": true,
             "tabPath": "pie_chart",
@@ -149,7 +160,7 @@
             }
         },
         "aoristicFinds": {
-            "tabID": 5,
+            "tabID": 6,
             "component": "ApexCharts",
             "doNotRenderOnMount": true,
             "tabPath": "aoristic_chart",
@@ -188,6 +199,13 @@
             "zoom": 5
         },
         "findsPlacesHeatmap": {
+            "center": [
+                65.184809,
+                27.314050
+            ],
+            "zoom": 4
+        },
+        "mintsPlacesHeatmap": {
             "center": [
                 65.184809,
                 27.314050
