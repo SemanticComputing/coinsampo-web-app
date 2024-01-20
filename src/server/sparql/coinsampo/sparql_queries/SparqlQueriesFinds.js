@@ -15,7 +15,9 @@ export const findPropertiesInstancePage =
   }
   UNION
   {
-    ?id coin-schema:mint ?mint .
+    ?id coin-schema:mint ?mint__id .
+    ?mint__id skos:prefLabel ?mint__prefLabel .
+    BIND(CONCAT("/mints/page/", REPLACE(STR(?mint__id), "^.*\\\\/(.+)", "$1")) AS ?mint__dataProviderUrl)
   }
   UNION
   {
@@ -75,7 +77,9 @@ export const findPropertiesFacetResults = `
   }
   UNION
   {
-    ?id coin-schema:mint ?mint .
+    ?id coin-schema:mint ?mint__id .
+    ?mint__id skos:prefLabel ?mint__prefLabel .
+    BIND(CONCAT("/mints/page/", REPLACE(STR(?mint__id), "^.*\\\\/(.+)", "$1")) AS ?mint__dataProviderUrl)
   }
   UNION
   {
@@ -125,6 +129,7 @@ export const findsPlacesQuery = `
   (1 as ?instanceCount) # for heatmap
   WHERE {
     <FILTER>
+    ?id a coin-schema:Coin .
     ?id coin-schema:find_site_coordinates/wgs84:lat ?lat ;
         coin-schema:find_site_coordinates/wgs84:long ?long .
   }
@@ -135,6 +140,7 @@ export const mintsPlacesQuery = `
   (1 as ?instanceCount) # for heatmap
   WHERE {
     <FILTER>
+    ?id a coin-schema:Coin .
     ?id coin-schema:mint/wgs84:lat ?lat ;
         coin-schema:mint/wgs84:long ?long .
   }
@@ -614,6 +620,7 @@ export const migrationsQuery = `
   (COUNT(DISTINCT ?coin) as ?instanceCount)
   WHERE {
     <FILTER>
+    ?coin a coin-schema:Coin .
     ?coin coin-schema:mint ?from__id .
     ?coin coin-schema:municipality ?to .
     BIND (URI(?to) AS ?to__id)

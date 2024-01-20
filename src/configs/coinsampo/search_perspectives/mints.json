@@ -1,15 +1,15 @@
 {
-    "id": "finds",
+    "id": "mints",
     "endpoint": {
         "url": "https://ldf.fi/coinsampo/sparql",
         "useAuth": true,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
-    "sparqlQueriesFile": "SparqlQueriesFinds.js",
+    "sparqlQueriesFile": "SparqlQueriesMints.js",
     "baseURI": "http://ldf.fi/coinsampo",
-    "URITemplate": "<BASE_URI>/objects/<LOCAL_ID>",
-    "facetClass": "coin-schema:Coin",
-    "frontPageImage": "main_page/dirhemi.png",
+    "URITemplate": "<BASE_URI>/mints/<LOCAL_ID>",
+    "facetClass": "coin-schema:Mint",
+    "frontPageImage": "main_page/places-452x262.jpg",
     "searchMode": "faceted-search",
     "defaultActiveFacets": [
         "prefLabel"
@@ -17,19 +17,19 @@
     "defaultTab": "table",
     "defaultInstancePageTab": "table",
     "resultClasses": {
-        "finds": {
+        "mints": {
             "paginatedResultsConfig": {
                 "tabID": 0,
                 "component": "ResultTable",
                 "tabPath": "table",
                 "tabIcon": "CalendarViewDay",
-                "propertiesQueryBlock": "findPropertiesFacetResults",
-                "pagesize": 10,
+                "propertiesQueryBlock": "mintsPropertiesFacetResults",
+                "pagesize": 20,
                 "sortBy": null,
                 "sortDirection": "asc"
             },
             "instanceConfig": {
-                "propertiesQueryBlock": "findPropertiesInstancePage",
+                "propertiesQueryBlock": "mintsPropertiesInstancePage",
                 "instancePageResultClasses": {
                     "instancePageTable": {
                         "tabID": 0,
@@ -40,138 +40,21 @@
                 }
             }           
         },
-        "findsPlaces": {
-            "tabID": 2,
+        "mintsPlaces": {
+            "tabID": 1,
             "tabPath": "map",
             "tabIcon": "AddLocation",
             "component": "LeafletMap",
             "showInstanceCountInClusters": false,
             "showExternalLayers": true,
             "customMapControl": true,
-            "sparqlQuery": "findsPlacesQuery",
+            "sparqlQuery": "mintsPlacesQuery",
             "filterTarget": "id",
-            "facetClass": "finds",
+            "facetClass": "mints",
             "resultMapper": "mapPlaces",
             "instanceConfig": {
-                "propertiesQueryBlock": "findPropertiesInstancePage",
+                "propertiesQueryBlock": "mintsPropertiesInstancePage",
                 "createPopUpContent": "createPopUpContentFindSampo"
-            }
-        },
-        "findsPlacesHeatmap": {
-            "tabID": 3,
-            "tabPath": "heatmap",
-            "tabIcon": "AddLocation",
-            "component": "Deck",
-            "layerType": "heatmapLayer",
-            "sparqlQuery": "findsPlacesQuery",
-            "facetClass": "finds",
-            "filterTarget": "id",
-            "resultMapper": "mapPlaces"
-        },
-        "findsByProperty": {
-            "tabID": 4,
-            "component": "ApexCharts",
-            "doNotRenderOnMount": true,
-            "tabPath": "pie_chart",
-            "tabIcon": "PieChart",
-            "facetClass": "finds",
-            "dropdownForResultClasses": true,
-            "defaultResultClass": "findsByPeriod",
-            "resultClasses": {
-                "findsByPeriod": {
-                    "sparqlQuery": "findsByPeriodQuery",
-                    "filterTarget": "find",
-                    "resultMapper": "mapPieChart",
-                    "sliceVisibilityThreshold": 0.01,
-                    "dropdownForChartTypes": "true",
-                    "chartTypes": [
-                        {
-                            "id": "pie",
-                            "createChartData": "createApexPieChartData"
-                        },
-                        {
-                            "id": "bar",
-                            "createChartData": "createApexBarChartData"
-                        }
-                    ]
-                },
-                "findsByRuler": {
-                    "sparqlQuery": "findsByRulerQuery",
-                    "filterTarget": "find",
-                    "resultMapper": "mapPieChart",
-                    "sliceVisibilityThreshold": 0.01,
-                    "dropdownForChartTypes": "true",
-                    "chartTypes": [
-                        {
-                            "id": "pie",
-                            "createChartData": "createApexPieChartData"
-                        },
-                        {
-                            "id": "bar",
-                            "createChartData": "createApexBarChartData"
-                        }
-                    ]
-                },
-                "findsByMint": {
-                    "sparqlQuery": "findsByMintQuery",
-                    "filterTarget": "find",
-                    "resultMapper": "mapPieChart",
-                    "sliceVisibilityThreshold": 0.01,
-                    "dropdownForChartTypes": "true",
-                    "chartTypes": [
-                        {
-                            "id": "pie",
-                            "createChartData": "createApexPieChartData"
-                        },
-                        {
-                            "id": "bar",
-                            "createChartData": "createApexBarChartData"
-                        }
-                    ]
-                },
-                "findsByContext": {
-                    "sparqlQuery": "findsByContextQuery",
-                    "filterTarget": "find",
-                    "resultMapper": "mapPieChart",
-                    "sliceVisibilityThreshold": 0.01,
-                    "dropdownForChartTypes": "true",
-                    "chartTypes": [
-                        {
-                            "id": "pie",
-                            "createChartData": "createApexPieChartData"
-                        },
-                        {
-                            "id": "bar",
-                            "createChartData": "createApexBarChartData"
-                        }
-                    ]
-                }
-            }
-        },
-        "aoristicFinds": {
-            "tabID": 5,
-            "component": "ApexCharts",
-            "doNotRenderOnMount": true,
-            "tabPath": "aoristic_chart",
-            "tabIcon": "PieChart",
-            "facetClass": "finds",
-            "dropdownForResultClasses": true,
-            "defaultResultClass": "findsByAoristicTime",
-            "resultClasses": {
-                "findsByAoristicTime": {
-                    "sparqlQuery": "findsByTimeSpansQuery",
-                    "filterTarget": "find",
-                    "resultMapper": "mapAoristicChart",
-                    "sliceVisibilityThreshold": false,
-                    "dropdownForChartTypes": false,
-                    "chartTypes": [
-
-                        {
-                            "id": "bar",
-                            "createChartData": "createApexBarChartAoristictData"
-                        }
-                    ]
-                }
             }
         },
         "findsKnowledgeGraphMetadata": {
@@ -180,7 +63,7 @@
         }
     },
     "maps": {
-        "findsPlaces": {
+        "mintsPlaces": {
             "center": [
                 65.184809,
                 27.314050
@@ -211,7 +94,7 @@
     },
     "properties": [
         {
-            "id": "denomination",
+            "id": "prefLabel",
             "valueType": "object",
             "makeLink": true,
             "externalLink": false,
@@ -220,7 +103,7 @@
             "minWidth": 140
         },
         {
-            "id": "mint",
+            "id": "material",
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,
@@ -229,7 +112,7 @@
             "minWidth": 180
         },
         {
-            "id": "municipality",
+            "id": "denomination",
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,
@@ -256,71 +139,25 @@
             "minWidth": 130
         },
         {
-            "id": "context",
+            "id": "municipality",
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
             "minWidth": 130
-        },
-        {
-            "id": "note",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 130
-        },
-        {
-            "id": "registrationYear",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 130
-        },
-        {
-            "id": "ascensionNumber",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 130
-        },
-        {
-            "id": "earliestYear",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 120
-        },
-        {
-            "id": "latestYear",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 120
         }
-
     ],
     "facets": {
         "denomination": {
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
-            "predicate": "coin-schema:denomination",
+            "predicate": "^coin-schema:mint/coin-schema:denomination",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:denomination",
+            "sortByPredicate": "^coin-schema:mint/coin-schema:denomination",
             "sortDirection": "desc",
             "pieChartButton": true,
             "literal": true
@@ -329,11 +166,11 @@
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
-            "predicate": "coin-schema:municipality",
+            "predicate": "^coin-schema:mint/coin-schema:municipality",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:municipality",
+            "sortByPredicate": "^coin-schema:mint/coin-schema:municipality",
             "sortDirection": "desc",
             "pieChartButton": true,
             "literal": true
@@ -342,11 +179,11 @@
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
-            "predicate": "coin-schema:period",
+            "predicate": "^coin-schema:mint/coin-schema:period",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:period",
+            "sortByPredicate": "^coin-schema:mint/coin-schema:period",
             "sortDirection": "desc",
             "pieChartButton": true,
             "literal": true
@@ -355,37 +192,11 @@
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
-            "predicate": "coin-schema:ruler",
+            "predicate": "^coin-schema:mint/coin-schema:ruler",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:ruler",
-            "sortDirection": "desc",
-            "pieChartButton": true,
-            "literal": true
-        },
-        "context": {
-            "containerClass": "ten",
-            "facetType": "list",
-            "filterType": "uriFilter",
-            "predicate": "coin-schema:find_context",
-            "searchField": true,
-            "sortButton": true,
-            "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:find_context",
-            "sortDirection": "desc",
-            "pieChartButton": true,
-            "literal": true
-        },
-        "mint": {
-            "containerClass": "ten",
-            "facetType": "list",
-            "filterType": "uriFilter",
-            "predicate": "coin-schema:mint",
-            "searchField": true,
-            "sortButton": true,
-            "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:mint",
+            "sortByPredicate": "^coin-schema:mint/coin-schema:ruler",
             "sortDirection": "desc",
             "pieChartButton": true,
             "literal": true
@@ -394,37 +205,11 @@
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
-            "predicate": "coin-schema:material",
+            "predicate": "^coin-schema:mint/coin-schema:material",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:material",
-            "sortDirection": "desc",
-            "pieChartButton": true,
-            "literal": true
-        },
-        "type": {
-            "containerClass": "ten",
-            "facetType": "list",
-            "filterType": "uriFilter",
-            "predicate": "coin-schema:type",
-            "searchField": true,
-            "sortButton": true,
-            "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:type",
-            "sortDirection": "desc",
-            "pieChartButton": true,
-            "literal": true
-        },
-        "registrationYear": {
-            "containerClass": "ten",
-            "facetType": "list",
-            "filterType": "uriFilter",
-            "predicate": "coin-schema:registration_year",
-            "searchField": true,
-            "sortButton": true,
-            "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:registration_year",
+            "sortByPredicate": "^coin-schema:mint/coin-schema:material",
             "sortDirection": "desc",
             "pieChartButton": true,
             "literal": true
