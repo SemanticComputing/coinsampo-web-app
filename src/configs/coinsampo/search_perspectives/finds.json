@@ -440,11 +440,11 @@
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
-            "predicate": "coin-schema:mintCountry",
+            "predicate": "coin-schema:mintCountry_literal",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:mintCountry",
+            "sortByPredicate": "coin-schema:mintCountry_literal",
             "sortDirection": "desc",
             "pieChartButton": true,
             "literal": true
