@@ -4,6 +4,7 @@
     "perspectives": {
         "searchPerspectives": [
             "finds",
+            "authorities",
             "mints"
         ],
         "onlyInstancePages": [

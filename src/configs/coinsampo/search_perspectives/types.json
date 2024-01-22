@@ -1,5 +1,5 @@
 {
-    "id": "finds",
+    "id": "types",
     "endpoint": {
         "url": "https://ldf.fi/coinsampo/sparql",
         "useAuth": true,

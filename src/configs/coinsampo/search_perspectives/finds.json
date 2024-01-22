@@ -402,11 +402,23 @@
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
-            "predicate": "coin-schema:ruler",
+            "predicate": "coin-schema:authority",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:ruler",
+            "sortByPredicate": "coin-schema:authority/skos:prefLabel",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "rulerLiteral": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "coin-schema:authority_literal",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "coin-schema:authority_literal",
             "sortDirection": "desc",
             "pieChartButton": true,
             "literal": true
@@ -435,6 +447,19 @@
             "sortByPredicate": "coin-schema:mint/skos:prefLabel",
             "sortDirection": "desc",
             "pieChartButton": true
+        },
+        "mintLiteral": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "coin-schema:mint_literal",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "coin-schema:mint",
+            "sortDirection": "desc",
+            "pieChartButton": true,
+            "literal": true
         },
         "mintCountry": {
             "containerClass": "ten",

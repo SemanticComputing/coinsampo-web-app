@@ -25,7 +25,8 @@ export const findPropertiesInstancePage =
   }
   UNION
   {
-    ?id coin-schema:ruler ?ruler .
+    ?id coin-schema:authority ?authority__id .
+    ?id skos:prefLabel ?authority_preflabel .
   }
   UNION
   {
@@ -639,4 +640,19 @@ export const migrationsQuery = `
   ?from__id ?from__prefLabel ?from__lat ?from__long ?from__dataProviderUrl
   ?to__id ?to__prefLabel ?to__lat ?to__long ?to__dataProviderUrl
   ORDER BY desc(?instanceCount)
+`
+
+export const findPlacesAnimationQuery = `
+  SELECT *
+  WHERE {
+    <FILTER>
+    ?id a coin-schema:Coin .
+    ?id skos:prefLabel ?prefLabel .
+    ?id coin-schema:registration_year ?year .
+    BIND(IF(?year='2013','2013-01-01','2013-01-02') AS ?starDate )
+    BIND(?startDate AS ?endDate )
+    ?id coin-schema:find_site_coordinates/wgs84:lat ?lat .
+    ?id coin-schema:find_site_coordinates/wgs84:long ?long .
+  }
+  ORDER BY ?year
 `
