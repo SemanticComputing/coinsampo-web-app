@@ -292,6 +292,10 @@
         "registrationYear": {
           "label": "Registration year",
           "description": ""
+        },
+        "row": {
+          "label": "Year-Row",
+          "description": ""
         }
       }
     },

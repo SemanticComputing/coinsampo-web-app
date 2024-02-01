@@ -60,6 +60,12 @@ export const findPropertiesInstancePage =
   {
     ?id coin-schema:registration_year ?registrationYear .
   }
+  UNION
+  {
+    ?id coin-schema:registration_year ?year .
+    ?id coin-schema:number ?number .
+    BIND(CONCAT(STR(?year),'-',STR(?number)) AS ?row)
+  }
 
 
 `
@@ -85,6 +91,12 @@ export const findPropertiesFacetResults = `
   UNION
   {
     ?id coin-schema:municipality ?municipality .
+  }
+  UNION
+  {
+    ?id coin-schema:registration_year ?year .
+    ?id coin-schema:number ?number .
+    BIND(CONCAT(STR(?year),'-',STR(?number)) AS ?row)
   }
   UNION
   {

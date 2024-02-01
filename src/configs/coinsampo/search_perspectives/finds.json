@@ -267,6 +267,15 @@
             "minWidth": 140
         },
         {
+            "id": "row",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 140
+        },
+        {
             "id": "mint",
             "valueType": "object",
             "makeLink": true,
