@@ -77,6 +77,16 @@
     },
     "properties": [
         {
+            "id": "image",
+            "valueType": "image",
+            "previewImageHeight": 160,
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": false,
+            "numberedList": false,
+            "hideHeader": false
+        },
+        {
             "id": "prefLabel",
             "valueType": "object",
             "makeLink": true,
@@ -84,6 +94,24 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 140
+        },
+        {
+            "id": "wikidata",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 140
+        },
+        {
+            "id": "description",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 180
         },
         {
             "id": "material",

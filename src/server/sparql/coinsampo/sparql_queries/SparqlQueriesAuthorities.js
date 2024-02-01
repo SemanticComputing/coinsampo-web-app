@@ -25,8 +25,23 @@ export const authorityPropertiesInstancePage =
   {
   ?id ^coin-schema:authority/coin-schema:period ?period .
   }
-
-
+  UNION
+  {
+  ?id coin-schema:wikidata/coin-schema:description ?description .
+  }
+  UNION
+  {
+  ?id coin-schema:wikidata ?wikidata__id .
+  BIND(?wikidata__id AS ?wikidata__prefLabel )
+  BIND(?wikidata__id AS  ?wikidata__dataProviderUrl )
+  }
+  UNION
+  {
+    ?id coin-schema:wikidata/coin-schema:image ?image__id .
+    BIND("Image from wikimedia" AS ?image__description)
+    BIND("Image from wikimedia" AS ?image__title)
+    BIND(?image__id AS ?image__url)
+  }
 
 `
 
@@ -54,6 +69,17 @@ export const authorityPropertiesFacetResults = `
     UNION
     {
     ?id ^coin-schema:authority/coin-schema:period ?period .
+    }
+    UNION
+    {
+    ?id coin-schema:wikidata/coin-schema:description ?description .
+    }
+    UNION
+    {
+      ?id coin-schema:wikidata/coin-schema:image ?image__id .
+      BIND("Image from wikimedia" AS ?image__description)
+      BIND("Image from wikimedia" AS ?image__title)
+      BIND(?image__id AS ?image__url)
     }
 `
 
