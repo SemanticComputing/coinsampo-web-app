@@ -623,6 +623,35 @@ export const migrationsQuery = `
     <FILTER>
     ?coin a coin-schema:Coin .
     ?coin coin-schema:mint ?from__id .
+    ?coin coin-schema:municipality ?to__id .
+
+    ?from__id skos:prefLabel ?from__prefLabel ;
+              geo:lat ?from__lat ;
+              geo:long ?from__long .
+    BIND(CONCAT("/places/page/", REPLACE(STR(?from__id), "^.*\\\\/(.+)", "$1")) AS ?from__dataProviderUrl)
+    ?to__id skos:prefLabel ?to__prefLabel .
+    ?to__id coin-schema:yso/geo:lat ?tolat ;
+        coin-schema:yso/geo:long ?tolong .
+    BIND(?to__id AS ?to__dataProviderUrl)
+    BIND(IRI(CONCAT(STR(?from__id), "-", REPLACE(STR(?to__id), "http://ldf.fi/mmm/place/", ""))) as ?id)
+    FILTER(?from__id != ?to__id)
+  }
+  GROUP BY ?id
+  ?from__id ?from__prefLabel ?from__lat ?from__long ?from__dataProviderUrl
+  ?to__id ?to__prefLabel ?to__lat ?to__long ?to__dataProviderUrl
+  ORDER BY desc(?instanceCount)
+`
+
+
+export const migrationsQuery__old = `
+  SELECT DISTINCT ?id
+  ?from__id ?from__prefLabel ?from__lat ?from__long ?from__dataProviderUrl
+  ?to__id ?to__prefLabel (SAMPLE(?tolat) AS ?to__lat) (SAMPLE(?tolong) AS ?to__long) ?to__dataProviderUrl
+  (COUNT(DISTINCT ?coin) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    ?coin a coin-schema:Coin .
+    ?coin coin-schema:mint ?from__id .
     ?coin coin-schema:municipality ?to .
     BIND (URI(?to) AS ?to__id)
     ?from__id skos:prefLabel ?from__prefLabel ;
