@@ -3,12 +3,11 @@ const perspectiveID = 'finds'
 export const findPropertiesInstancePage =
 `   
     {BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
-    ?id coin-schema:denomination ?denomination .
     BIND(?id as ?uri__id)
     BIND(?id as ?uri__dataProviderUrl)
     BIND(?id as ?uri__prefLabel)
-    BIND (?denomination as ?denomination__id)
-    BIND (?denomination__id as ?denomination__prefLabel)
+    ?id coin-schema:denomination ?denomination__id .
+    ?denomination__id skos:prefLabel ?denomination__prefLabel .
     BIND (?denomination as ?prefLabel__id)
     BIND (?denomination as ?prefLabel__prefLabel)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
@@ -21,12 +20,39 @@ export const findPropertiesInstancePage =
   }
   UNION
   {
-    ?id coin-schema:municipality ?municipality .
+    ?id coin-schema:municipality ?municipality__id .
+    ?municipality__id skos:prefLabel ?municipality__prefLabel
   }
   UNION
   {
     ?id coin-schema:authority ?authority__id .
-    ?id skos:prefLabel ?authority_preflabel .
+    ?authority__id skos:prefLabel ?authority__prefLabel .
+    BIND(CONCAT("/authorities/page/", REPLACE(STR(?authority__id), "^.*\\\\/(.+)", "$1")) AS ?authority__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id coin-schema:context ?context__id .
+    ?context__id skos:prefLabel ?context__prefLabel
+  }
+  UNION
+  {
+    ?id coin-schema:country ?country__id .
+    ?country__id skos:prefLabel ?country__prefLabel
+  }
+  UNION
+  {
+    ?id coin-schema:denomination ?denomination__id .
+    ?denomination__id skos:prefLabel ?denomination__prefLabel
+  }
+  UNION
+  {
+    ?id coin-schema:registration_year ?year .
+    ?id coin-schema:number ?number .
+    BIND(CONCAT(STR(?year),'-',STR(?number)) AS ?row)
+  }
+  UNION
+  {
+    ?id coin-schema:ruler ?ruler .
   }
   UNION
   {
@@ -42,14 +68,6 @@ export const findPropertiesInstancePage =
   }
   UNION
   {
-    ?id coin-schema:note ?note .
-  }
-  UNION
-  {
-    ?id coin-schema:ascension_number ?ascensionNumber .
-  }
-  UNION
-  {
     ?id findsampo-core:earliest_creation_year ?earliestYear .
   }
   UNION
@@ -58,13 +76,15 @@ export const findPropertiesInstancePage =
   }
   UNION
   {
-    ?id coin-schema:registration_year ?registrationYear .
+    ?id coin-schema:note ?note .
   }
   UNION
   {
-    ?id coin-schema:registration_year ?year .
-    ?id coin-schema:number ?number .
-    BIND(CONCAT(STR(?year),'-',STR(?number)) AS ?row)
+    ?id coin-schema:ascension_number ?ascensionNumber .
+  }
+  UNION
+  {
+    ?id coin-schema:registration_year ?registrationYear .
   }
 
 
@@ -72,12 +92,11 @@ export const findPropertiesInstancePage =
 
 export const findPropertiesFacetResults = `
   {
-    ?id coin-schema:denomination ?denomination .
     BIND(?id as ?uri__id)
     BIND(?id as ?uri__dataProviderUrl)
     BIND(?id as ?uri__prefLabel)
-    BIND (?denomination as ?denomination__id)
-    BIND (?denomination__id as ?denomination__prefLabel)
+    ?id coin-schema:denomination ?denomination__id .
+    ?denomination__id skos:prefLabel ?denomination__prefLabel .
     BIND (?denomination as ?prefLabel__id)
     BIND (?denomination as ?prefLabel__prefLabel)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
@@ -90,17 +109,30 @@ export const findPropertiesFacetResults = `
   }
   UNION
   {
-    ?id coin-schema:municipality ?municipality .
+    ?id coin-schema:municipality ?municipality__id .
+    ?municipality__id skos:prefLabel ?municipality__prefLabel
+  }
+  UNION
+  {
+    ?id coin-schema:authority ?authority__id .
+    ?authority__id skos:prefLabel ?authority__prefLabel .
+    BIND(CONCAT("/authorities/page/", REPLACE(STR(?authority__id), "^.*\\\\/(.+)", "$1")) AS ?authority__dataProviderUrl)
+  }
+  UNION
+  {
+    ?id coin-schema:context ?context__id .
+    ?context__id skos:prefLabel ?context__prefLabel
+  }
+  UNION
+  {
+    ?id coin-schema:country ?country__id .
+    ?country__id skos:prefLabel ?country__prefLabel
   }
   UNION
   {
     ?id coin-schema:registration_year ?year .
     ?id coin-schema:number ?number .
     BIND(CONCAT(STR(?year),'-',STR(?number)) AS ?row)
-  }
-  UNION
-  {
-    ?id coin-schema:ruler ?ruler .
   }
   UNION
   {
@@ -545,14 +577,14 @@ export const findsByRulerQuery = `
     <FILTER>
     {
       ?find a coin-schema:Coin .
-      ?find coin-schema:ruler ?category .
-      BIND (CONCAT(STR(?category), ' ') AS ?prefLabel)
+      ?find coin-schema:authority ?category .
+      ?category skos:prefLabel ?prefLabel .
     }
     UNION
     {
       ?find a coin-schema:Coin .
       FILTER NOT EXISTS {
-        ?find coin-schema:ruler [] .
+        ?find coin-schema:authority [] .
       }
       BIND("Unknown" as ?category)
       BIND("Unknown " as ?prefLabel)
@@ -569,7 +601,7 @@ export const findsByMintQuery = `
     {
       ?find a coin-schema:Coin .
       ?find coin-schema:mint ?category .
-      BIND (CONCAT(STR(?category), ' ') AS ?prefLabel)
+      ?category skos:prefLabel ?prefLabel .
     }
     UNION
     {
@@ -591,14 +623,14 @@ export const findsByContextQuery = `
     <FILTER>
     {
       ?find a coin-schema:Coin .
-      ?find coin-schema:find_context ?category .
-      BIND (CONCAT(STR(?category), ' ') AS ?prefLabel)
+      ?find coin-schema:context ?category .
+      ?category skos:prefLabel ?prefLabel .
     }
     UNION
     {
       ?find a coin-schema:Coin .
       FILTER NOT EXISTS {
-        ?find coin-schema:find_context [] .
+        ?find coin-schema:context [] .
       }
       BIND("Unknown" as ?category)
       BIND("Unknown " as ?prefLabel)

@@ -125,7 +125,7 @@
         },
         {
             "id": "denomination",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
@@ -151,10 +151,9 @@
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "^coin-schema:authority/coin-schema:denomination",
+            "sortByPredicate": "^coin-schema:authority/coin-schema:denomination/skos:prefLabel",
             "sortDirection": "desc",
-            "pieChartButton": true,
-            "literal": true
+            "pieChartButton": true
         },
         "period": {
             "containerClass": "ten",

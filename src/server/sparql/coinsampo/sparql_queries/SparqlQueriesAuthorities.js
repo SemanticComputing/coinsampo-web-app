@@ -15,11 +15,13 @@ export const authorityPropertiesInstancePage =
   }
   UNION
   {
-  ?id ^coin-schema:authority/coin-schema:municipality ?municipality .
+  ?id ^coin-schema:authority/coin-schema:municipality ?municipality__id .
+  ?municipality__id skos:prefLabel ?municipality__prefLabel
   }
   UNION
   {
-  ?id ^coin-schema:authority/coin-schema:denomination ?denomination .
+  ?id ^coin-schema:authority/coin-schema:denomination ?denomination__id .
+  ?denomination__id skos:prefLabel ?denomination__prefLabel
   }
   UNION
   {
@@ -60,11 +62,13 @@ export const authorityPropertiesFacetResults = `
     }
     UNION
     {
-    ?id ^coin-schema:authority/coin-schema:municipality ?municipality .
+    ?id ^coin-schema:authority/coin-schema:municipality ?municipality__id .
+    ?municipality__id skos:prefLabel ?municipality__prefLabel
     }
     UNION
     {
-    ?id ^coin-schema:authority/coin-schema:denomination ?denomination .
+    ?id ^coin-schema:authority/coin-schema:denomination ?denomination__id .
+    ?denomination__id skos:prefLabel ?denomination__prefLabel
     }
     UNION
     {

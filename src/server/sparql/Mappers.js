@@ -234,7 +234,7 @@ export const mapPieChart = sparqlBindings => {
       instanceCount: parseInt(b.instanceCount.value)
     }
   })
-  console.log(results)
+  // console.log(results)
   return results
 }
 

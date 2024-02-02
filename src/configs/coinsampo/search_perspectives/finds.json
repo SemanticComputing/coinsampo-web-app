@@ -133,7 +133,7 @@
                     "sparqlQuery": "findsByContextQuery",
                     "filterTarget": "find",
                     "resultMapper": "mapPieChart",
-                    "sliceVisibilityThreshold": 0.01,
+                    "sliceVisibilityThreshold": 0.001,
                     "dropdownForChartTypes": "true",
                     "chartTypes": [
                         {
@@ -276,6 +276,15 @@
             "minWidth": 140
         },
         {
+            "id": "authority",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 130
+        },
+        {
             "id": "mint",
             "valueType": "object",
             "makeLink": true,
@@ -286,7 +295,7 @@
         },
         {
             "id": "municipality",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
@@ -303,17 +312,8 @@
             "minWidth": 130
         },
         {
-            "id": "ruler",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 130
-        },
-        {
             "id": "context",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
@@ -365,7 +365,6 @@
             "numberedList": false,
             "minWidth": 120
         }
-
     ],
     "facets": {
         "denomination": {
@@ -376,10 +375,9 @@
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:denomination",
+            "sortByPredicate": "coin-schema:denomination/skos:prefLabel",
             "sortDirection": "desc",
-            "pieChartButton": true,
-            "literal": true
+            "pieChartButton": true
         },
         "municipality": {
             "containerClass": "ten",
@@ -389,10 +387,9 @@
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:municipality",
+            "sortByPredicate": "coin-schema:municipality/skos:prefLabel",
             "sortDirection": "desc",
-            "pieChartButton": true,
-            "literal": true
+            "pieChartButton": true
         },
         "period": {
             "containerClass": "ten",
@@ -436,14 +433,13 @@
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
-            "predicate": "coin-schema:find_context",
+            "predicate": "coin-schema:context",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:find_context",
+            "sortByPredicate": "coin-schema:context/skos:prefLabel",
             "sortDirection": "desc",
-            "pieChartButton": true,
-            "literal": true
+            "pieChartButton": true
         },
         "mint": {
             "containerClass": "ten",
@@ -474,14 +470,13 @@
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
-            "predicate": "coin-schema:mintCountry_literal",
+            "predicate": "coin-schema:country",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:mintCountry_literal",
+            "sortByPredicate": "coin-schema:country/skos:prefLabel",
             "sortDirection": "desc",
-            "pieChartButton": true,
-            "literal": true
+            "pieChartButton": true
         },
         "material": {
             "containerClass": "ten",
