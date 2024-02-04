@@ -166,6 +166,13 @@ export const findPropertiesFacetResults = `
   {
     ?id coin-schema:registration_year ?registrationYear .
   }
+  UNION
+  {
+    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:image_id ?image__id .
+    BIND("Image from finna" AS ?image__description)
+    BIND("Image from finna" AS ?image__title)
+    BIND(CONCAT('https://finna.fi/Cover/Show?source=Solr&id=', str(?image__id), '&index=0&size=small') AS ?image__url)
+  }
 
 `
 
