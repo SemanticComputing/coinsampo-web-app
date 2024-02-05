@@ -1,0 +1,80 @@
+{
+    "id": "denominations",
+    "endpoint": {
+      "url": "https://ldf.fi/coinsampo/sparql",
+      "useAuth": true,
+      "prefixesFile": "SparqlQueriesPrefixes.js"
+    },
+    "sparqlQueriesFile": "SparqlQueriesDenominations.js",
+    "baseURI": "http://ldf.fi/coinsampo",
+    "URITemplate": "<BASE_URI>/denominations/<LOCAL_ID>",
+    "resultClasses": {
+      "denominations": {
+        "instanceConfig": {
+          "propertiesQueryBlock": "denominationProperties",
+          "instancePageResultClasses": {
+            "instancePageTable": {
+              "tabID": 0,
+              "component": "InstancePageTable",
+              "tabPath": "table",
+              "tabIcon": "CalendarViewDay"
+            },
+            "instancePageExport": {
+              "tabID": 1,
+              "component": "Export",
+              "tabPath": "export",
+              "tabIcon": "CloudDownload",
+              "pageType": "instancePage"
+            }
+          }
+        }
+      }
+    },
+    "properties": [
+      {
+        "id": "uri",
+        "valueType": "object",
+        "makeLink": true,
+        "externalLink": true,
+        "sortValues": true,
+        "numberedList": false,
+        "onlyOnInstancePage": true
+      },
+      {
+        "id": "prefLabel",
+        "valueType": "object",
+        "makeLink": true,
+        "externalLink": false,
+        "sortValues": true,
+        "numberedList": false,
+        "minWidth": 150
+      },
+      {
+        "id": "authority",
+        "valueType": "object",
+        "makeLink": true,
+        "externalLink": false,
+        "sortValues": false,
+        "numberedList": false,
+        "minWidth": 150
+      },
+      {
+        "id": "mint",
+        "valueType": "object",
+        "makeLink": true,
+        "externalLink": false,
+        "sortValues": true,
+        "numberedList": false,
+        "minWidth": 220
+      },
+      {
+        "id": "find",
+        "valueType": "object",
+        "makeLink": true,
+        "externalLink": false,
+        "sortValues": true,
+        "numberedList": false,
+        "minWidth": 220
+      }
+    ]
+  }

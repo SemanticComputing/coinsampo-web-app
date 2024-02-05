@@ -461,13 +461,13 @@ export const createApexBarChartAoristictData = ({
       }
       categories.push(item.prefLabel)
       colors.push('#000000')
-      data.push(item.instanceCount)
+      data.push(Math.round(item.instanceCount))
     }
   })
   if (otherCount !== 0) {
     categories.push(intl.get('apexCharts.other') || 'Other')
     colors.push('#000000')
-    data.push(otherCount)
+    data.push(Math.round(otherCount))
   }
   const apexChartOptionsWithData = {
     ...apexBarChartAoristicOptions,

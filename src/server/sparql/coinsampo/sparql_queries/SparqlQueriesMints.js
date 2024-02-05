@@ -49,15 +49,20 @@ export const mintsPropertiesFacetResults = `
     }
     UNION
     {
-    ?id ^coin-schema:mint/coin-schema:municipality ?municipality .
+      ?id ^coin-schema:mint/coin-schema:municipality ?municipality__id .
+      ?municipality__id skos:prefLabel ?municipality__prefLabel
     }
     UNION
     {
-    ?id ^coin-schema:mint/coin-schema:denomination ?denomination .
+      ?id ^coin-schema:mint/coin-schema:authority ?authority__id .
+      ?authority__id skos:prefLabel ?authority__prefLabel .
+      BIND(CONCAT("/authorities/page/", REPLACE(STR(?authority__id), "^.*\\\\/(.+)", "$1")) AS ?authority__dataProviderUrl)
     }
     UNION
     {
-    ?id ^coin-schema:mint/coin-schema:ruler ?ruler .
+      ?id ^coin-schema:mint/coin-schema:denomination ?denomination__id .
+      ?denomination__id skos:prefLabel ?denomination__prefLabel .
+      BIND(CONCAT("/denominations/page/", REPLACE(STR(?authority__id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
     }
     UNION
     {

@@ -258,17 +258,7 @@
     },
     "properties": [
         {
-            "id": "image",
-            "valueType": "image",
-            "previewImageHeight": 160,
-            "makeLink": true,
-            "externalLink": true,
-            "sortValues": false,
-            "numberedList": false,
-            "hideHeader": false
-        },
-        {
-            "id": "denomination",
+            "id": "prefLabel",
             "valueType": "object",
             "makeLink": true,
             "externalLink": false,
@@ -277,13 +267,14 @@
             "minWidth": 140
         },
         {
-            "id": "row",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
+            "id": "image",
+            "valueType": "image",
+            "previewImageHeight": 160,
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": false,
             "numberedList": false,
-            "minWidth": 140
+            "hideHeader": false
         },
         {
             "id": "authority",
@@ -302,6 +293,25 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 180
+        },
+        {
+            "id": "denomination",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 140
+        },
+        {
+            "id": "row",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "onlyOnInstancePage": true,
+            "minWidth": 140
         },
         {
             "id": "municipality",
@@ -371,6 +381,15 @@
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 120
+        },
+        {
+            "id": "findSampo",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
             "sortValues": true,
             "numberedList": false,
             "minWidth": 120

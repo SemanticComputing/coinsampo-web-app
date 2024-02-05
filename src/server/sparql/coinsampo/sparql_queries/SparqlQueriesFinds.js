@@ -2,15 +2,21 @@ const perspectiveID = 'finds'
 
 export const findPropertiesInstancePage =
 `   
-    {BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
+{
     BIND(?id as ?uri__id)
     BIND(?id as ?uri__dataProviderUrl)
     BIND(?id as ?uri__prefLabel)
+    ?id coin-schema:registration_year ?year .
+    ?id coin-schema:number ?number .
+    BIND(CONCAT(STR(?year),'-',STR(?number)) AS ?row)
+
     ?id coin-schema:denomination ?denomination__id .
     ?denomination__id skos:prefLabel ?denomination__prefLabel .
-    BIND (?denomination as ?prefLabel__id)
-    BIND (?denomination as ?prefLabel__prefLabel)
-    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
+    BIND(CONCAT("/denominations/page/", REPLACE(STR(?denomination__id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
+
+    BIND(CONCAT(?denomination__prefLabel, ' (', ?row, ')') AS ?prefLabel__id )
+    BIND(?prefLabel__id AS ?prefLabel__prefLabel)
+    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
   }
   UNION
   {
@@ -42,17 +48,14 @@ export const findPropertiesInstancePage =
   UNION
   {
     ?id coin-schema:denomination ?denomination__id .
-    ?denomination__id skos:prefLabel ?denomination__prefLabel
+    ?denomination__id skos:prefLabel ?denomination__prefLabel .
+    BIND(CONCAT("/denominations/page/", REPLACE(STR(?denomination__id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
   }
   UNION
   {
     ?id coin-schema:registration_year ?year .
     ?id coin-schema:number ?number .
     BIND(CONCAT(STR(?year),'-',STR(?number)) AS ?row)
-  }
-  UNION
-  {
-    ?id coin-schema:ruler ?ruler .
   }
   UNION
   {
@@ -86,7 +89,27 @@ export const findPropertiesInstancePage =
   {
     ?id coin-schema:registration_year ?registrationYear .
   }
-
+  UNION
+  {
+    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:image_id ?image__id .
+    BIND("Image from finna" AS ?image__description)
+    BIND("Image from finna" AS ?image__title)
+    BIND(CONCAT('https://finna.fi/Cover/Show?source=Solr&id=', str(?image__id), '&index=0&size=small') AS ?image__url)
+  }
+  #UNION
+  #{
+  #  ?id :ascension_number ?km_number .
+  #  ?id :registration_year ?year .
+  #  FILTER (?km_number != "Ei lunastettu")
+  #  FILTER (?km_number != "Puuttuu")
+  #  FILTER (?year = "2016")
+  #  BIND(IF(STRSTARTS(?km_number, "KM ")
+  #  CONCAT("https://dev.loytosampo.fi/en/finds/page/km_", STRAFTER(?km_number,"KM "), "-1"),
+  #      "NONE") AS ?findSampo__id )
+  #  FILTER (?findSampo__id != "NONE")
+  #  BIND (?findSampo__id AS ?findSampo__dataProviderUrl)
+  #  BIND("FindSampo" AS ?findSampo__prefLabel)
+  #}
 
 `
 
@@ -95,11 +118,17 @@ export const findPropertiesFacetResults = `
     BIND(?id as ?uri__id)
     BIND(?id as ?uri__dataProviderUrl)
     BIND(?id as ?uri__prefLabel)
+    ?id coin-schema:registration_year ?year .
+    ?id coin-schema:number ?number .
+    BIND(CONCAT(STR(?year),'-',STR(?number)) AS ?row)
+
     ?id coin-schema:denomination ?denomination__id .
     ?denomination__id skos:prefLabel ?denomination__prefLabel .
-    BIND (?denomination as ?prefLabel__id)
-    BIND (?denomination as ?prefLabel__prefLabel)
-    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
+    BIND(CONCAT("/denominations/page/", REPLACE(STR(?denomination__id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
+
+    BIND(CONCAT(?denomination__prefLabel, ' (', ?row, ')') AS ?prefLabel__id )
+    BIND(?prefLabel__id AS ?prefLabel__prefLabel)
+    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
   }
   UNION
   {
@@ -127,12 +156,6 @@ export const findPropertiesFacetResults = `
   {
     ?id coin-schema:country ?country__id .
     ?country__id skos:prefLabel ?country__prefLabel
-  }
-  UNION
-  {
-    ?id coin-schema:registration_year ?year .
-    ?id coin-schema:number ?number .
-    BIND(CONCAT(STR(?year),'-',STR(?number)) AS ?row)
   }
   UNION
   {
