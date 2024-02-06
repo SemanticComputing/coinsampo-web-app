@@ -716,6 +716,16 @@ export const migrationsQuery = `
   ORDER BY desc(?instanceCount)
 `
 
+export const migrationsDialogQuery = `
+  SELECT * {
+    <FILTER>
+    ?id coin-schema:mint <FROM_ID> ;
+              coin-schema:municipality <TO_ID> ;
+              coin-schema:denomination/skos:prefLabel ?prefLabel .
+    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
+  }
+`
+
 
 export const migrationsQuery__old = `
   SELECT DISTINCT ?id

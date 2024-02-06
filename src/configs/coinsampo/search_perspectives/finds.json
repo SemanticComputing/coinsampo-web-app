@@ -207,6 +207,11 @@
                 }
             }
         },
+        "coinsMigrationsDialog": {
+            "sparqlQuery": "migrationsDialogQuery",
+            "filterTarget": "id",
+            "resultMapper": "makeObjectList"
+        },
         "findsKnowledgeGraphMetadata": {
             "sparqlQuery": "knowledgeGraphMetadataQuery",
             "resultMapper": "makeObjectList"
@@ -381,15 +386,6 @@
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 120
-        },
-        {
-            "id": "findSampo",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": true,
             "sortValues": true,
             "numberedList": false,
             "minWidth": 120
