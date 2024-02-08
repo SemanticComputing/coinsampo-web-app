@@ -1,7 +1,7 @@
 {
     "id": "mints",
     "endpoint": {
-        "url": "http://localhost:3056/ds",
+        "url": "https://ldf.fi/coinsampo/sparql",
         "useAuth": true,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },

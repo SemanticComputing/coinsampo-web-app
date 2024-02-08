@@ -221,7 +221,7 @@
         },
         {
             "id": "mint",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
@@ -239,7 +239,7 @@
         },
         {
             "id": "period",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
@@ -248,7 +248,7 @@
         },
         {
             "id": "ruler",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
@@ -257,7 +257,7 @@
         },
         {
             "id": "context",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
