@@ -11,12 +11,13 @@ export const authorityPropertiesInstancePage =
   }
   UNION
   {
-  ?id ^coin-schema:authority/coin-schema:material ?material .
+  ?id ^coin-schema:authority/coin-schema:material ?material__id .
+  ?material__id skos:prefLabel ?material__prefLabel .
   }
   UNION
   {
   ?id ^coin-schema:authority/coin-schema:municipality ?municipality__id .
-  ?municipality__id skos:prefLabel ?municipality__prefLabel
+  ?municipality__id skos:prefLabel ?municipality__prefLabel .
   }
   UNION
   {
@@ -25,17 +26,12 @@ export const authorityPropertiesInstancePage =
   }
   UNION
   {
-  ?id ^coin-schema:authority/coin-schema:period ?period .
+  ?id ^coin-schema:authority/coin-schema:period ?period__id .
+  ?period__id skos:prefLabel ?period__prefLabel .
   }
   UNION
   {
   ?id coin-schema:wikidata/coin-schema:description ?description .
-  }
-  UNION
-  {
-  ?id coin-schema:wikidata ?wikidata__id .
-  BIND(?wikidata__id AS ?wikidata__prefLabel )
-  BIND(?wikidata__id AS  ?wikidata__dataProviderUrl )
   }
   UNION
   {
@@ -44,7 +40,6 @@ export const authorityPropertiesInstancePage =
     BIND("Image from wikimedia" AS ?image__title)
     BIND(?image__id AS ?image__url)
   }
-
 `
 
 export const authorityPropertiesFacetResults = `
@@ -58,12 +53,13 @@ export const authorityPropertiesFacetResults = `
     }
     UNION
     {
-    ?id ^coin-schema:authority/coin-schema:material ?material .
+    ?id ^coin-schema:authority/coin-schema:material ?material__id .
+    ?material__id skos:prefLabel ?material__prefLabel .
     }
     UNION
     {
     ?id ^coin-schema:authority/coin-schema:municipality ?municipality__id .
-    ?municipality__id skos:prefLabel ?municipality__prefLabel
+    ?municipality__id skos:prefLabel ?municipality__prefLabel .
     }
     UNION
     {
@@ -72,7 +68,8 @@ export const authorityPropertiesFacetResults = `
     }
     UNION
     {
-    ?id ^coin-schema:authority/coin-schema:period ?period .
+    ?id ^coin-schema:authority/coin-schema:period ?period__id .
+    ?period__id skos:prefLabel ?period__prefLabel .
     }
     UNION
     {

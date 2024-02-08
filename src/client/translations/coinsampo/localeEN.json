@@ -224,6 +224,11 @@
           "label": "URI",
           "description": "Uniform Resource Identifier"
         },
+        "textSearch": {
+          "label": "Text search",
+          "description": "Search text in label",
+          "textFacetInputPlaceholder": "Search..."
+        },
         "prefLabel": {
           "label": "Label",
           "description": "A short label describing the object.",
@@ -266,7 +271,7 @@
           "label": "Mint literal",
           "description": ""
         },
-        "mintCountry": {
+        "country": {
           "label": "Country",
           "description": ""
         },
@@ -278,8 +283,8 @@
           "label": "Authority",
           "description": ""
         },
-        "type": {
-          "label": "Type",
+        "qualifier": {
+          "label": "Qualifier",
           "description": ""
         },
         "earliestYear": {
@@ -355,7 +360,7 @@
           "label": "Mint",
           "description": "The source dataset(s) (Bibale, Bodleian, or SDBM) contributing the information on the manuscript. If two or more source datasets include the same manuscript and this has been manually verified, the information from the source datasets have been merged into one manuscript (table row). Click on the links to view the original record on the source’s website."
         },
-        "mintCountry": {
+        "country": {
           "label": "Country",
           "description": ""
         },
@@ -363,8 +368,8 @@
           "label": "Material",
           "description": "The main material of the coin."
         },
-        "type": {
-          "label": "Type",
+        "qualifier": {
+          "label": "Qualifier",
           "description": ""
         },
         "earliestYear": {

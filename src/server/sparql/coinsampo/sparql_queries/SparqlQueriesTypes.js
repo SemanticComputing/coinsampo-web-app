@@ -20,7 +20,8 @@ export const typeProperties = `
     }
     UNION
     {
-    ?id ^coin-schema:coin_type/coin-schema:material ?material .
+    ?id ^coin-schema:coin_type/coin-schema:material ?material__id .
+    ?material__id skos:prefLabel ?material__prefLabel .
     }
     UNION
     {
@@ -42,7 +43,8 @@ export const typeProperties = `
     }
     UNION
     {
-    ?id ^coin-schema:coin_type/coin-schema:period ?period .
+    ?id ^coin-schema:coin_type/coin-schema:period ?period__id .
+    ?period__id skos:prefLabel ?period__prefLabel .
     }
     UNION
     {

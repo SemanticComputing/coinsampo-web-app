@@ -10,13 +10,14 @@ export const findPropertiesInstancePage =
     ?id coin-schema:number ?number .
     BIND(CONCAT(STR(?year),'-',STR(?number)) AS ?row)
 
+    ?id skos:prefLabel ?prefLabel__prefLabel)
+    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
+  }
+  UNION
+  {
     ?id coin-schema:denomination ?denomination__id .
     ?denomination__id skos:prefLabel ?denomination__prefLabel .
     BIND(CONCAT("/denominations/page/", REPLACE(STR(?denomination__id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
-
-    BIND(CONCAT(?denomination__prefLabel, ' (', ?row, ')') AS ?prefLabel__id )
-    BIND(?prefLabel__id AS ?prefLabel__prefLabel)
-    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
   }
   UNION
   {
@@ -37,6 +38,11 @@ export const findPropertiesInstancePage =
   }
   UNION
   {
+    ?id coin-schema:period ?period__id .
+    ?period__id skos:prefLabel ?period__prefLabel
+  }
+  UNION
+  {
     ?id coin-schema:context ?context__id .
     ?context__id skos:prefLabel ?context__prefLabel
   }
@@ -44,6 +50,26 @@ export const findPropertiesInstancePage =
   {
     ?id coin-schema:country ?country__id .
     ?country__id skos:prefLabel ?country__prefLabel
+  }
+  UNION
+  {
+    ?id coin-schema:find_context ?context__id .
+    ?context__id skos:prefLabel ?context__prefLabel .
+  }
+  UNION
+  {
+    ?id coin-schema:period ?period__id .
+    ?period__id skos:prefLabel ?period__prefLabel
+  }
+  UNION
+  {
+    ?id coin-schema:material ?material__id .
+    ?material__id skos:prefLabel ?material__prefLabel
+  }
+  UNION
+  {
+    ?id coin-schema:qualifier ?qualifier__id .
+    ?qualifier__id skos:prefLabel ?qualifier__prefLabel
   }
   UNION
   {
@@ -150,24 +176,32 @@ export const findPropertiesFacetResults = `
   UNION
   {
     ?id coin-schema:context ?context__id .
-    ?context__id skos:prefLabel ?context__prefLabel
+    ?context__id skos:prefLabel ?context__prefLabel .
   }
   UNION
   {
     ?id coin-schema:country ?country__id .
-    ?country__id skos:prefLabel ?country__prefLabel
+    ?country__id skos:prefLabel ?country__prefLabel .
   }
   UNION
   {
-    ?id coin-schema:find_context ?context .
+    ?id coin-schema:find_context ?context__id .
+    ?context__id skos:prefLabel ?context__prefLabel .
   }
   UNION
   {
-    ?id coin-schema:period ?period .
+    ?id coin-schema:period ?period__id .
+    ?period__id skos:prefLabel ?period__prefLabel .
   }
   UNION
   {
-    ?id coin-schema:period ?period .
+    ?id coin-schema:material ?material__id .
+    ?material__id skos:prefLabel ?material__prefLabel .
+  }
+  UNION
+  {
+    ?id coin-schema:qualifier ?qualifier__id .
+    ?qualifier__id skos:prefLabel ?qualifier__prefLabel
   }
   UNION
   {
@@ -585,7 +619,7 @@ export const findsByPeriodQuery = `
     {
       ?find a coin-schema:Coin .
       ?find coin-schema:period ?category .
-      BIND (CONCAT(STR(?category), ' ') AS ?prefLabel)
+      ?category skos:prefLabel ?prefLabel .
     }
     UNION
     {

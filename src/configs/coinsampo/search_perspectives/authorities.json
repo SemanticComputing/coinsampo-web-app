@@ -1,7 +1,7 @@
 {
     "id": "authorities",
     "endpoint": {
-        "url": "https://ldf.fi/coinsampo/sparql",
+        "url": "http://localhost:3056/ds",
         "useAuth": true,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
@@ -116,7 +116,7 @@
         },
         {
             "id": "material",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
@@ -134,7 +134,7 @@
         },
         {
             "id": "period",
-            "valueType": "string",
+            "valueType": "object",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
@@ -163,10 +163,9 @@
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "^coin-schema:authority/coin-schema:period",
+            "sortByPredicate": "^coin-schema:authority/coin-schema:period/skos:prefLabel",
             "sortDirection": "desc",
-            "pieChartButton": true,
-            "literal": true
+            "pieChartButton": true
         },
         "material": {
             "containerClass": "ten",
@@ -176,10 +175,9 @@
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "^coin-schema:authority/coin-schema:material",
+            "sortByPredicate": "^coin-schema:authority/coin-schema:material/skos:prefLabel",
             "sortDirection": "desc",
-            "pieChartButton": true,
-            "literal": true
+            "pieChartButton": true
         }
     }
 }
