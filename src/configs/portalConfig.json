@@ -124,9 +124,9 @@
     },
     "temporalMapConfig": {
         "sliderDuration": {
-            "halfSpeed": 1200,
-            "normalSpeed": 600,
-            "doubleSpeed": 300
+            "halfSpeed": 2400,
+            "normalSpeed": 1200,
+            "doubleSpeed": 600
         }
     }
 }

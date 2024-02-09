@@ -796,10 +796,17 @@ export const findPlacesAnimationQuery = `
     ?id a coin-schema:Coin .
     ?id skos:prefLabel ?prefLabel .
     ?id coin-schema:registration_year ?year .
-    BIND(IF(?year='2013','2013-01-01','2013-01-02') AS ?starDate )
+    BIND(
+      IF(?year='2013', "2013-01-01",
+      IF(?year='2014', "2013-01-02",
+      IF(?year='2015', "2013-01-03",
+      IF(?year='2016', "2013-01-04",
+      IF(?year='2017', "2013-01-05",
+      "2013-01-06")))))
+      AS ?startDate)
     BIND(?startDate AS ?endDate )
     ?id coin-schema:find_site_coordinates/wgs84:lat ?lat .
     ?id coin-schema:find_site_coordinates/wgs84:long ?long .
   }
-  ORDER BY ?year
+  ORDER BY ?startDate
 `

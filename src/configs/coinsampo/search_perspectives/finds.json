@@ -212,6 +212,15 @@
             "filterTarget": "id",
             "resultMapper": "makeObjectList"
         },
+        "findPlacesAnimation": {
+            "tabID": 8,
+            "component": "TemporalMap",
+            "tabPath": "animation",
+            "tabIcon": "PlayArrow",
+            "sparqlQuery": "findPlacesAnimationQuery",
+            "facetClass": "finds",
+            "filterTarget": "id"
+        },
         "findsKnowledgeGraphMetadata": {
             "sparqlQuery": "knowledgeGraphMetadataQuery",
             "resultMapper": "makeObjectList"
