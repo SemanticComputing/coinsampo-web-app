@@ -128,11 +128,17 @@ class TemporalMap extends Component {
     })
     // console.log(value.startDate)
     // console.log(animationCurrentDate)
+    let newInterval = 0
+    if (this.props.resultClass == 'creationYearFindPlacesAnimation') {
+      newInterval = 20
+    }
     newData.map(value => {
       const startDate = value.startDate
       //const range = moment.range(startDate, animationCurrentDate)
       //if (range.diff('days') >= 2) {
-      if (startDate > animationCurrentDate) {
+      //console.log('start' + startDate)
+      //console.log(Math.abs(startDate - animationCurrentDate))
+      if (Math.abs(startDate - animationCurrentDate) > newInterval)  {
         value.isNew = false
       } else {
         value.isNew = true
