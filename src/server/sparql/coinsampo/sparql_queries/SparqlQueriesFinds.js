@@ -810,3 +810,20 @@ export const findPlacesAnimationQuery = `
   }
   ORDER BY ?startDate
 `
+
+export const creationYearFindPlacesAnimationQuery = `
+  SELECT *
+  WHERE {
+    <FILTER>
+    ?id a coin-schema:Coin .
+    ?id skos:prefLabel ?prefLabel .
+    ?id coin-schema:latest_year ?date .
+    BIND(REPLACE(?date,' ','','i') AS ?startDate)
+    FILTER (xsd:integer(?startDate) > 999)
+    FILTER (xsd:integer(?startDate) < 2000)
+    BIND(?startDate AS ?endDate )
+    ?id coin-schema:find_site_coordinates/wgs84:lat ?lat .
+    ?id coin-schema:find_site_coordinates/wgs84:long ?long .
+  }
+  ORDER BY ?startDate
+`

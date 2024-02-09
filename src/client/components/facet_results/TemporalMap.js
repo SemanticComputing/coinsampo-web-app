@@ -85,7 +85,7 @@ class TemporalMap extends Component {
         .sort()
       const startDate = uniqueDates[0]
       const endDate = uniqueDates[uniqueDates.length - 1]
-      const range = moment.range(startDate, endDate)
+      //const range = moment.range(startDate, endDate)
       //console.log(startDate)
       //console.log(endDate)
       //let days = Array.from(range.by('day'))
@@ -189,6 +189,15 @@ class TemporalMap extends Component {
     const { viewport, memory, dates } = this.state
     const { classes, animateMap, portalConfig } = this.props
     const { mapboxAccessToken, mapboxStyle } = portalConfig.mapboxConfig
+    // console.log(this.props.resultClass)
+    let duration = portalConfig.temporalMapConfig.sliderDuration
+    if (this.props.resultClass == "creationYearFindPlacesAnimation") {
+      duration =  {
+            "halfSpeed": 200,
+            "normalSpeed": 100,
+            "doubleSpeed": 50
+        }
+    }
     return (
       <div id='temporal-map-root' ref={this.mapElementRef} className={classes.root}>
         <ReactMapGL
@@ -214,7 +223,8 @@ class TemporalMap extends Component {
             dates={dates}
             animateMap={animateMap}
             initialValue={this.props.animationValue[0]}
-            sliderDuration={portalConfig.temporalMapConfig.sliderDuration}
+            sliderDuration={duration}
+            resultClass={this.props.resultClass}
           />
           {this._renderTooltip()}
         </ReactMapGL>

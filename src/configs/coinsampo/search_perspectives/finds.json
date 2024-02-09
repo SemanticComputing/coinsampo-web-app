@@ -221,6 +221,15 @@
             "facetClass": "finds",
             "filterTarget": "id"
         },
+        "creationYearFindPlacesAnimation": {
+            "tabID": 9,
+            "component": "TemporalMap",
+            "tabPath": "creationanimation",
+            "tabIcon": "PlayArrow",
+            "sparqlQuery": "creationYearFindPlacesAnimationQuery",
+            "facetClass": "finds",
+            "filterTarget": "id"
+        },
         "findsKnowledgeGraphMetadata": {
             "sparqlQuery": "knowledgeGraphMetadataQuery",
             "resultMapper": "makeObjectList"
