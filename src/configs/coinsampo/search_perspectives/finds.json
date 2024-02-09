@@ -215,7 +215,7 @@
         "findPlacesAnimation": {
             "tabID": 8,
             "component": "TemporalMap",
-            "tabPath": "animation",
+            "tabPath": "findanimation",
             "tabIcon": "PlayArrow",
             "sparqlQuery": "findPlacesAnimationQuery",
             "facetClass": "finds",

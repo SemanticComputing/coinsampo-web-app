@@ -183,7 +183,7 @@ class TemporalMapTimeSlider extends BaseControl {
 
   _sliderValueText = value => {
     const isoDate = this.props.dates[value]
-    return moment(isoDate).format('DD.MM.YYYY')
+    return isoDate
   }
 
   _render () {
