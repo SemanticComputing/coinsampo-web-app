@@ -67,6 +67,7 @@ class TemporalMap extends Component {
       facetClass: this.props.facetClass
     })
     this.setState({ mounted: true })
+    this.props.animateMap([0]) // reset time slider
   }
 
   getArrayRange = (start, stop, step) => {
@@ -98,6 +99,7 @@ class TemporalMap extends Component {
         memory: this.props.results,
         dates: days
       })
+      this.props.animateMap([0]) // reset time slider
     }
 
     if (prevProps.animationValue !== this.props.animationValue) {
