@@ -122,7 +122,7 @@
     "bar": "Bar chart",
     "resultClasses": {
       "findsByPeriod": "period",
-      "findsByRuler": "ruler",
+      "findsByRuler": "authority",
       "findsByContext": "context",
       "findsByMint": "mint"
     },
@@ -241,14 +241,6 @@
           "label": "Type image",
           "description": "An image illustrating the broad coin type. Automatically pulled from Finna",
           "textFacetInputPlaceholder": "Search..."
-        },
-        "ruler": {
-          "label": "Ruler",
-          "description": "The author(s) who have contributed to the intellectual content (works) contained in the manuscript."
-        },
-        "rulerLiteral": {
-          "label": "Ruler literal",
-          "description": "."
         },
         "context": {
           "label": "Context",
@@ -416,10 +408,6 @@
           "description": "A short label describing the object.",
           "textFacetInputPlaceholder": "Search..."
         },
-        "ruler": {
-          "label": "Ruler",
-          "description": "The author(s) who have contributed to the intellectual content (works) contained in the manuscript."
-        },
         "authority": {
           "label": "Authority",
           "description": ""
@@ -514,14 +502,6 @@
           "description": "An image illustrating the broad coin type. Automatically pulled from Finna",
           "textFacetInputPlaceholder": "Search..."
         },
-        "ruler": {
-          "label": "Ruler",
-          "description": "The author(s) who have contributed to the intellectual content (works) contained in the manuscript."
-        },
-        "rulerLiteral": {
-          "label": "Ruler literal",
-          "description": "."
-        },
         "context": {
           "label": "Context",
           "description": "The intellectual content (works) contained in the manuscript."
@@ -614,10 +594,6 @@
         "authority": {
           "label": "Authority",
           "description": ""
-        },
-        "rulerLiteral": {
-          "label": "Ruler literal",
-          "description": "."
         },
         "context": {
           "label": "Context",
