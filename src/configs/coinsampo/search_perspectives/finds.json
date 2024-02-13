@@ -230,6 +230,15 @@
             "facetClass": "finds",
             "filterTarget": "id"
         },
+        "csvFinds": {
+            "tabID": 10,
+            "tabPath": "csv",
+            "tabIcon": "CloudDownload",
+            "component": "ExportCSV",
+            "facetClass": "finds",
+            "sparqlQuery": "findsCSVQuery",
+            "filterTarget": "id"
+        },
         "findsKnowledgeGraphMetadata": {
             "sparqlQuery": "knowledgeGraphMetadataQuery",
             "resultMapper": "makeObjectList"

@@ -98,6 +98,7 @@
     "download": "download",
     "recommendations": "recommendations",
     "pie_chart": "pie/bar chart",
+    "csv": "csv",
     "aoristic_chart": "aoristic chart"
   },
   "table": {

@@ -447,68 +447,31 @@ export const knowledgeGraphMetadataQuery = `
 `
 
 export const findsCSVQuery = `
-  SELECT ?id ?find_number ?find_name ?object_type ?object_type_MAO_URI ?description ?archaeological_site_url ?municipality ?province ?latitude ?longitude ?coordinate_source ?earliest_year ?latest_year ?earliest_period ?latest_period ?weight ?length ?width ?diameter (GROUP_CONCAT(?material_label;SEPARATOR=", ") AS ?material)
+  SELECT DISTINCT ?id ?authority ?denomination ?material ?mint ?find_municipality
   WHERE {
   <FILTER>
-    ?id a :Find .
-    ?id ltk-s:find_number ?find_number .
+    ?id a coin-schema:Coin .
+    ?id skos:prefLabel ?prefLabel .
     OPTIONAL {
-      ?id ltk-s:archaeological_site_url ?archaeological_site_url .
+      ?id coin-schema:material/skos:prefLabel ?material .
     }
     OPTIONAL {
-      ?id ltk-s:municipality ?municipality .
+      ?id coin-schema:denomination/skos:prefLabel ?denomination .
     }
     OPTIONAL {
-      ?id ltk-s:province ?province .
+      ?id coin-schema:authority/skos:prefLabel ?authority .
     }
     OPTIONAL {
-      ?id ltk-s:find_name ?find_name .
+      ?id coin-schema:mint/skos:prefLabel ?mint .
     }
     OPTIONAL {
-      ?id ltk-s:description ?description .
+      ?id coin-schema:municipality/skos:prefLabel ?find_municipality .
     }
     OPTIONAL {
       ?id :material/skos:prefLabel ?material_label .
     }
-    OPTIONAL {
-      ?id :earliest_period/skos:prefLabel ?earliest_period .
-    }
-    OPTIONAL {
-      ?id :latest_period/skos:prefLabel ?latest_period .
-    }
-    OPTIONAL {
-      ?id :object_type/skos:prefLabel ?object_type .
-      FILTER(LANG(?object_type) = '<LANG>')
-    }
-    OPTIONAL {
-      ?id :object_type ?object_type_MAO_URI .
-    }
-    OPTIONAL {
-      ?id :weight ?weight .
-    }
-    OPTIONAL {
-      ?id :length ?length .
-    }
-    OPTIONAL {
-      ?id :width ?width .
-    }
-    OPTIONAL {
-      ?id :diameter ?diameter .
-    }
-    OPTIONAL {
-      ?id :find_site_coordinates/wgs84:lat ?latitude .
-      ?id :find_site_coordinates/wgs84:long ?longitude .
-      ?id :find_site_coordinates/dct:source ?coordinate_source
-    }
-    OPTIONAL {
-      ?id :earliest_creation_year ?earliest_year .
-    }
-    OPTIONAL {
-      ?id :latest_creation_year ?latest_year .
-    }
   }
-  GROUP BY ?id ?find_number ?find_name ?object_type ?object_type_MAO_URI ?description ?archaeological_site_url ?municipality ?province ?latitude ?longitude ?coordinate_source ?earliest_year ?latest_year ?earliest_period ?latest_period ?weight ?length ?width ?diameter
-  ORDER BY ?id
+  ORDER BY ASC(?id)
 `
 
 export const findsByProvinceQuery = `
