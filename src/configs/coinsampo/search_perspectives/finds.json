@@ -60,7 +60,7 @@
         "findsPlacesHeatmap": {
             "tabID": 3,
             "tabPath": "heatmap",
-            "tabIcon": "AddLocation",
+            "tabIcon": "BubbleChart",
             "component": "Deck",
             "layerType": "heatmapLayer",
             "sparqlQuery": "findsPlacesQuery",
@@ -153,7 +153,7 @@
             "component": "ApexCharts",
             "doNotRenderOnMount": true,
             "tabPath": "aoristic_chart",
-            "tabIcon": "PieChart",
+            "tabIcon": "BarChart",
             "facetClass": "finds",
             "dropdownForResultClasses": true,
             "defaultResultClass": "findsByAoristicTime",
@@ -177,7 +177,7 @@
         "mintsPlacesHeatmap": {
             "tabID": 6,
             "tabPath": "mintsheatmap",
-            "tabIcon": "AddLocation",
+            "tabIcon": "BubbleChart",
             "component": "Deck",
             "layerType": "heatmapLayer",
             "sparqlQuery": "mintsPlacesQuery",
