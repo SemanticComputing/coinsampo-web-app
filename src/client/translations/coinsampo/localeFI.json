@@ -1,1188 +1,630 @@
-{
-  "languageLabel": "Suomi",
-  "html": {
-    "title": "Sampo-UI – A framework for building user interfaces for semantic portals",
-    "description": ""
-  },
-  "appTitle": {
-    "short": "",
-    "long": "",
-    "subheading": "Suomen numismaattiset kansalaislöydöt 2013-2023"
-  },
-  "appDescription": "",
-  "appDescription1": "",
-  "appDescription2": "",
-  "appDescription3": "",
-  "appDescription4": "",
-  "selectPerspective": "",
-  "mainPageImageLicence": "",
-  "backendErrorText": "",
-  "topBar": {
-    "feedback": "",
-    "info": {
-      "info": "",
-      "blog": "",
-      "blogUrl": "",
-      "aboutThePortal": ""
+  {
+    "languageLabel": "Suomi",
+    "html": {
+      "title": "Rahasampo",
+      "description": ""
     },
-    "searchBarPlaceHolder": "",
-    "searchBarPlaceHolderShort": "",
-    "instructions": ""
-  },
-  "facetBar": {
-    "results": "",
-    "activeFilters": "",
-    "removeAllFilters": "",
-    "narrowDownBy": "",
-    "filterOptions": "",
-    "filterByName": "",
-    "filterByBoundingBox": "",
-    "selectionOptions": "",
-    "selectAlsoSubconcepts": "",
-    "doNotSelectSubconcepts": "",
-    "sortingOptions": "",
-    "sortAlphabetically": "",
-    "sortByNumberOfSearchResults": "",
-    "useDisjunction": "",
-    "useConjuction": "",
-    "minYear": "",
-    "maxYear": "",
-    "min": "",
-    "max": "",
-    "facetSearchFieldPlaceholder": "",
-    "applyFacetSelection": "",
-    "pieChart": {
-      "tooltip": ""
+    "appTitle": {
+      "short": "Rahasampo",
+      "mobile": "RS",
+      "long": "&nbsp; &nbsp; Rahasampo &nbsp; &nbsp;",
+      "subheading": "Numismaattiset kansalaislöydöt Suomessa 2013 - 2023 (KESKENERÄINEN... portaali avataan 28.2. osoitteessa rahasampo.ldf.fi)"
     },
-    "barChart": {
-      "tooltip": "",
-      "language": {
-        "title": "",
-        "xaxisTitle": "",
-        "yaxisTitle": "",
-        "seriesTitle": ""
-      }
+    "appDescription1": "",
+    "appDescription2": "",
+    "selectPerspective": "Valitse hakuperpektiivi:",
+    "mainPageImageLicence": "Alkuperäinen data: Kansallismuseo, Museovirasto",
+    "backendErrorText": "Virhe taustajärjestelmässä. Voit kokeilla päittää sivun selaimen painikkeesta. Jos se ei toimi, taustapalvelin saattaa olla väliakaisesti poissa toimminnasta.",
+    "infoHeader": {
+      "toggleInstructions": "Paina tästä hiirellä näyttääksesi tai piilottaaksesi näkymän ohjeet."
     },
-    "lineChart": {
-      "tooltip": "",
-      "productionTimespan": {
-        "title": "",
-        "xaxisTitle": "",
-        "yaxisTitle": "",
-        "seriesTitle": ""
-      }
-    }
-  },
-  "tabs": {
-    "table": "",
-    "map": "",
-    "production_places": "",
-    "production_places_heatmap": "",
-    "last_known_locations": "",
-    "migrations": "",
-    "network": "",
-    "export": "",
-    "production_dates": "",
-    "event_dates": "",
-    "map_clusters": "",
-    "map_markers": "",
-    "heatmap": "",
-    "statistics": "",
-    "emloLetterNetwork": "",
-    "emloSentReceived": "",
-    "download": "",
-    "recommendations": ""
-  },
-  "table": {
-    "rowsPerPage": "",
-    "of": ""
-  },
-  "lineChart": {
-    "productionCount": "",
-    "transferCount": "",
-    "observationCount": "",
-    "sentCount": "",
-    "receivedCount": "",
-    "allCount": ""
-  },
-  "exportToYasgui": "",
-  "openInLinkedDataBrowser": "",
-  "resultsAsCSV": "",
-  "facets": {
-    "dateFacet": {
-      "invalidDate": "",
-      "toBeforeFrom": "",
-      "minDate": "",
-      "maxDate": "",
-      "cancel": "",
-      "fromLabel": "",
-      "toLabel": ""
-    },
-    "textFacet": {
-      "inputLabel": ""
-    },
-    "sliderFacet": {
-      "invalidStartOrEnd": ""
-    }
-  },
-  "leafletMap": {
-    "basemaps": {
-      "mapbox": {
-        "light-v10": ""
+    "topBar": {
+      "feedback": "palaute",
+      "info": {
+        "info": "Info",
+        "aboutFindSampo": "Tietoa Löytösammosta",
+        "aboutFindSampoUrl": "https://seco.cs.aalto.fi/projects/sualt/fs/about-fi.php",
+        "blog": "Projektin blogi",
+        "blogUrl": "https://blogs.helsinki.fi/sualt-project",
+        "guides": "Arkeologisia oppaita"
       },
-      "googleRoadmap": "",
-      "topographicalMapNLS": "",
-      "backgroundMapNLS": ""
+      "searchBarPlaceHolder": "Hae kaikesta sisällöstä",
+      "instructions": "ohjeet",
+      "instructionsUrl": "https://seco.cs.aalto.fi/projects/sualt/fs/instructions.pdf"
     },
-    "externalLayers": {
-      "arkeologiset_kohteet_alue": "",
-      "arkeologiset_kohteet_piste": "",
-      "fhaLidar": "",
-      "karelianMaps": "",
-      "senateAtlas": "",
-      "kotus:pitajat": "",
-      "kotus:rajat-sms-alueet": "",
-      "kotus:rajat-sms-alueosat": "",
-      "kotus:rajat-lansi-ita": ""
+    "facetBar": {
+      "results": "Tulokset",
+      "filters": "Suodattimet",
+      "activeFilters": "Valitut suodattimet",
+      "defaultMissingValueLabel": "\"arvo puuttuu\"",
+      "removeAllFilters": "Poista kaikki",
+      "narrowDownBy": "Rajaa",
+      "filterOptions": "Suodattimen valinnat",
+      "filterByName": "Suodata nimen perusteella",
+      "filterByBoundingBox": "Suodata kartasta",
+      "selectionOptions": "Hierarkisten valintojen asetukset",
+      "selectAlsoSubconcepts": "Valitse kaikki alakäsitteet",
+      "doNotSelectSubconcepts": "Älä valitse alakäsitteitä",
+      "sortingOptions": "Järjestämisen valinnat",
+      "sortAlphabetically": "Järjestä aakkosten mukaan",
+      "sortByNumberOfSearchResults": "Järjestä tulosten määrän mukaan",
+      "minYear": "Aikaisin vuosi",
+      "maxYear": "Myöhäisin vuosi",
+      "min": "Min",
+      "max": "Max",
+      "facetSearchFieldPlaceholder": "Hae...",
+      "applyFacetSelection": "Käytä"
     },
-    "mapModeButtons": {
-      "markers": "",
-      "heatmap": ""
+    "tabs": {
+      "table": "Taulukko",
+      "list": "lista",
+      "map": "kartat",
+      "heatmap": "lämpökartta",
+      "mintsheatmap": "lyöntipaikat",
+      "export": "kysely",
+      "migrations": "liikkeet",
+      "findanimation": "löytöanimaatio",
+      "creationanimation": "löntivuosi animaatio",
+      "timeline": "aikajana",
+      "recommendation_links": "suositellut linkit",
+      "statistics": "tilastoja",
+      "pie_chart": "piirakka/pylväskaavio",
+      "line_chart": "viivakaavio",
+      "nearby_finds": "Lähellä olevat löydöt",
+      "csv": "csv",
+      "aoristic_chart": "aoristinen kaavio"
     },
-    "wrongZoomLevel": "",
-    "wrongZoomLevelFHA": "",
-    "tooManyResults": ""
-  },
-  "instancePageGeneral": {
-    "introduction": "",
-    "repetition": ""
-  },
-  "deckGlMap": {
-    "arcColouring": "",
-    "showMoreInformation": "",
-    "manuscriptMigrations": {
-      "legendTitle": "",
-      "legendFrom": "",
-      "legendTo": "",
-      "from": "",
-      "to": "",
-      "count": "",
-      "listHeadingSingleInstance": "",
-      "listHeadingMultipleInstances": ""
-    }
-  },
-  "perspectives": {
-    "perspective1": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
+    "table": {
+      "rowsPerPage": "Riviä sivulla"
+    },
+    "apexCharts": {
+      "grouping": "Lajitteluperuste:",
+      "property": "Ominaisuus:",
+      "numberOfFinds": "Löytöjen lukumäärä",
+      "chartType": "Kaavion tyyppi:",
+      "pie": "piirakkakaavio",
+      "bar": "pylväskaavio",
+      "resultClasses": {
+        "findsByProvince": "maakunta",
+        "findsByMaterial": "materiaali",
+        "findsByObjectName": "esineen nimi",
+        "findsByWidth": "leveys",
+        "findsByLength": "pituus",
+        "findsByWeight": "paino",
+        "findsByPeriod": "aikakausi",
+        "findsByRuler": "auktoriteetti",
+        "findsByContext": "konteksti",
+        "findsByMint": "lyöntipaikka"
       },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": "",
-          "textFacetInputPlaceholder": ""
-        },
-        "author": {
-          "label": "",
-          "description": ""
-        },
-        "work": {
-          "label": "",
-          "description": ""
-        },
-        "expression": {
-          "label": "",
-          "description": ""
-        },
-        "productionPlace": {
-          "label": "",
-          "description": ""
-        },
-        "productionTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "note": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "event": {
-          "label": "",
-          "description": ""
-        },
-        "owner": {
-          "label": "",
-          "description": ""
-        },
-        "collection": {
-          "label": "",
-          "description": ""
-        },
-        "transferOfCustodyPlace": {
-          "label": "",
-          "description": ""
-        },
-        "transferOfCustodyTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "lastKnownLocation": {
-          "label": "",
-          "description": ""
-        },
-        "material": {
-          "label": "",
-          "description": ""
-        },
-        "height": {
-          "label": "",
-          "description": ""
-        },
-        "width": {
-          "label": "",
-          "description": ""
-        },
-        "folios": {
-          "label": "",
-          "description": ""
-        },
-        "lines": {
-          "label": "",
-          "description": ""
-        },
-        "columns": {
-          "label": "",
-          "description": ""
-        },
-        "miniatures": {
-          "label": "",
-          "description": ""
-        },
-        "decoratedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "historiatedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
+      "findsByWidthXaxis": "Leveys (mm)",
+      "findsByLengthXaxis": "Pituus (mm)",
+      "findsByWeightXaxis": "Paino (g)"
     },
-    "perspective2": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
+    "resultsAsCSV": "Lataa tulokset CSV-taulukkona",
+    "facets": {
+      "textFacet": {
+        "inputLabel": "Hae nimellä"
       },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": "",
-          "textFacetInputPlaceholder": ""
-        },
-        "author": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "expression": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "productionTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "collection": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
+      "sliderFacet": {
+        "invalidStartOrEnd": "Pienimmän arvon tulee olla pienempi kuin suurin arvo."
       }
     },
-    "perspective3": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
+    "leafletMap": {
+      "findPopUpHeading": "Löytö",
+      "basemaps": {
+        "mapbox": {
+          "light-v10": "Mapbox Light (OpenStreetMap)"
+        },
+        "googleRoadmap": "Google Maps",
+        "topographicalMapNLS": "Topografinen kartta (Maanmittauslaitos)",
+        "backgroundMapNLS": "Taustakartta (Maanmittauslaitos)",
+        "airMapNLS": "Ilmakuva (Maanmittauslaitos)"
       },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "eventTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "place": {
-          "label": "",
-          "description": ""
-        },
-        "placeType": {
-          "label": "",
-          "description": ""
-        },
-        "note": {
-          "label": "",
-          "description": ""
-        },
-        "surrender": {
-          "label": "",
-          "description": ""
-        },
-        "receiver": {
-          "label": "",
-          "description": ""
-        },
-        "observedOwner": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "manuscripts": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
+      "externalLayers": {
+        "WFS_MV_Kulttuuriymparisto:Arkeologiset_kohteet_alue": "Arkeologiset kohteet, alueet (Museovirasto, Muinaisjäännösrekisteri)",
+        "WFS_MV_Kulttuuriymparisto:Arkeologiset_kohteet_piste": "Arkeologiset kohteet, pisteet (Museovirasto, Muinaisjäännösrekisteri)",
+        "WFS_MV_KulttuuriymparistoSuojellut:Muinaisjaannokset_alue": "Muinaisjäännökset ja muut kulttuuriperintökohteet, alue (Museovirasto, Muinaisjäännösrekisteri)",
+        "WFS_MV_KulttuuriymparistoSuojellut:Muinaisjaannokset_piste": "Muinaisjäännökset ja muut kulttuuriperintökohteet, piste (Museovirasto, Muinaisjäännösrekisteri)",
+        "fhaLidar": "Korkeusmalli (Museovirasto)",
+        "karelianMaps": "Karjalan kartat 1:100 000 topografinen (SeCo)",
+        "senateAtlas": "Senaatin kartat 1:21 000 topografinen (SeCo)"
       },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "author": {
-          "label": "",
-          "description": ""
-        },
-        "work": {
-          "label": "",
-          "description": ""
-        },
-        "expression": {
-          "label": "",
-          "description": ""
-        },
-        "productionPlace": {
-          "label": "",
-          "description": ""
-        },
-        "productionTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "note": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "event": {
-          "label": "",
-          "description": ""
-        },
-        "owner": {
-          "label": "",
-          "description": ""
-        },
-        "collection": {
-          "label": "",
-          "description": ""
-        },
-        "transferOfCustodyPlace": {
-          "label": "",
-          "description": ""
-        },
-        "transferOfCustodyTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "lastKnownLocation": {
-          "label": "",
-          "description": ""
-        },
-        "material": {
-          "label": "",
-          "description": ""
-        },
-        "height": {
-          "label": "",
-          "description": ""
-        },
-        "width": {
-          "label": "",
-          "description": ""
-        },
-        "folios": {
-          "label": "",
-          "description": ""
-        },
-        "lines": {
-          "label": "",
-          "description": ""
-        },
-        "columns": {
-          "label": "",
-          "description": ""
-        },
-        "miniatures": {
-          "label": "",
-          "description": ""
-        },
-        "decoratedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "historiatedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
+      "wrongZoomLevelFHA": "Kartan suurennustason tulee olla vähintään 13 tämän karttatason näyttämiseksi",
+      "showBufferZones": "Näytä 200 m varoalue"
+    },
+    "deckGlMap": {
+      "arcColouring": "Kaaren väritys:",
+      "showMoreInformation": "Klikkaa näyttääksesi lisää.",
+      "coinsMigrations": {
+        "legendTitle": "Kaaren väritys",
+        "legendFrom": "Löyntipaikka",
+        "legendTo": "Löytöpaikka",
+        "from": "Löyntipaikka:",
+        "to": "Löytöpaikka:",
+        "count": "Manuscript count",
+        "listHeadingSingleInstance": "öytö:",
+        "listHeadingMultipleInstances": "Löydöt:"
       }
     },
-    "works": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "author": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "expression": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "productionTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "collection": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "events": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "eventTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "place": {
-          "label": "",
-          "description": ""
-        },
-        "note": {
-          "label": "",
-          "description": ""
-        },
-        "surrender": {
-          "label": "",
-          "description": ""
-        },
-        "receiver": {
-          "label": "",
-          "description": ""
-        },
-        "observedOwner": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "actors": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "birthDateTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "deathDateTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "place": {
-          "label": "",
-          "description": ""
-        },
-        "work": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "role": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "places": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "placeType": {
-          "label": "",
-          "description": ""
-        },
-        "area": {
-          "label": "",
-          "description": ""
-        },
-        "manuscriptProduced": {
-          "label": "",
-          "description": ""
-        },
-        "manuscriptTransferred": {
-          "label": "",
-          "description": ""
-        },
-        "manuscriptObserved": {
-          "label": "",
-          "description": ""
-        },
-        "actor": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "collections": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "owner": {
-          "label": "",
-          "description": ""
-        },
-        "place": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "expressions": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "finds": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "findName": {
-          "label": "",
-          "description": ""
-        },
-        "specification": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "subCategory": {
-          "label": "",
-          "description": ""
-        },
-        "objectSubCategory": {
-          "label": "",
-          "description": ""
-        },
-        "material": {
-          "label": "",
-          "description": ""
-        },
-        "materialLiteral": {
-          "label": "",
-          "description": ""
-        },
-        "period": {
-          "label": "",
-          "description": ""
-        },
-        "periodObject": {
-          "label": "",
-          "description": ""
-        },
-        "startYear": {
-          "label": "",
-          "description": ""
-        },
-        "endYear": {
-          "label": "",
-          "description": ""
-        },
-        "municipality": {
-          "label": "",
-          "description": ""
-        },
-        "image": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "emloActors": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "author": {
-          "label": "",
-          "description": ""
-        },
-        "gender": {
-          "label": "",
-          "description": ""
-        },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "birthDateTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "deathDateTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "altLabel": {
-          "label": "",
-          "description": ""
-        },
-        "related": {
-          "label": "",
-          "description": ""
-        },
-        "event": {
-          "label": "",
-          "description": ""
-        },
-        "owner": {
-          "label": "",
-          "description": ""
-        },
-        "rel": {
-          "label": "",
-          "description": ""
-        },
-        "cor": {
-          "label": "",
-          "description": ""
-        },
-        "transferOfCustodyTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "knownLocation": {
-          "label": "",
-          "description": ""
-        },
-        "material": {
-          "label": "",
-          "description": ""
-        },
-        "height": {
-          "label": "",
-          "description": ""
-        },
-        "width": {
-          "label": "",
-          "description": ""
-        },
-        "folios": {
-          "label": "",
-          "description": ""
-        },
-        "lines": {
-          "label": "",
-          "description": ""
-        },
-        "columns": {
-          "label": "",
-          "description": ""
-        },
-        "miniatures": {
-          "label": "",
-          "description": ""
-        },
-        "decoratedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "historiatedInitials": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "emloLetters": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "language": {
-          "label": "",
-          "description": ""
-        },
-        "subject": {
-          "label": "",
-          "description": ""
-        },
-        "datasource": {
-          "label": "",
-          "description": ""
-        },
-        "excipit": {
-          "label": "",
-          "description": ""
-        },
-        "description": {
-          "label": "",
-          "description": ""
-        },
-        "manuscript": {
-          "label": "",
-          "description": ""
-        },
-        "productionTimespan": {
-          "label": "",
-          "description": ""
-        },
-        "collection": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        },
-        "target": {
-          "label": "",
-          "description": ""
-        },
-        "from": {
-          "label": "",
-          "description": ""
-        },
-        "to": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "emloPlaces": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "instancePage": {
-        "label": "",
-        "description": ""
-      },
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "type": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "country": {
-          "label": "",
-          "description": ""
-        },
-        "broader": {
-          "label": "",
-          "description": ""
-        },
-        "narrower": {
-          "label": "",
-          "description": ""
-        },
-        "place": {
-          "label": "",
-          "description": ""
-        },
-        "placeType": {
-          "label": "",
-          "description": ""
-        },
-        "note": {
-          "label": "",
-          "description": ""
-        },
-        "surrender": {
-          "label": "",
-          "description": ""
-        },
-        "receiver": {
-          "label": "",
-          "description": ""
-        },
-        "observedOwner": {
-          "label": "",
-          "description": ""
-        },
-        "source": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "hellerau": {
-      "label": "",
-      "facetResultsType": "",
-      "shortDescription": "",
-      "longDescription": "",
-      "properties": {
-        "uri": {
-          "label": "",
-          "description": ""
-        },
-        "prefLabel": {
-          "label": "",
-          "description": ""
-        },
-        "home1930": {
-          "label": "",
-          "description": ""
-        },
-        "home1937": {
-          "label": "",
-          "description": ""
-        }
-      }
-    },
-    "clientFSPlaces": {
-      "label": "",
-      "shortDescription": "",
-      "datasets": {
-        "kotus": {
-          "label": "",
-          "aboutLink": ""
-        },
-        "pnr": {
-          "label": "",
-          "aboutLink": ""
-        },
-        "warsa_karelian_places": {
-          "label": "",
-          "aboutLink": ""
-        },
-        "tgn": {
-          "label": "",
-          "aboutLink": ""
+    "perspectives": {
+      "fullTextSearch": {
+        "properties": {
+          "prefLabel": {
+            "label": "Label"
+          },
+          "type": {
+            "label": "Type"
+          },
+          "note": {
+            "label": "Note"
+          }
         }
       },
-      "facetResultsType": "",
-      "inputPlaceHolder": "",
-      "searchByArea": "",
-      "searchByAreaTitle": "",
-      "searchByAreaCancel": "",
-      "searchByAreaSearch": "",
-      "properties": {
-        "datasetSelector": {
-          "label": "",
+      "finds": {
+        "label": "Kolikkolöydöt",
+        "facetResultsType": "kolikkolöytöä",
+        "shortDescription": "Irtaimet kolikkolöydöt, jotka on reportoitu Suomessa 2013-2023",
+        "longDescription": "",
+        "instancePage": {
+          "label": "Kolikolöytö",
           "description": ""
         },
-        "prefLabel": {
-          "label": "",
+        "properties": {
+          "uri": {
+            "label": "URI",
+            "description": "Resurssin tunniste (Uniform Resource Identifier)"
+          },
+          "textSearch": {
+            "label": "Tekstihaku",
+            "description": "Etsi...",
+            "textFacetInputPlaceholder": "Etsi..."
+          },
+          "prefLabel": {
+            "label": "Nimike",
+            "description": "Löydön nimike. Muodostettu auktoriteesista, rahayksiköstä, ja paikallisesta tunnisteesta",
+            "textFacetInputPlaceholder": "Hae..."
+          },
+          "image": {
+            "label": "Tyypin kuva",
+            "description": "Kolikon yleistä tyyppiä kuvaava kuva. Tämä on haettu automaattisesti Finna palvelusta ja eikä siksi välttämättä vastaa juuri tätä kolikkoa, eikä edes tarkkaa tyyppiä."
+          },
+          "context": {
+            "label": "Konteksti",
+            "description": "Löydön konteksti. Irtolöydöillä konteksti on hyvin epämääräinen: esimerkiksi pelto tai metsä."
+          },
+          "period": {
+            "label": "Aikakausi",
+            "description": "Löydön arvioitu aikakausi."
+          },
+          "municipality": {
+            "label": "Löytökunta",
+            "description": "Kunta josta kolikko on löydetty."
+          },
+          "denomination": {
+            "label": "Rahayksikkö",
+            "description": ""
+          },
+          "mint": {
+            "label": "Löyntipaikka",
+            "description": "Löyntipaikka tai rahapaja, jossa kolikko on valmistettu. Yleensä kaupungin tarkkuudella."
+          },
+          "country": {
+            "label": "Maa tai alue",
+            "description": "Maa tai alue jossa kolikko on löyty"
+          },
+          "material": {
+            "label": "Materiaali",
+            "description": "Kolikon materiaali"
+          },
+          "authority": {
+            "label": "Auktoriteetti",
+            "description": ""
+          },
+          "qualifier": {
+            "label": "Tarkenne",
+            "description": ""
+          },
+          "earliestYear": {
+            "label": "Aikaisin vuosi",
+            "description": "Arvioitu aikaisin mahdollinen lyöntivuosi"
+          },
+          "latestYear": {
+            "label": "Myöhäisin vuosi",
+            "description": "Arvioitu myöhäisin mahdollinen lyöntivuosi"
+          },
+          "note": {
+            "label": "Huomioita",
+            "description": ""
+          },
+          "ascensionNumber": {
+            "label": "Kokoelmanumero",
+            "description": ""
+          },
+          "findSampo": {
+            "label": "Löytösampo",
+            "description": "Vastaavalla kokoelmanumeroilla luetteloituja esineitä Löytösammossa"
+          },
+          "registrationYear": {
+            "label": "Löytövuosi",
+            "description": "Vuosi jolloin kollikko on löydetty tai raportoitu."
+          },
+          "row": {
+            "label": "Paikallinen id",
+            "description": "Kolikon paikallinen tunniste tietokannassa"
+          }
+        }
+      },
+      "mints": {
+        "label": "Lyöntipaikat",
+        "facetResultsType": "löyntipaikkaa",
+        "shortDescription": "Datan sisältämät löyntipaikat",
+        "longDescription": "",
+        "instancePage": {
+          "label": "Löyntipaikka",
           "description": ""
         },
-        "broaderTypeLabel": {
-          "label": "",
+        "properties": {
+          "uri": {
+            "label": "URI",
+            "description": "Uniform Resource Identifier"
+          },
+          "denomination": {
+            "label": "Rahayksikkö",
+            "description": ""
+          },
+          "prefLabel": {
+            "label": "Nimike",
+            "description": "",
+            "textFacetInputPlaceholder": "Hae..."
+          },
+          "context": {
+            "label": "Konteksti",
+            "description": "Löydön konteksti. Irtolöydöillä konteksti on hyvin epämääräinen: esimerkiksi pelto tai metsä."
+          },
+          "period": {
+            "label": "Aikakaudet",
+            "description": "Aikakaudet joille ajoitettu löytöjä tästä löyntipaikasta."
+          },
+          "municipality": {
+            "label": "Löytökunnat",
+            "description": "Kunnat joista tehty rahalöytöjä joilla tämä lyöntipaikka."
+          },
+          "country": {
+            "label": "Maa tai alue",
+            "description": "Maa tai alue jossa kolikko on löyty"
+          },
+          "material": {
+            "label": "Materiaalit",
+            "description": ""
+          },
+          "authority": {
+            "label": "Auktoriteetit",
+            "description": "Tähän lyöntipaikkaan liittyvät auktoriteetit tässä datassa"
+          }
+        }
+      },
+      "authorities": {
+        "label": "Auktoriteetit",
+        "facetResultsType": "auktoriteettiä",
+        "shortDescription": "Authoriteetit (hallitsijat) joiden lyömiä kolikko on löydöissä",
+        "longDescription": "",
+        "instancePage": {
+          "label": "Auktoriteetti (hallitsija)",
           "description": ""
         },
-        "broaderAreaLabel": {
-          "label": "",
+        "properties": {
+          "uri": {
+            "label": "URI",
+            "description": "Resurssin tunniste (Uniform Resource Identifier)"
+          },
+          "prefLabel": {
+            "label": "Nimike",
+            "description": "",
+            "textFacetInputPlaceholder": ""
+          },
+          "period": {
+            "label": "Aikakausi",
+            "description": "Aikakausi tai aikakaudet johon tämä auktoriteetti liittyy"
+          },
+          "municipality": {
+            "label": "Löytökunnat",
+            "description": "Kunnat joista tämän auktoriteetin lyöttämiä kolikkoja on löytynyt."
+          },
+          "denomination": {
+            "label": "Rahayksiköt",
+            "description": "TÄmän auktoriteetin kolikkojen rahayksiköt datassa."
+          },
+          "mint": {
+            "label": "Löyntipaikat",
+            "description": "TÄmän auktoriteetin kolikkojen löyntipaikat datassa."
+          },
+          "mintCountry": {
+            "label": "Maa",
+            "description": ""
+          },
+          "material": {
+            "label": "Materiaalit",
+            "description": ""
+          },
+          "type": {
+            "label": "Tyyppi",
+            "description": ""
+          },
+          "wikidata": {
+            "label": "Wikidata linkki",
+            "description": ""
+          },
+          "image": {
+            "label": "Kuva",
+            "description": ""
+          }
+        }
+      },
+      "types": {
+        "label": "Kolikkotyypit",
+        "facetResultsType": "tyyppiä",
+        "shortDescription": "Laajat kolikkotyypit, jotka perustuvat auktoriteettiin ja rahayksikköön",
+        "longDescription": "",
+        "instancePage": {
+          "label": "Kolikkotyppi",
           "description": ""
         },
-        "modifier": {
-          "label": "",
+        "properties": {
+          "uri": {
+            "label": "URI",
+            "description": "Uniform Resource Identifier"
+          },
+          "prefLabel": {
+            "label": "Nimike",
+            "description": "A short label describing the object.",
+            "textFacetInputPlaceholder": "Search..."
+          },
+          "image": {
+            "label": "Tyypin kuva",
+            "description": "An image illustrating the broad coin type. Automatically pulled from Finna",
+            "textFacetInputPlaceholder": "Search..."
+          },
+          "context": {
+            "label": "Konteksti",
+            "description": ""
+          },
+          "period": {
+            "label": "Aikakausi",
+            "description": "."
+          },
+          "municipality": {
+            "label": "Löytökunta",
+            "description": ""
+          },
+          "denomination": {
+            "label": "Rahayksikkö",
+            "description": ""
+          },
+          "mint": {
+            "label": "Löyntipaikka",
+            "description": ""
+          },
+          "material": {
+            "label": "Materiaali",
+            "description": ""
+          },
+          "authority": {
+            "label": "Auktoriteetti",
+            "description": ""
+          },
+          "earliestYear": {
+            "label": "Earliest year",
+            "description": ""
+          },
+          "latestYear": {
+            "label": "Latest year",
+            "description": ""
+          },
+          "note": {
+            "label": "Note",
+            "description": ""
+          },
+          "ascensionNumber": {
+            "label": "Ascension number",
+            "description": ""
+          },
+          "findSampo": {
+            "label": "FindSampo",
+            "description": "The same object in FindSampo"
+          },
+          "registrationYear": {
+            "label": "Registration year",
+            "description": ""
+          },
+          "row": {
+            "label": "Year-Row",
+            "description": ""
+          }
+        }
+      },
+      "denominations": {
+        "label": "Rahayksiköt",
+        "facetResultsType": "Rahayksikköä",
+        "shortDescription": "",
+        "longDescription": "",
+        "instancePage": {
+          "label": "Rahayksikkö",
           "description": ""
         },
-        "basicElement": {
-          "label": "",
+        "properties": {
+          "uri": {
+            "label": "URI",
+            "description": "Resurssin tunniste (Uniform Resource Identifier)"
+          },
+          "prefLabel": {
+            "label": "Nimike",
+            "description": "",
+            "textFacetInputPlaceholder": ""
+          },
+          "authority": {
+            "label": "Auktoriteetit",
+            "description": ""
+          },
+          "period": {
+            "label": "Aikakaudet",
+            "description": ""
+          },
+          "municipality": {
+            "label": "Löytökunnat",
+            "description": ""
+          },
+          "mint": {
+            "label": "Lyöntipaikat",
+            "description": ""
+          },
+          "material": {
+            "label": "Materiaalit",
+            "description": ""
+          },
+          "find": {
+            "label": "Löydöt",
+            "description": ""
+          }
+        }
+      },
+      "periods": {
+        "label": "Aikakaudet",
+        "facetResultsType": "aikakautta",
+        "shortDescription": "",
+        "longDescription": "",
+        "instancePage": {
+          "label": "Aikakausi",
           "description": ""
         },
-        "collectionYear": {
-          "label": "",
+        "properties": {
+          "uri": {
+            "label": "URI",
+            "description": "Resurssin tunniste (Uniform Resource Identifier)"
+          },
+          "prefLabel": {
+            "label": "Nimike",
+            "description": "",
+            "textFacetInputPlaceholder": ""
+          },
+          "authority": {
+            "label": "Auktoriteetit",
+            "description": ""
+          },
+          "municipality": {
+            "label": "Löytökunnat",
+            "description": ""
+          },
+          "mint": {
+            "label": "Lyöntipaikat",
+            "description": ""
+          },
+          "material": {
+            "label": "Materiaalit",
+            "description": ""
+          },
+          "find": {
+            "label": "Löydöt",
+            "description": ""
+          }
+        }
+      },
+      "materials": {
+        "label": "Materiaalit",
+        "facetResultsType": "materiaalia",
+        "shortDescription": "",
+        "longDescription": "",
+        "instancePage": {
+          "label": "Materiaali",
           "description": ""
         },
-        "source": {
-          "label": "",
+        "properties": {
+          "uri": {
+            "label": "URI",
+            "description": "Resurssin tunniste (Uniform Resource Identifier)"
+          },
+          "prefLabel": {
+            "label": "Nimike",
+            "description": "",
+            "textFacetInputPlaceholder": ""
+          },
+          "authority": {
+            "label": "Auktoriteetit",
+            "description": ""
+          },
+          "period": {
+            "label": "Aikakaudet",
+            "description": ""
+          },
+          "municipality": {
+            "label": "Löytöpaikat",
+            "description": ""
+          },
+          "denomination": {
+            "label": "Rahayksiköt",
+            "description": ""
+          },
+          "mint": {
+            "label": "Lyöntipaikat",
+            "description": ""
+          },
+          "material": {
+            "label": "Materiaalit",
+            "description": ""
+          },
+          "find": {
+            "label": "Löydöt",
+            "description": ""
+          }
+        }
+      },
+      "municipalities": {
+        "label": "Löytöpaikat",
+        "facetResultsType": "Kuntaa",
+        "shortDescription": "",
+        "longDescription": "",
+        "instancePage": {
+          "label": "Löytöpaikka (kunta)",
           "description": ""
+        },
+        "properties": {
+          "uri": {
+            "label": "URI",
+            "description": "Resurssin tunniste (Uniform Resource Identifier)"
+          },
+          "prefLabel": {
+            "label": "Nimike",
+            "description": "",
+            "textFacetInputPlaceholder": ""
+          },
+          "authority": {
+            "label": "Authoriteetit",
+            "description": ""
+          },
+          "context": {
+            "label": "KOntekstit",
+            "description": ""
+          },
+          "period": {
+            "label": "Aikakaudet",
+            "description": ""
+          },
+          "mint": {
+            "label": "Lyöntipaikat",
+            "description": ""
+          },
+          "material": {
+            "label": "Materiaalit",
+            "description": ""
+          },
+          "find": {
+            "label": "Löydöt",
+            "description": ""
+          }
         }
       }
-    }
-  },
-  "aboutThePortalPartOne": "",
-  "aboutThePortalPartTwo": "",
-  "instructions": "",
-  "feedback": ""
-}
+    },
+    "aboutThePortalPartOne": "<h1 class=\"MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom\"> About the Portal </h1> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Morbi nunc ex, ultrices vitae molestie eu, fringilla quis dolor. Vivamus in enim nibh. Nunc rutrum molestie ex eget dictum. Mauris lectus leo, ultrices in sodales ac, fermentum ut massa. In porta, mauris sed facilisis lacinia, eros magna sollicitudin tortor, quis venenatis nisl ipsum lacinia justo. Duis pretium bibendum consequat. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; In hac habitasse platea dictumst. Curabitur consectetur aliquet est, ac dapibus ante semper vitae. Sed consequat at est ac lobortis. In vitae metus in ligula pretium vehicula. Aliquam maximus ac massa euismod eleifend. Vestibulum vehicula mattis libero at tempus. </p> <h2 class=\"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom\"> Data </h2> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Nullam eu blandit ex, quis consectetur enim. Nulla aliquam, enim non euismod tincidunt, neque eros tincidunt urna, eget elementum diam metus vel elit. Donec dui augue, vehicula a cursus ut, efficitur eget velit. Aliquam pellentesque odio vel metus sodales tempor. Donec in lectus magna. Cras at odio a libero laoreet viverra nec sed lorem. In malesuada tempus dolor. Suspendisse et ligula quis nisi facilisis maximus. Sed dictum justo eu condimentum efficitur. Mauris porttitor ante nec auctor vulputate. Phasellus varius, odio sed egestas bibendum, dolor lacus consequat turpis, ac pulvinar libero lorem maximus nunc. Praesent egestas volutpat leo, vel faucibus dui convallis sed. Ut sed libero eu nisi accumsan mollis. Pellentesque ultricies est non porta luctus. Maecenas eget viverra mauris. </p>",
+    "aboutThePortalPartTwo": "<p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Mauris porttitor ante nec auctor vulputate. Phasellus varius, odio sed egestas bibendum, dolor lacus consequat turpis, ac pulvinar libero lorem maximus nunc. Praesent egestas volutpat leo, vel faucibus dui convallis sed. Ut sed libero eu nisi accumsan mollis. Pellentesque ultricies est non porta luctus. Maecenas eget viverra mauris. </p> <h2 class=\"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom\"> Data Reuse </h2> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Nullam eu blandit ex, quis consectetur enim. Nulla aliquam, enim non euismod tincidunt, neque eros tincidunt urna, eget elementum diam metus vel elit. Donec dui augue, vehicula a cursus ut, efficitur eget velit. Aliquam pellentesque odio vel metus sodales tempor. Donec in lectus magna. Cras at odio a libero laoreet viverra nec sed lorem. In malesuada tempus dolor. Suspendisse et ligula quis nisi facilisis maximus. Sed dictum justo eu condimentum efficitur. Mauris porttitor ante nec auctor vulputate. Phasellus varius, odio sed egestas bibendum, dolor lacus consequat turpis, ac pulvinar libero lorem maximus nunc. Praesent egestas volutpat leo, vel faucibus dui convallis sed. Ut sed libero eu nisi accumsan mollis. Pellentesque ultricies est non porta luctus. Maecenas eget viverra mauris. </p> <h2 class=\"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom\"> More Information </h2> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Nullam eu blandit ex, quis consectetur enim. Nulla aliquam, enim non euismod tincidunt, neque eros tincidunt urna, eget elementum diam metus vel elit. Donec dui augue, vehicula a cursus ut, efficitur eget velit. Aliquam pellentesque odio vel metus sodales tempor. Donec in lectus magna. Cras at odio a libero laoreet viverra nec sed lorem. In malesuada tempus dolor. Suspendisse et ligula quis nisi facilisis maximus. Sed dictum justo eu condimentum efficitur. Mauris porttitor ante nec auctor vulputate. Phasellus varius, odio sed egestas bibendum, dolor lacus consequat turpis, ac pulvinar libero lorem maximus nunc. Praesent egestas volutpat leo, vel faucibus dui convallis sed. Ut sed libero eu nisi accumsan mollis. Pellentesque ultricies est non porta luctus. Maecenas eget viverra mauris. </p>",
+    "instructions": "<h1 class=\"MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom\"> Instructions </h1> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> The search functionality of this semantic portal is based on the <a href=\"https://doi.org/10.2200/S00190ED1V01Y200904ICR005\" target='_blank' rel='noopener noreferrer'> faceted search</a> paradigm. By default each perspective displays all results from the corresponding class. This default result set can be narrowed down by using the filters on the left. </p> <h2 class=\"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom\"> Using a single filter </h2> <h3 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom\"> Selecting values within a filter </h3> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> All possible values for a filter are displayed either as a list or as a hierarchical tree structure (if available). The number of results is shown in brackets for each value. Once a value is selected, the results are automatically updated. To prevent further selections that do not return any results, also the possible values for all other filters are updated at the same time. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Multiple values can be selected within a single filter. Selecting multiple values generates results that contain any of the selected values. For example, selecting both <i>Saint Augustine</i> and <i>Saint Jerome</i> as an Author returns results that include either <i>Saint Augustine</i> <strong>OR</strong> <i>Saint Jerome</i> as an Author. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Selected values of a filter appear in the Active filters section at the top of the list of filters. To deselect a filter, click the X mark next to it within the Active filters section. You can also deselect a filter value by unchecking the checkmark in the filter’s value list. The Active filters section only appears if there are filter values currently selected. </p> <h3 class=\"MuiTypography-root MuiTypography-h6 MuiTypography-gutterBottom\"> Searching within a filter </h3> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Search within a filter by using the search field at the top of each filter. All possible values of a filter remain visible at all times. The values of the filter that match the search term are indicated by a purple underline. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Steps for searching within filters: </p> <ol class=\"MuiTypography-root MuiTypography-body1 MuiTypography-gutterBottom\"> <li> Type search term into search field. If there are matches, a number will appear to the right of the search field, indicating the number of filter values that match the search term. </li> <li> Click the arrows to the right of the search field to cycle through the results. As you click the arrow, a different filter value will appear at the top of the list. Matched filters are underlined in purple. </li> <li> Click the checkmark next to a filter value to activate it. The results (and also other filters) are automatically updated. </li> </ol> <h2 class=\"MuiTypography-root MuiTypography-h4 MuiTypography-gutterBottom\"> Using multiple filters simultaneously </h2> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> The effectiveness of faceted search is realized when multiple filters are applied at the same time. As in many e-commerce sites, a logical AND is always used between the filters. For example selecting <i>Saint Augustine </i> and <i>Saint Jerome</i> as an Author and <i>Sir Thomas Phillipps</i> and <i> Thomas Thorpe</i> as an Owner, the results are narrowed down as follows: </p> <p class=\"MuiTypography-root MuiTypography-body1\"> (Author: <i>Saint Augustine</i> <strong>OR</strong> Author: <i>Saint Jerome</i>) </p> <p class=\"MuiTypography-root MuiTypography-body1\"> <strong>AND</strong> </p> <p class=\"MuiTypography-root MuiTypography-body1\"> (Owner: <i>Sir Thomas Phillipps</i> <strong>OR</strong> Owner: <i>Thomas Thorpe</i>) </p>",
+    "feedback": "<h1 class=\"MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom\"> Feedback </h1> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> This semantic portal has been developed by ... </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> We are interested in your feedback on the functionality, coverage, and usefulness of the portal and its data. </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Please complete our <a href=\"\" target='_blank' rel='noopener noreferrer'>Feedback Survey Form (add link).</a> </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> You can also contact us via email: ... or DM us on Twitter: ... </p> <p class=\"MuiTypography-root MuiTypography-body1 MuiTypography-paragraph\"> Please be aware that this portal’s response times may be affected by the size and complexity of the underlying knowledge graph. </p>"
+  }

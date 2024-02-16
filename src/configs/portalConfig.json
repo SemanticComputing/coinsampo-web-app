@@ -16,7 +16,7 @@
         ]
     },
     "localeConfig": {
-        "defaultLocale": "en",
+        "defaultLocale": "fi",
         "readTranslationsFromGoogleSheets": false,
         "availableLocales": [
             {

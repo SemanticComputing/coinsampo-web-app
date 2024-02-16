@@ -188,15 +188,15 @@
   "deckGlMap": {
     "arcColouring": "Arc colouring:",
     "showMoreInformation": "Click to show more information.",
-    "placesMsMigrations": {
+    "coinsMigrations": {
       "legendTitle": "Arc colouring",
-      "legendFrom": "Manuscript production place",
-      "legendTo": "Last known location",
-      "from": "Production place:",
-      "to": "Last known location:",
-      "count": "Manuscript count",
-      "listHeadingSingleInstance": "Manuscript:",
-      "listHeadingMultipleInstances": "Manuscripts:"
+      "legendFrom": "Mint",
+      "legendTo": "Find place",
+      "from": "Mint",
+      "to": "Find place:",
+      "count": "Coin count",
+      "listHeadingSingleInstance": "Find:",
+      "listHeadingMultipleInstances": "Finds:"
     }
   },
   "perspectives": {
