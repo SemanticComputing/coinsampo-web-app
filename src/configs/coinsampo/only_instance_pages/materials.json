@@ -1,17 +1,17 @@
 {
-    "id": "municipalities",
+    "id": "materials",
     "endpoint": {
       "url": "https://ldf.fi/coinsampo/sparql",
       "useAuth": true,
       "prefixesFile": "SparqlQueriesPrefixes.js"
     },
-    "sparqlQueriesFile": "SparqlQueriesMunicipalities.js",
+    "sparqlQueriesFile": "SparqlQueriesMaterials.js",
     "baseURI": "http://ldf.fi/coinsampo",
-    "URITemplate": "<BASE_URI>/municipalities/<LOCAL_ID>",
+    "URITemplate": "<BASE_URI>/materials/<LOCAL_ID>",
     "resultClasses": {
-      "municipalities": {
+      "materials": {
         "instanceConfig": {
-          "propertiesQueryBlock": "municipalityProperties",
+          "propertiesQueryBlock": "materialProperties",
           "instancePageResultClasses": {
             "instancePageTable": {
               "tabID": 0,

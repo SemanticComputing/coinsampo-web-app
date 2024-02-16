@@ -117,7 +117,7 @@
         {
             "id": "material",
             "valueType": "object",
-            "makeLink": false,
+            "makeLink": true,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
@@ -126,7 +126,7 @@
         {
             "id": "denomination",
             "valueType": "object",
-            "makeLink": false,
+            "makeLink": true,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
@@ -135,7 +135,7 @@
         {
             "id": "period",
             "valueType": "object",
-            "makeLink": false,
+            "makeLink": true,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,

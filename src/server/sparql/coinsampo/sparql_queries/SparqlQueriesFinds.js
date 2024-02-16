@@ -28,7 +28,8 @@ export const findPropertiesInstancePage =
   UNION
   {
     ?id coin-schema:municipality ?municipality__id .
-    ?municipality__id skos:prefLabel ?municipality__prefLabel
+    ?municipality__id skos:prefLabel ?municipality__prefLabel .
+    BIND(CONCAT("/municipalities/page/", REPLACE(STR(?municipality__id), "^.*\\\\/(.+)", "$1")) AS ?municipality__dataProviderUrl)
   }
   UNION
   {
@@ -40,6 +41,7 @@ export const findPropertiesInstancePage =
   {
     ?id coin-schema:period ?period__id .
     ?period__id skos:prefLabel ?period__prefLabel .
+    BIND(CONCAT("/periods/page/", REPLACE(STR(?period__id), "^.*\\\\/(.+)", "$1")) AS ?period__dataProviderUrl)
   }
   UNION
   {
@@ -53,13 +55,9 @@ export const findPropertiesInstancePage =
   }
   UNION
   {
-    ?id coin-schema:find_context ?context__id .
-    ?context__id skos:prefLabel ?context__prefLabel .
-  }
-  UNION
-  {
     ?id coin-schema:material ?material__id .
-    ?material__id skos:prefLabel ?material__prefLabel
+    ?material__id skos:prefLabel ?material__prefLabel .
+    BIND(CONCAT("/materials/page/", REPLACE(STR(?material__id), "^.*\\\\/(.+)", "$1")) AS ?material__dataProviderUrl)
   }
   UNION
   {
@@ -151,7 +149,8 @@ export const findPropertiesFacetResults = `
   UNION
   {
     ?id coin-schema:municipality ?municipality__id .
-    ?municipality__id skos:prefLabel ?municipality__prefLabel
+    ?municipality__id skos:prefLabel ?municipality__prefLabel .
+    BIND(CONCAT("/municipalities/page/", REPLACE(STR(?municipality__id), "^.*\\\\/(.+)", "$1")) AS ?municipality__dataProviderUrl)
   }
   UNION
   {
@@ -178,16 +177,18 @@ export const findPropertiesFacetResults = `
   {
     ?id coin-schema:period ?period__id .
     ?period__id skos:prefLabel ?period__prefLabel .
+    BIND(CONCAT("/periods/page/", REPLACE(STR(?period__id), "^.*\\\\/(.+)", "$1")) AS ?period__dataProviderUrl)
   }
   UNION
   {
     ?id coin-schema:material ?material__id .
     ?material__id skos:prefLabel ?material__prefLabel .
+    BIND(CONCAT("/materials/page/", REPLACE(STR(?material__id), "^.*\\\\/(.+)", "$1")) AS ?material__dataProviderUrl)
   }
   UNION
   {
     ?id coin-schema:qualifier ?qualifier__id .
-    ?qualifier__id skos:prefLabel ?qualifier__prefLabel
+    ?qualifier__id skos:prefLabel ?qualifier__prefLabel .
   }
   UNION
   {

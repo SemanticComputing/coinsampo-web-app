@@ -356,7 +356,7 @@
         {
             "id": "material",
             "valueType": "object",
-            "makeLink": false,
+            "makeLink": true,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
@@ -365,7 +365,7 @@
         {
             "id": "municipality",
             "valueType": "object",
-            "makeLink": false,
+            "makeLink": true,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
@@ -544,7 +544,7 @@
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:municipality//coin-schema:yso/skos:prefLabel",
+            "sortByPredicate": "coin-schema:municipality/coin-schema:yso/skos:prefLabel",
             "sortDirection": "desc",
             "pieChartButton": true
         },
