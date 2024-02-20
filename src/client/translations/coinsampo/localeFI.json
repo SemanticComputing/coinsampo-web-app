@@ -188,6 +188,10 @@
             "label": "Tyypin kuva",
             "description": "Kolikon yleistä tyyppiä kuvaava kuva. Tämä on haettu automaattisesti Finna palvelusta ja eikä siksi välttämättä vastaa juuri tätä kolikkoa, eikä edes tarkkaa tyyppiä."
           },
+          "imageDescription": {
+            "label": "Kuvan tiedot",
+            "description": ""
+          },
           "context": {
             "label": "Konteksti",
             "description": "Löydön konteksti. Irtolöydöillä konteksti on hyvin epämääräinen: esimerkiksi pelto tai metsä."

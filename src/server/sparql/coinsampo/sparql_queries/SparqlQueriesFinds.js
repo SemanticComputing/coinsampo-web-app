@@ -80,11 +80,11 @@ export const findPropertiesInstancePage =
 
   UNION
   {
-    ?id findsampo-core:earliest_creation_year ?earliestYear .
+    ?id coin-schema:earliest_year ?earliestYear .
   }
   UNION
   {
-    ?id findsampo-core:latest_creation_year ?latestYear .
+    ?id coin-schema:latest_year ?latestYear .
   }
   UNION
   {
@@ -100,25 +100,19 @@ export const findPropertiesInstancePage =
   }
   UNION
   {
-    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:image_id ?image__id .
-    BIND("Image from finna" AS ?image__description)
-    BIND("Image from finna" AS ?image__title)
-    BIND(CONCAT('https://finna.fi/Cover/Show?source=Solr&id=', str(?image__id), '&index=0&size=small') AS ?image__url)
+    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:image_description ?imageDescription .
   }
-  #UNION
-  #{
-  #  ?id :ascension_number ?km_number .
-  #  ?id :registration_year ?year .
-  #  FILTER (?km_number != "Ei lunastettu")
-  #  FILTER (?km_number != "Puuttuu")
-  #  FILTER (?year = "2016")
-  #  BIND(IF(STRSTARTS(?km_number, "KM ")
-  #  CONCAT("https://dev.loytosampo.fi/en/finds/page/km_", STRAFTER(?km_number,"KM "), "-1"),
-  #      "NONE") AS ?findSampo__id )
-  #  FILTER (?findSampo__id != "NONE")
-  #  BIND (?findSampo__id AS ?findSampo__dataProviderUrl)
-  #  BIND("FindSampo" AS ?findSampo__prefLabel)
-  #}
+  OPTIONAL
+  {
+    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:finna_id ?imageidTemp .
+    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:image_description ?imagedescriptionTemp .
+    BIND(CONCAT('https://finna.fi/Cover/Show?source=Solr&id=', str(?imageidTemp), '&index=0&size=small') AS ?imageurlTemp)
+  }
+  BIND(COALESCE(?imageidTemp,"https://upload.wikimedia.org/wikipedia/commons/2/25/Icon-round-Question_mark.jpg") as ?image__id)
+  BIND(COALESCE(?imageurlTemp,"https://upload.wikimedia.org/wikipedia/commons/2/25/Icon-round-Question_mark.jpg") as ?image__url)
+  BIND(COALESCE(?imagedescriptionTemp,"Tarpeeksi vastaavaa kuvaa ei löytynyt Finnasta automaattisella haulla.") as ?image__description)
+  BIND(?image__description AS ?image__title)
+
 
 `
 
@@ -194,11 +188,11 @@ export const findPropertiesFacetResults = `
   }
   UNION
   {
-    ?id findsampo-core:earliest_creation_year ?earliestYear .
+    ?id coin-schema:earliest_year ?earliestYear .
   }
   UNION
   {
-    ?id findsampo-core:latest_creation_year ?latestYear .
+    ?id coin-schema:latest_year ?latestYear .
   }
   UNION
   {
@@ -212,13 +206,16 @@ export const findPropertiesFacetResults = `
   {
     ?id coin-schema:registration_year ?registrationYear .
   }
-  UNION
+  OPTIONAL
   {
-    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:finna_id ?image__id .
-    BIND("Image from finna" AS ?image__description)
-    BIND("Image from finna" AS ?image__title)
-    BIND(CONCAT('https://finna.fi/Cover/Show?source=Solr&id=', str(?image__id), '&index=0&size=small') AS ?image__url)
+    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:finna_id ?imageidTemp .
+    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:image_description ?imagedescriptionTemp .
+    BIND(CONCAT('https://finna.fi/Cover/Show?source=Solr&id=', str(?imageidTemp), '&index=0&size=small') AS ?imageurlTemp)
   }
+  BIND(COALESCE(?imageidTemp,"https://upload.wikimedia.org/wikipedia/commons/2/25/Icon-round-Question_mark.jpg") as ?image__id)
+  BIND(COALESCE(?imageurlTemp,"https://upload.wikimedia.org/wikipedia/commons/2/25/Icon-round-Question_mark.jpg") as ?image__url)
+  BIND(COALESCE(?imagedescriptionTemp,"Tarpeeksi vastaavaa kuvaa ei löytynyt Finnasta automaattisella haulla.") as ?image__description)
+  BIND(?image__description AS ?image__title)
 
 `
 

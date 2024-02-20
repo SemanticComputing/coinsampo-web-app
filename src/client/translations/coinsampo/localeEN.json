@@ -242,6 +242,10 @@
           "description": "An image illustrating the broad coin type. Automatically pulled from Finna",
           "textFacetInputPlaceholder": "Search..."
         },
+        "imageDescription": {
+          "label": "Image description",
+          "description": ""
+        },
         "context": {
           "label": "Context",
           "description": "The intellectual content (works) contained in the manuscript."

@@ -443,6 +443,17 @@
             "sortValues": true,
             "numberedList": false,
             "minWidth": 120
+        },
+        {
+            "id": "imageDescription",
+            "valueType": "string",
+            "makeLink": false,
+            "onlyOnInstancePage": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 120,
+            "renderAsHTML": true
         }
     ],
     "facets": {
@@ -576,6 +587,17 @@
             "sortDirection": "desc",
             "pieChartButton": true,
             "literal": true
+        },
+        "latestYear": {
+            "containerClass": "five",
+            "facetType": "integer",
+            "filterType": "integerFilterRange",
+            "predicate": "coin-schema:registration_year",
+            "sortByPredicate": "coin-schema:registration_year",
+            "unit": ""
+        },
+        "earliestYear": {
+            "sortByPredicate": "coin-schema:earliest_year"
         }
     }
 }
