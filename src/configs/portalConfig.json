@@ -105,8 +105,8 @@
             }
         },
         "footer": {
-            "reducedHeight": 44,
-            "defaultHeight": 64
+            "reducedHeight": 80,
+            "defaultHeight": 120
         }
     },
     "mapboxConfig": {

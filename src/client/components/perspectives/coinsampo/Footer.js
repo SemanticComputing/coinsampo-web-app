@@ -5,6 +5,9 @@ import Box from '@mui/material/Box'
 import aaltoLogo from '../../../img/logos/Aalto_SCI_EN_13_BLACK_2_cropped.png'
 import hyLogo from '../../../img/logos/university-of-helsinki-logo-transparent-black.png'
 import heldigLogo from '../../../img/logos/heldig-logo-transparent-black.png'
+import fnmLogo from '../../../img/logos/kansallismuseo-logo.png'
+import fhaLogo from '../../../img/logos/museovirasto-logo.png'
+import wihuriLogo from '../../../img/logos/wihuri-logo.png'
 
 /**
  * A component for creating a footer. The logos are imported inside this component.
@@ -98,6 +101,75 @@ const Footer = props => {
           component='img'
           src={heldigLogo}
           alt='Helsinki Centre for Digital Humanities logo'
+          sx={{
+            height: '100%'
+          }}
+        />
+      </Box>
+      <Box
+        component='a'
+        href='https://www.museovirasto.fi/'
+        target='_blank'
+        rel='noopener noreferrer'
+        sx={theme => ({
+          width: 155,
+          height: 40,
+          [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
+            width: 168,
+            height: 45
+          }
+        })}
+      >
+        <Box
+          component='img'
+          src={fhaLogo}
+          alt='Museoviraston logo'
+          sx={{
+            height: '100%'
+          }}
+        />
+      </Box>
+      <Box
+        component='a'
+        href='https://www.kansallismuseo.fi/'
+        target='_blank'
+        rel='noopener noreferrer'
+        sx={theme => ({
+          width: 155,
+          height: 40,
+          [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
+            width: 168,
+            height: 45
+          }
+        })}
+      >
+        <Box
+          component='img'
+          src={fnmLogo}
+          alt='Kansallismuseon logo'
+          sx={{
+            height: '100%'
+          }}
+        />
+      </Box>
+      <Box
+        component='a'
+        href='https://wihurinrahasto.fi/'
+        target='_blank'
+        rel='noopener noreferrer'
+        sx={theme => ({
+          width: 155,
+          height: 40,
+          [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
+            width: 168,
+            height: 45
+          }
+        })}
+      >
+        <Box
+          component='img'
+          src={wihuriLogo}
+          alt='Wihuri logo'
           sx={{
             height: '100%'
           }}
