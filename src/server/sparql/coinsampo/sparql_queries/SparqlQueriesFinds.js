@@ -112,6 +112,23 @@ export const findPropertiesInstancePage =
   BIND(COALESCE(?imageurlTemp,"https://upload.wikimedia.org/wikipedia/commons/2/25/Icon-round-Question_mark.jpg") as ?image__url)
   BIND(COALESCE(?imagedescriptionTemp,"Tarpeeksi vastaavaa kuvaa ei löytynyt Finnasta automaattisella haulla.") as ?image__description)
   BIND(?image__description AS ?image__title)
+  OPTIONAL {
+    ?id coin-schema:material/skos:prefLabel ?materialTemp .
+    FILTER(LANG(?materialTemp) = 'fi')
+  }
+  OPTIONAL {
+    ?id coin-schema:authority/skos:prefLabel ?authorityTemp .
+    FILTER(LANG(?authorityTemp) = 'fi')
+  }
+  OPTIONAL {
+    ?id coin-schema:denomination/skos:prefLabel ?denominationTemp .
+    FILTER(LANG(?denominationTemp) = 'fi')
+  }
+  BIND(COALESCE(?authorityTemp,"") as ?authorityLabel)
+  BIND(COALESCE(?denominationTemp,"") as ?denominationLabel)
+  BIND(CONCAT(?authorityLabel, ' ', ?denominationLabel) AS ?searchTermTemp)
+  BIND(REPLACE(?searchTermTemp, " ","+","i") AS ?searchTerm)
+  BIND(CONCAT("https://finna.fi/Search/Results?lookfor=", ?searchTerm, "&type=AllFields") AS ?image__finnasearch)
 
 
 `
@@ -216,6 +233,23 @@ export const findPropertiesFacetResults = `
   BIND(COALESCE(?imageurlTemp,"https://upload.wikimedia.org/wikipedia/commons/2/25/Icon-round-Question_mark.jpg") as ?image__url)
   BIND(COALESCE(?imagedescriptionTemp,"Tarpeeksi vastaavaa kuvaa ei löytynyt Finnasta automaattisella haulla.") as ?image__description)
   BIND(?image__description AS ?image__title)
+  OPTIONAL {
+    ?id coin-schema:material/skos:prefLabel ?materialTemp .
+    FILTER(LANG(?materialTemp) = 'fi')
+  }
+  OPTIONAL {
+    ?id coin-schema:authority/skos:prefLabel ?authorityTemp .
+    FILTER(LANG(?authorityTemp) = 'fi')
+  }
+  OPTIONAL {
+    ?id coin-schema:denomination/skos:prefLabel ?denominationTemp .
+    FILTER(LANG(?denominationTemp) = 'fi')
+  }
+  BIND(COALESCE(?authorityTemp,"") as ?authorityLabel)
+  BIND(COALESCE(?denominationTemp,"") as ?denominationLabel)
+  BIND(CONCAT(?authorityLabel, ' ', ?denominationLabel) AS ?searchTermTemp)
+  BIND(REPLACE(?searchTermTemp, " ","+","i") AS ?searchTerm)
+  BIND(CONCAT("https://finna.fi/Search/Results?lookfor=", ?searchTerm, "&type=AllFields") AS ?image__finnasearch)
 
 `
 

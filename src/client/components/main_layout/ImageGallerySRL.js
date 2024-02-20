@@ -43,12 +43,14 @@ const ImageGallerySRL = props => {
     return {
       src: item.url,
       thumbnail: item.url,
-      caption: item.description
+      caption: item.description,
+      search: item.finnasearch
     }
   })
   return (
     <>
-      <Button aria-label='open larger image' onClick={() => openLightbox()}>
+    <a href={images[0].search}>
+      <Button>
         <img
           className={classes.previewImage}
           height={props.previewImageHeight}
@@ -56,6 +58,7 @@ const ImageGallerySRL = props => {
           alt='preview image'
         />
       </Button>
+      </a>
       <SRLWrapper options={srlOptions} elements={images} />
     </>
   )
