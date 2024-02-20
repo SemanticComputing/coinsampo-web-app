@@ -13,11 +13,13 @@ export const mintsPropertiesInstancePage =
   {
   ?id ^coin-schema:mint/coin-schema:material ?material__id .
   ?material__id skos:prefLabel ?material__prefLabel .
+  BIND(CONCAT("materials/page/", REPLACE(STR(?material__id), "^.*\\\\/(.+)", "$1")) AS ?material__dataProviderUrl)
   }
   UNION
   {
     ?id ^coin-schema:mint/coin-schema:municipality ?municipality__id .
     ?municipality__id skos:prefLabel ?municipality__prefLabel .
+    FILTER(LANG(?municipality__prefLabel) = 'fi')
   }
   UNION
   {
@@ -29,6 +31,7 @@ export const mintsPropertiesInstancePage =
   {
     ?id ^coin-schema:mint/coin-schema:denomination ?denomination__id .
     ?denomination__id skos:prefLabel ?denomination__prefLabel .
+    FILTER(LANG(?denomination__prefLabel) = 'fi')
     BIND(CONCAT("/denominations/page/", REPLACE(STR(?authority__id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
   }
   UNION

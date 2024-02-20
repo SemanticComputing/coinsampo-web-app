@@ -18,11 +18,13 @@ export const authorityPropertiesInstancePage =
   {
   ?id ^coin-schema:authority/coin-schema:municipality ?municipality__id .
   ?municipality__id skos:prefLabel ?municipality__prefLabel .
+  FILTER(LANG(?municipality__prefLabel) = 'fi')
   }
   UNION
   {
   ?id ^coin-schema:authority/coin-schema:denomination ?denomination__id .
-  ?denomination__id skos:prefLabel ?denomination__prefLabel
+  ?denomination__id skos:prefLabel ?denomination__prefLabel .
+  FILTER(LANG(?denomination__prefLabel) = 'fi')
   }
   UNION
   {
@@ -60,11 +62,13 @@ export const authorityPropertiesFacetResults = `
     {
     ?id ^coin-schema:authority/coin-schema:municipality ?municipality__id .
     ?municipality__id skos:prefLabel ?municipality__prefLabel .
+    FILTER(LANG(?municipality__prefLabel) = 'fi')
     }
     UNION
     {
     ?id ^coin-schema:authority/coin-schema:denomination ?denomination__id .
-    ?denomination__id skos:prefLabel ?denomination__prefLabel
+    ?denomination__id skos:prefLabel ?denomination__prefLabel .
+    FILTER(LANG(?denomination__prefLabel) = 'fi')
     }
     UNION
     {

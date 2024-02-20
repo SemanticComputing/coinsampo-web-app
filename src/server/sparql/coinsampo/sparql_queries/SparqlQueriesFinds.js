@@ -17,6 +17,7 @@ export const findPropertiesInstancePage =
   {
     ?id coin-schema:denomination ?denomination__id .
     ?denomination__id skos:prefLabel ?denomination__prefLabel .
+    FILTER(LANG(?denomination__prefLabel) = 'fi')
     BIND(CONCAT("/denominations/page/", REPLACE(STR(?denomination__id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
   }
   UNION
@@ -138,6 +139,7 @@ export const findPropertiesFacetResults = `
   {
     ?id coin-schema:denomination ?denomination__id .
     ?denomination__id skos:prefLabel ?denomination__prefLabel .
+    FILTER(LANG(?denomination__prefLabel) = 'fi')
     BIND(CONCAT("/denominations/page/", REPLACE(STR(?denomination__id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
   }
   UNION
@@ -212,7 +214,7 @@ export const findPropertiesFacetResults = `
   }
   UNION
   {
-    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:image_id ?image__id .
+    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:finna_id ?image__id .
     BIND("Image from finna" AS ?image__description)
     BIND("Image from finna" AS ?image__title)
     BIND(CONCAT('https://finna.fi/Cover/Show?source=Solr&id=', str(?image__id), '&index=0&size=small') AS ?image__url)

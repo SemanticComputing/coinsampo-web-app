@@ -1,7 +1,7 @@
 {
     "id": "finds",
     "endpoint": {
-        "url": "http://localhost:3056/ds",
+        "url": "https://ldf.fi/coinsampo/sparql",
         "useAuth": true,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
@@ -465,13 +465,15 @@
         },
         "denomination": {
             "containerClass": "ten",
-            "facetType": "list",
+            "facetType": "hierarchical",
             "filterType": "uriFilter",
             "predicate": "coin-schema:denomination",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
+            "parentProperty": "skos:broader",
             "sortByPredicate": "coin-schema:denomination/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
             "sortDirection": "desc",
             "pieChartButton": true
         },
@@ -540,7 +542,7 @@
             "filterType": "uriFilter",
             "facetType": "hierarchical",
             "predicate": "coin-schema:municipality/coin-schema:yso",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = 'fi')",
             "parentProperty": "skos:broader",
             "searchField": true,
             "sortButton": true,
