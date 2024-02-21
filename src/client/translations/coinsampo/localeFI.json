@@ -310,7 +310,7 @@
       "authorities": {
         "label": "Auktoriteetit",
         "facetResultsType": "auktoriteettiä",
-        "shortDescription": "Authoriteetit (hallitsijat) joiden lyömiä kolikko on löydöissä",
+        "shortDescription": "Authoriteetit (hallitsijat) joiden lyöttämiä kolikkoja on löydöissä",
         "longDescription": "",
         "instancePage": {
           "label": "Auktoriteetti (hallitsija)",
@@ -579,6 +579,37 @@
             "label": "Löydöt",
             "description": ""
           }
+        }
+      },
+      "ilppari": {
+        "label": "Ilppari",
+        "mainPageLabel": "Ilppari",
+        "shortDescription": "Ilmoituspalvelu arkeologisille löydöille"
+      },
+      "findsampo": {
+        "label": "Löytösampo",
+        "mainPageLabel": "Löytösampo",
+        "shortDescription": "Kokoelmiin lunastettuja arkeologisia kansalaislöytöjä"
+      },
+      "guides": {
+        "label": "Oppaita",
+        "mainPageLabel": "Oppaita",
+        "shortDescription": "Oppaita ja ohjeita arkeologiasta harrastuksena",
+        "whatShoulIDo": {
+          "title": "Mitä teen kun löydän muinaisesineen?",
+          "link": "https://www.museovirasto.fi/fi/kokoelma-ja-tietopalvelut/esinekokoelmat/mita-teen-kun-loydan-muinaisesineen"
+        },
+        "reportingADiscovery": {
+          "title": "Löydöstä ilmoittaminen",
+          "link": "https://www.museovirasto.fi/fi/kulttuuriymparisto/arkeologinen-kulttuuriperinto/loydosta-ilmoittaminen"
+        },
+        "archaelogyAsAHobby": {
+          "title": "Arkeologia harrastuksena",
+          "link": "https://www.museovirasto.fi/fi/kulttuuriymparisto/arkeologinen-kulttuuriperinto/arkeologia-harrastuksena"
+        },
+        "enthusiastsGuide": {
+          "title": "Muinaisjäännökset ja metallinetsin: harrastajan opas ",
+          "link": "https://www.museovirasto.fi/uploads/Palvelut_ja_ohjeet/Muinaisjaannokset_ja_metallinetsin_opas_2020.pdf"
         }
       },
       "municipalities": {

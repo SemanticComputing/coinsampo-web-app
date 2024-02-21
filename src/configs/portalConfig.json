@@ -6,7 +6,9 @@
             "finds",
             "authorities",
             "mints",
-            "types"
+            "guides",
+            "ilppari",
+            "findsampo"
         ],
         "onlyInstancePages": [
             "denominations",
@@ -47,7 +49,7 @@
     "layoutConfig": {
         "colorPalette": {
             "primary": {
-                "main": "#212121"
+                "main": "#bf9b30"
             },
             "secondary": {
                 "main": "#EB1806"
@@ -85,7 +87,7 @@
         },
         "mainPage": {
             "bannerImage": "main_page/coins_banner.png",
-            "bannerBackround": "linear-gradient( rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45) ), url(<BANNER_IMAGE_URL)",
+            "bannerBackround": "linear-gradient( rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) ), url(<BANNER_IMAGE_URL)",
             "bannerMobileHeight": 150,
             "bannerReducedHeight": 220,
             "bannerDefaultHeight": 300,

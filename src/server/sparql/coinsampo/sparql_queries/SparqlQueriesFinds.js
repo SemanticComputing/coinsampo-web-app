@@ -362,6 +362,7 @@ export const similarFindsQuery = `
       BIND(?similarExternalFind__id AS ?similarExternalFind__dataProviderUrl)
     }
   }
+  # https://finna.fi/Record/museovirasto.18723ED8664F26F7DF56306901D70101?sid=4044398810
 `
 
 export const findsTimelineQuery = `
