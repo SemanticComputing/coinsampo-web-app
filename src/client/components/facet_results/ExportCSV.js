@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import withStyles from '@mui/styles/withStyles';
+import withStyles from '@mui/styles/withStyles'
 import Button from '@mui/material/Button'
 import Paper from '@mui/material/Paper'
 import { stateToUrl } from '../../helpers/helpers'
+import intl from 'react-intl-universal'
 
 const apiUrl = process.env.API_URL
 
@@ -14,7 +15,8 @@ const styles = theme => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    borderTop: '1px solid rgba(224, 224, 224, 1);'
+    borderTop: '1px solid rgba(224, 224, 224, 1);',
+    flexDirection: "column"
   },
   link: {
     textDecoration: 'none'
@@ -54,7 +56,12 @@ class ExportCSV extends React.Component {
       facetClass: this.props.facetClass,
       facets: this.props.facets
     })
-    const constraints = params.constraints ? `&constraints=${encodeURIComponent(JSON.stringify(params.constraints))}` : ''
+    // console.log(params.constraints)
+    let constraints = params.constraints ? `&constraints=${encodeURIComponent(JSON.stringify(params.constraints))}` : ''
+    constraints = constraints.replace('*', '%2A') // temporary solution for a bug - may still be unable to download some text searches with special characters
+    constraints = constraints.replace('(', '%28')
+    constraints = constraints.replace(')', '%29')
+    constraints = constraints.replace('!', '%21')
     return `${apiUrl}/faceted-search/${this.props.resultClass}/all?facetClass=${this.props.facetClass}&resultFormat=csv${constraints}`
   }
 
@@ -63,6 +70,7 @@ class ExportCSV extends React.Component {
 
     return (
       <Paper square className={classes.root}>
+        <div>
         <a
           className={classes.link}
           href={this.state.downloadLink}
@@ -72,6 +80,10 @@ class ExportCSV extends React.Component {
             Export CSV
           </Button>
         </a>
+        </div>
+        <div>
+          <p>{intl.get(`csvDownload.${this.props.facetClass}`)}</p>
+        </div>
       </Paper>
     )
   }

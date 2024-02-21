@@ -77,6 +77,9 @@
     "table": {
       "rowsPerPage": "Riviä sivulla"
     },
+    "csvDownload": {
+      "finds": "Voit ladata tästä tietokannan sisältöä CSV muodossa. (UTF-8 koodaus, erotin ','). Tietojen käyttöoikeudet: CC BY 4.0. Kansallismuseo, Museovirasto, Semantic Computing Research Group."
+    },
     "apexCharts": {
       "grouping": "Lajitteluperuste:",
       "property": "Ominaisuus:",
@@ -137,9 +140,9 @@
       "showMoreInformation": "Klikkaa näyttääksesi lisää.",
       "coinsMigrations": {
         "legendTitle": "Kaaren väritys",
-        "legendFrom": "Löyntipaikka",
+        "legendFrom": "Lyöntipaikka",
         "legendTo": "Löytöpaikka",
-        "from": "Löyntipaikka:",
+        "from": "Lyöntipaikka:",
         "to": "Löytöpaikka:",
         "count": "Manuscript count",
         "listHeadingSingleInstance": "öytö:",
@@ -209,8 +212,8 @@
             "description": ""
           },
           "mint": {
-            "label": "Löyntipaikka",
-            "description": "Löyntipaikka tai rahapaja, jossa kolikko on valmistettu. Yleensä kaupungin tarkkuudella."
+            "label": "Lyöntipaikka",
+            "description": "Lyöntipaikka tai rahapaja, jossa kolikko on valmistettu. Yleensä kaupungin tarkkuudella."
           },
           "country": {
             "label": "Maa tai alue",
@@ -260,11 +263,11 @@
       },
       "mints": {
         "label": "Lyöntipaikat",
-        "facetResultsType": "löyntipaikkaa",
-        "shortDescription": "Datan sisältämät löyntipaikat",
+        "facetResultsType": "lyöntipaikkaa",
+        "shortDescription": "Datan sisältämät lyöntipaikat",
         "longDescription": "",
         "instancePage": {
-          "label": "Löyntipaikka",
+          "label": "Lyöntipaikka",
           "description": ""
         },
         "properties": {
@@ -287,7 +290,7 @@
           },
           "period": {
             "label": "Aikakaudet",
-            "description": "Aikakaudet joille ajoitettu löytöjä tästä löyntipaikasta."
+            "description": "Aikakaudet joille ajoitettu löytöjä tästä lyöyntipaikasta."
           },
           "municipality": {
             "label": "Löytökunnat",
@@ -339,8 +342,8 @@
             "description": "TÄmän auktoriteetin kolikkojen rahayksiköt datassa."
           },
           "mint": {
-            "label": "Löyntipaikat",
-            "description": "TÄmän auktoriteetin kolikkojen löyntipaikat datassa."
+            "label": "Lyöntipaikat",
+            "description": "Tämän auktoriteetin kolikkojen lyöntipaikat datassa."
           },
           "mintCountry": {
             "label": "Maa",
@@ -405,7 +408,7 @@
             "description": ""
           },
           "mint": {
-            "label": "Löyntipaikka",
+            "label": "Lyöntipaikka",
             "description": ""
           },
           "material": {

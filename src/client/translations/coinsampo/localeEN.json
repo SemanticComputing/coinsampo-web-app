@@ -105,6 +105,9 @@
     "rowsPerPage": "Rows per page",
     "of": "of"
   },
+  "csvDownload": {
+    "finds": "Download CSV (UTF-8 encoding, delimiter ','). Licence: CC BY 4.0. Kansallismuseo, Museovirasto, Semantic Computing Research Group."
+  },
   "lineChart": {
     "productionCount": "Production",
     "transferCount": "Transfer of custody",
