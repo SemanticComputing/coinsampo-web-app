@@ -523,7 +523,8 @@ const fetchGeoJSONLayersEpic = action$ => action$.pipe(
 )
 
 const fetchGeoJSONLayer = async (layerID, bounds) => {
-  const baseUrl = 'https://kartta.nba.fi/arcgis/services/WFS/MV_Kulttuuriymparisto/MapServer/WFSServer'
+  const baseUrl = 'https://geoserver.museovirasto.fi/geoserver/rajapinta_suojellut/wfs'
+  //const baseUrl = 'https://kartta.nba.fi/arcgis/services/WFS/MV_Kulttuuriymparisto/MapServer/WFSServer'
   // const baseUrl = 'https://kartta.nba.fi/arcgis/services/WFS/MV_KulttuuriymparistoSuojellut/MapServer/WFSServer'
   // const baseUrl = 'http://avaa.tdata.fi/geoserver/kotus/ows'
   // const baseUrl = 'http://avaa.tdata.fi/geoserver/paituli/wfs'
@@ -535,8 +536,9 @@ const fetchGeoJSONLayer = async (layerID, bounds) => {
     version: '2.0.0',
     typeName: layerID,
     srsName: 'EPSG:4326',
-    outputFormat: 'geojson',
-    bbox: boundsStr
+    outputFormat: 'json',
+    // outputFormat: 'geojson',
+    BBOX: boundsStr + ',EPSG:4326'
     // outputFormat: 'application/json' for kotus layers
   }
   const url = `${baseUrl}?${querystring.stringify(mapServerParams)}`

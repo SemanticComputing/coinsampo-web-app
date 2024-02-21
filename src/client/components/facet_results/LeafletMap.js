@@ -42,6 +42,8 @@ import mapboxLogo from '../../img/logos/mapbox-logo-black.png'
 // const buffer = lazy(() => import('@turf/buffer'))
 import buffer from '@turf/buffer'
 
+import { fhaLegend } from '../../library_configs/Leaflet/LeafletConfig'
+
 // https://github.com/pointhi/leaflet-color-markers
 const ColorIcon = L.Icon.extend({
   options: {
@@ -276,24 +278,23 @@ class LeafletMap extends React.Component {
       Base layers from https://www.maanmittauslaitos.fi/karttakuvapalvelu/tekninen-kuvaus-wmts
       Routed via backend.
     */
-    // const backgroundMapNLS = L.tileLayer(`${process.env.API_URL}/nls-wmts?z={z}&x={x}&y={y}&layerID=taustakartta`, {
-    //   attribution: 'National Land Survey of Finland',
-    //   maxZoom: 18
-    // })
+    const backgroundMapNLS = L.tileLayer(`${process.env.API_URL}/nls-wmts?z={z}&x={x}&y={y}&layerID=taustakartta`, {
+      attribution: 'National Land Survey of Finland',
+      maxZoom: 18
+    })
     // https://github.com/mapbox/mapbox-gl-leaflet
     // const nlsVectortilesBackgroundmap = L.mapboxGL({
     //   accessToken: this.props.mapBoxAccessToken,
     //   style: `${process.env.API_URL}/nls-vectortiles-open`
     // })
-    // const topographicalMapNLS = L.tileLayer(`${process.env.API_URL}/nls-wmts-open?z={z}&x={x}&y={y}&layerID=maastokartta`, {
-    //   attribution: 'National Land Survey of Finland',
-    //   maxZoom: 18
-    // })
-    // const airMapNLS = L.tileLayer(`${process.env.API_URL}/nls-wmts-open?z={z}&x={x}&y={y}&layerID=ortokuva`, {
-    //   attribution: 'National Land Survey of Finland',
-    //   maxZoom: 18
-    // })
-
+    const topographicalMapNLS = L.tileLayer(`${process.env.API_URL}/nls-wmts?z={z}&x={x}&y={y}&layerID=maastokartta`, {
+      attribution: 'National Land Survey of Finland',
+      maxZoom: 18
+    })
+    const airMapNLS = L.tileLayer(`${process.env.API_URL}/nls-wmts?z={z}&x={x}&y={y}&layerID=ortokuva`, {
+      attribution: 'National Land Survey of Finland',
+      maxZoom: 18
+    })
     // const googleRoadmap = L.gridLayer.googleMutant({
     //   type: 'roadmap'
     // })
@@ -323,7 +324,7 @@ class LeafletMap extends React.Component {
     this.zoominfoControl = this.leafletMap.zoominfoControl
 
     if (this.props.customMapControl) {
-      this.addCustomMapControl()
+      this.addCustomMapControl(this)
       this.setCustomMapControlVisibility()
     }
 
@@ -341,10 +342,10 @@ class LeafletMap extends React.Component {
     // initialize layers from external sources
     if (this.props.showExternalLayers) {
       const basemaps = {
-        [intl.get(`leafletMap.basemaps.mapbox.${mapboxStyle}`)]: mapboxBaseLayer
-        // [intl.get('leafletMap.basemaps.backgroundMapNLS')]: nlsVectortilesBackgroundmap,
-        // [intl.get('leafletMap.basemaps.topographicalMapNLS')]: topographicalMapNLS,
-        // [intl.get('leafletMap.basemaps.airMapNLS')]: airMapNLS
+        [intl.get(`leafletMap.basemaps.mapbox.${mapboxStyle}`)]: mapboxBaseLayer,
+        [intl.get('leafletMap.basemaps.backgroundMapNLS')]: backgroundMapNLS,
+        [intl.get('leafletMap.basemaps.topographicalMapNLS')]: topographicalMapNLS,
+        [intl.get('leafletMap.basemaps.airMapNLS')]: airMapNLS
         // [intl.get('leafletMap.basemaps.googleRoadmap')]: googleRoadmap,
       }
       this.initOverLays(basemaps)
@@ -395,7 +396,9 @@ class LeafletMap extends React.Component {
       if (layerID === 'WFS_MV_KulttuuriymparistoSuojellut:Muinaisjaannokset_alue' ||
       layerID === 'WFS_MV_KulttuuriymparistoSuojellut:Muinaisjaannokset_piste' ||
       layerID === 'WFS_MV_Kulttuuriymparisto:Arkeologiset_kohteet_alue' ||
-      layerID === 'WFS_MV_Kulttuuriymparisto:Arkeologiset_kohteet_piste'
+      layerID === 'WFS_MV_Kulttuuriymparisto:Arkeologiset_kohteet_piste' ||
+      layerID === 'rajapinta_suojellut:muinaisjaannos_alue' ||
+      layerID === 'rajapinta_suojellut:muinaisjaannos_piste'
       ) {
         hideCustomControl = false
       }
@@ -699,56 +702,73 @@ class LeafletMap extends React.Component {
     }
   }
 
-  addCustomMapControl = () => {
-    L.Control.Mapmode = L.Control.extend({
-      onAdd: map => {
-        const container = L.DomUtil.create('div', 'leaflet-control-layers leaflet-control-layers-expanded leaflet-control')
+  addCustomMapControl = self => {
+    // https://github.com/Leaflet/Leaflet/blob/master/src/control/Control.Layers.js
+    // http://embed.plnkr.co/Je7c0m/
+    L.Control.Custom = L.Control.Layers.extend({
+      onAdd: function (map) {
+        // Reuse default layout and settings from https://leafletjs.com/reference-1.7.1.html#control-layers,
+        // especially the mobile friendly expand-collapse functionality
+        this._initLayout()
+        this._update()
+        const container = this._container
         container.id = 'leaflet-control-custom-container-buffer'
-        const checkboxOuterContainer = L.DomUtil.create('label', null, container)
-        const checkboxInnerContainer = L.DomUtil.create('div', 'leaflet-control-custom-checkbox-buffer-container', checkboxOuterContainer)
+        const layersList = container.getElementsByClassName('leaflet-control-layers-list')[0]
+        L.DomUtil.empty(layersList) // remove stuff related layers
 
+        const heading = L.DomUtil.create('p', null, layersList)
+        heading.textContent = 'Muinaisjäännösrekisteri'
+        heading.style.cssText = `
+          font-weight: bold;
+          margin-top: 0px;
+          margin-bottom: 8px;
+        `
+
+        const checkboxOuterContainer = L.DomUtil.create('label', null, layersList)
+        checkboxOuterContainer.style.cssText = 'margin-bottom: 8px;'
+        const checkboxInnerContainer = L.DomUtil.create('div', 'leaflet-control-custom-checkbox-buffer-container', checkboxOuterContainer)
         const checkbox = L.DomUtil.create('input', 'leaflet-control-layers-selector', checkboxInnerContainer)
         checkbox.type = 'checkbox'
         checkbox.id = 'leaflet-control-custom-checkbox-buffer'
-        checkbox.checked = this.state.showBuffer
+        checkbox.checked = self.state.showBuffer
         const checkboxLabel = L.DomUtil.create('span', null, checkboxInnerContainer)
         checkboxLabel.textContent = intl.get('leafletMap.showBufferZones')
         L.DomEvent.on(checkbox, 'click', event => {
-          this.setState({ showBuffer: event.target.checked })
+          self.setState({ showBuffer: event.target.checked })
         })
-
-        // const markersInputContainer = L.DomUtil.create('div', 'leaflet-control-mapmode-input-container', container)
-        // const heatmapInputContainer = L.DomUtil.create('div', 'leaflet-control-mapmode-input-container', container)
-        // const radioMarkers = L.DomUtil.create('input', 'leaflet-control-mapmode-input', markersInputContainer)
-        // const radioHeatmap = L.DomUtil.create('input', 'leaflet-control-mapmode-input', heatmapInputContainer)
-        // const markersLabel = L.DomUtil.create('label', 'leaflet-control-mapmode-label', markersInputContainer)
-        // const heatmapLabel = L.DomUtil.create('label', 'leaflet-control-mapmode-label', heatmapInputContainer)
-        // radioMarkers.id = 'leaflet-control-mapmode-markers'
-        // radioHeatmap.id = 'leaflet-control-mapmode-heatmap'
-        // radioMarkers.type = 'radio'
-        // radioHeatmap.type = 'radio'
-        // radioMarkers.checked = this.state.mapMode === 'cluster'
-        // radioHeatmap.checked = this.state.mapMode === 'heatmap'
-        // radioMarkers.name = 'mapmode'
-        // radioHeatmap.name = 'mapmode'
-        // radioMarkers.value = 'cluster'
-        // radioHeatmap.value = 'heatmap'
-        // markersLabel.for = 'leaflet-control-mapmode-markers'
-        // markersLabel.textContent = intl.get('leafletMap.mapModeButtons.markers')
-        // heatmapLabel.for = 'leaflet-control-mapmode-heatmap'
-        // heatmapLabel.textContent = intl.get('leafletMap.mapModeButtons.heatmap')
-        // L.DomEvent.on(radioMarkers, 'click', event => this.setState({ mapMode: event.target.value }))
-        // L.DomEvent.on(radioHeatmap, 'click', event => this.setState({ mapMode: event.target.value }))
+        fhaLegend.map(entry => self.createLegendElement({
+          color: entry.color,
+          text: entry.key,
+          container: layersList
+        }))
         return container
       },
-      onRemove: map => {
-        // TODO: remove DOM events?
+      options: {
+        collapsed: !self.props.layerControlExpanded
       }
     })
-    L.control.mapmode = opts => {
-      return new L.Control.Mapmode(opts)
-    }
-    L.control.mapmode({ position: 'topright' }).addTo(this.leafletMap)
+    this.customControl = new L.Control.Custom().addTo(this.leafletMap)
+  }
+
+  createLegendElement = ({ color, text, container }) => {
+    const div = L.DomUtil.create('div', null, container)
+    div.style.cssText = `
+      display: flex;
+      align-items: center;
+      margin-bottom: 3px;
+    `
+    const dot = L.DomUtil.create('span', null, div)
+    dot.style.cssText = `
+      color: ${color};
+      background: ${color};
+      height: 14px;
+      width: 14px;
+      border-radius: 14px;
+      border: 1px solid black;
+      margin-right: 5px;
+    `
+    const textSpan = L.DomUtil.create('span', null, div)
+    textSpan.textContent = text
   }
 
   addDrawButtons = () => {
@@ -994,7 +1014,8 @@ class LeafletMap extends React.Component {
                 : '100%'
             },
             position: 'relative',
-            ...(pageType !== 'mobileMapPage' && { height: 400 })
+            ...(pageType !== 'mobileMapPage' && { height: 400 }),
+            ...(pageType === 'mobileMapPage' && { height: '100%' })
           })}
         >
           <Box
@@ -1004,17 +1025,17 @@ class LeafletMap extends React.Component {
               height: '100%'
             }}
           >
-          {<Box
-                component='img'
-                src={mapboxLogo}
-                sx={{
-                  height: 20,
-                  ml: 6,
-                  mt: 1,
-                  position: 'absolute',
-                  zIndex:1000
-                }}
-            ></Box>}
+            <Box
+              component='img'
+              src={mapboxLogo}
+              sx={{
+                height: 20,
+                ml: 6,
+                mt: 1,
+                position: 'absolute',
+                zIndex: 1000
+              }}
+            />
             {(this.props.fetching ||
             (this.props.showExternalLayers && this.props.leafletMapState.fetching)) &&
               <Box

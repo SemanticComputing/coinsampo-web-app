@@ -128,6 +128,8 @@
         "WFS_MV_Kulttuuriymparisto:Arkeologiset_kohteet_piste": "Arkeologiset kohteet, pisteet (Museovirasto, Muinaisjäännösrekisteri)",
         "WFS_MV_KulttuuriymparistoSuojellut:Muinaisjaannokset_alue": "Muinaisjäännökset ja muut kulttuuriperintökohteet, alue (Museovirasto, Muinaisjäännösrekisteri)",
         "WFS_MV_KulttuuriymparistoSuojellut:Muinaisjaannokset_piste": "Muinaisjäännökset ja muut kulttuuriperintökohteet, piste (Museovirasto, Muinaisjäännösrekisteri)",
+        "rajapinta_suojellut:muinaisjaannos_alue": "Kiinteät muinaisjäännökset, alueet (Museovirasto, Muinaisjäännösrekisteri)",
+        "rajapinta_suojellut:muinaisjaannos_piste": "Kiinteät muinaisjäännökset, pisteet (Museovirasto, Muinaisjäännösrekisteri)",
         "fhaLidar": "Korkeusmalli (Museovirasto)",
         "karelianMaps": "Karjalan kartat 1:100 000 topografinen (SeCo)",
         "senateAtlas": "Senaatin kartat 1:21 000 topografinen (SeCo)"

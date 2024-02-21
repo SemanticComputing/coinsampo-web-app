@@ -314,7 +314,7 @@ const createArchealogicalSitePopUp = data => {
 }
 
 const bufferStyle = feature => {
-  if (feature.properties.laji.includes('poistettu kiinteä muinaisjäännös')) {
+  if (feature.properties.Laji.includes('poistettu kiinteä muinaisjäännös')) {
     return {
       fillOpacity: 0,
       weight: 0,
@@ -331,18 +331,18 @@ const bufferStyle = feature => {
 }
 
 const createArchealogicalSiteColor = feature => {
-  const entry = fhaLegend.find(el => el.key === feature.properties.laji.trim())
+  const entry = fhaLegend.find(el => el.key === feature.properties.Laji.trim())
   return entry.color
 }
 
 export const fhaLegend = [
-  { key: 'kiinteä muinaisjäännös', color: '#f00501' },
-  { key: 'luonnonmuodostuma', color: '#00cafb' },
-  { key: 'löytöpaikka', color: '#ffb202' },
-  { key: 'mahdollinen muinaisjäännös', color: '#fc01e2' },
-  { key: 'muu kohde', color: '#ffffff' },
-  { key: 'muu kulttuuriperintökohde', color: '#b57b3b' },
-  { key: 'poistettu kiinteä muinaisjäännös (ei rauhoitettu)', color: '#8b928b' }
+  { key: 'kiinteä muinaisjäännös', color: '#f00501' }
+  // { key: 'luonnonmuodostuma', color: '#00cafb' },
+  // { key: 'löytöpaikka', color: '#ffb202' },
+  // { key: 'mahdollinen muinaisjäännös', color: '#fc01e2' },
+  // { key: 'muu kohde', color: '#ffffff' },
+  // { key: 'muu kulttuuriperintökohde', color: '#b57b3b' },
+  // { key: 'poistettu kiinteä muinaisjäännös (ei rauhoitettu)', color: '#8b928b' }
 ]
 
 /*
@@ -356,7 +356,8 @@ export const fhaLegend = [
 export const layerConfigs = [
   {
     // id: 'WFS_MV_KulttuuriymparistoSuojellut:Muinaisjaannokset_alue',
-    id: 'WFS_MV_Kulttuuriymparisto:Arkeologiset_kohteet_alue',
+    // id: 'WFS_MV_Kulttuuriymparisto:Arkeologiset_kohteet_alue',
+    id: 'rajapinta_suojellut:muinaisjaannos_alue',
     type: 'GeoJSON',
     attribution: 'Museovirasto',
     minZoom: 13,
@@ -375,7 +376,8 @@ export const layerConfigs = [
   },
   {
     // id: 'WFS_MV_KulttuuriymparistoSuojellut:Muinaisjaannokset_piste',
-    id: 'WFS_MV_Kulttuuriymparisto:Arkeologiset_kohteet_piste',
+    // id: 'WFS_MV_Kulttuuriymparisto:Arkeologiset_kohteet_piste',
+    id: 'rajapinta_suojellut:muinaisjaannos_piste',
     type: 'GeoJSON',
     attribution: 'Museovirasto',
     minZoom: 13,
@@ -396,16 +398,16 @@ export const layerConfigs = [
     },
     createPopup: createArchealogicalSitePopUp
   },
-  {
-    id: 'fhaLidar',
-    type: 'WMS',
-    url: `${process.env.API_URL}/fha-wms`,
-    layers: 'NBA:lidar',
-    version: '1.3.0',
-    attribution: 'Museovirasto',
-    minZoom: 13,
-    maxZoom: 18
-  },
+  // {
+  //  id: 'fhaLidar',
+  //  type: 'WMS',
+  //  url: `${process.env.API_URL}/fha-wms`,
+  //  layers: 'NBA:lidar',
+  //  version: '1.3.0',
+  //  attribution: 'Museovirasto',
+  //  minZoom: 13,
+  //  maxZoom: 18
+  // },
   {
     id: 'karelianMaps',
     type: 'WMTS',
