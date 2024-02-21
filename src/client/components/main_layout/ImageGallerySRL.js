@@ -49,7 +49,7 @@ const ImageGallerySRL = props => {
   })
   return (
     <>
-    <a href={images[0].search}>
+    <a href={images[0].search} target="_blank" >
       <Button>
         <img
           className={classes.previewImage}
