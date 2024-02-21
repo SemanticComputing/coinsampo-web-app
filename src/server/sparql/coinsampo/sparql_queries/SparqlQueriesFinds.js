@@ -12,6 +12,7 @@ export const findPropertiesInstancePage =
 
     ?id skos:prefLabel ?prefLabel__prefLabel .
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
+    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
   }
   {
     ?id coin-schema:denomination ?denomination__id .
