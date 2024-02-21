@@ -13,11 +13,10 @@ export const findPropertiesInstancePage =
     ?id skos:prefLabel ?prefLabel__prefLabel .
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
   }
-  UNION
   {
     ?id coin-schema:denomination ?denomination__id .
     ?denomination__id skos:prefLabel ?denomination__prefLabel .
-    FILTER(LANG(?denomination__prefLabel) = 'fi')
+    FILTER(LANG(?denomination__prefLabel) = '<LANG>')
     BIND(CONCAT("/denominations/page/", REPLACE(STR(?denomination__id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
   }
   UNION
@@ -29,7 +28,8 @@ export const findPropertiesInstancePage =
   UNION
   {
     ?id coin-schema:municipality ?municipality__id .
-    ?municipality__id skos:prefLabel ?municipality__prefLabel .
+    ?municipality__id coin-schema:yso/skos:prefLabel ?municipality__prefLabel .
+    FILTER(LANG(?municipality__prefLabel) = '<LANG>')
     BIND(CONCAT("/municipalities/page/", REPLACE(STR(?municipality__id), "^.*\\\\/(.+)", "$1")) AS ?municipality__dataProviderUrl)
   }
   UNION
@@ -58,11 +58,13 @@ export const findPropertiesInstancePage =
   {
     ?id coin-schema:material ?material__id .
     ?material__id skos:prefLabel ?material__prefLabel .
+    FILTER(LANG(?material__prefLabel) = '<LANG>')
     BIND(CONCAT("/materials/page/", REPLACE(STR(?material__id), "^.*\\\\/(.+)", "$1")) AS ?material__dataProviderUrl)
   }
   UNION
   {
     ?id coin-schema:qualifier ?qualifier__id .
+    FILTER(LANG(?qualifier__prefLabel) = '<LANG>')
     ?qualifier__id skos:prefLabel ?qualifier__prefLabel
   }
   UNION
@@ -150,7 +152,7 @@ export const findPropertiesFacetResults = `
   {
     ?id coin-schema:denomination ?denomination__id .
     ?denomination__id skos:prefLabel ?denomination__prefLabel .
-    FILTER(LANG(?denomination__prefLabel) = 'fi')
+    FILTER(LANG(?denomination__prefLabel) = '<LANG>')
     BIND(CONCAT("/denominations/page/", REPLACE(STR(?denomination__id), "^.*\\\\/(.+)", "$1")) AS ?denomination__dataProviderUrl)
   }
   UNION
@@ -162,7 +164,8 @@ export const findPropertiesFacetResults = `
   UNION
   {
     ?id coin-schema:municipality ?municipality__id .
-    ?municipality__id skos:prefLabel ?municipality__prefLabel .
+    ?municipality__id coin-schema:yso/skos:prefLabel ?municipality__prefLabel .
+    FILTER(LANG(?municipality__prefLabel) = '<LANG>')
     BIND(CONCAT("/municipalities/page/", REPLACE(STR(?municipality__id), "^.*\\\\/(.+)", "$1")) AS ?municipality__dataProviderUrl)
   }
   UNION
@@ -183,11 +186,6 @@ export const findPropertiesFacetResults = `
   }
   UNION
   {
-    ?id coin-schema:find_context ?context__id .
-    ?context__id skos:prefLabel ?context__prefLabel .
-  }
-  UNION
-  {
     ?id coin-schema:period ?period__id .
     ?period__id skos:prefLabel ?period__prefLabel .
     BIND(CONCAT("/periods/page/", REPLACE(STR(?period__id), "^.*\\\\/(.+)", "$1")) AS ?period__dataProviderUrl)
@@ -196,11 +194,13 @@ export const findPropertiesFacetResults = `
   {
     ?id coin-schema:material ?material__id .
     ?material__id skos:prefLabel ?material__prefLabel .
+    FILTER(LANG(?material__prefLabel) = '<LANG>')
     BIND(CONCAT("/materials/page/", REPLACE(STR(?material__id), "^.*\\\\/(.+)", "$1")) AS ?material__dataProviderUrl)
   }
   UNION
   {
     ?id coin-schema:qualifier ?qualifier__id .
+    FILTER(LANG(?qualifier__prefLabel) = '<LANG>')
     ?qualifier__id skos:prefLabel ?qualifier__prefLabel .
   }
   UNION
