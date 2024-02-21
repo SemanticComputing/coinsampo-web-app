@@ -295,7 +295,7 @@
             "valueType": "object",
             "makeLink": true,
             "externalLink": false,
-            "sortValues": true,
+            "sortValues": false,
             "numberedList": false,
             "minWidth": 140
         },
@@ -395,7 +395,7 @@
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,
-            "sortValues": true,
+            "sortValues": false,
             "numberedList": false,
             "minWidth": 130
         },
@@ -588,16 +588,21 @@
             "pieChartButton": true,
             "literal": true
         },
+        "earliestYear": {
+            "containerClass": "five",
+            "facetType": "integer",
+            "filterType": "integerFilterRange",
+            "predicate": "coin-schema:earliest_year",
+            "sortByPredicate": "coin-schema:earliest_year",
+            "unit": ""
+        },
         "latestYear": {
             "containerClass": "five",
             "facetType": "integer",
             "filterType": "integerFilterRange",
-            "predicate": "coin-schema:registration_year",
-            "sortByPredicate": "coin-schema:registration_year",
+            "predicate": "coin-schema:latest_year",
+            "sortByPredicate": "coin-schema:latest_year",
             "unit": ""
-        },
-        "earliestYear": {
-            "sortByPredicate": "coin-schema:earliest_year"
         }
     }
 }
