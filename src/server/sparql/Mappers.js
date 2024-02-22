@@ -240,7 +240,7 @@ export const mapPieChart = sparqlBindings => {
 
 
 export const mapAoristicChart = sparqlBindings => {
-  //console.log(sparqlBindings)
+  const interval = parseInt(sparqlBindings[0].interval.value)
   const min_year = getMinYear(sparqlBindings)
   const max_year = getMaxYear(sparqlBindings)
 
@@ -254,7 +254,6 @@ export const mapAoristicChart = sparqlBindings => {
 
   let aoristic_results = []
 
-  let interval = 50
   let current_start = 1
   let current_end = current_start + interval - 1
 
@@ -316,22 +315,21 @@ const getMinYear = bindings => {
   let minYear = 999999999
   bindings.forEach(item => {
     // console.log(item.earliestYear.value)
-    if (item.earliestYear.value < minYear) {
-      minYear = item.earliestYear.value
+    if (parseInt(item.earliestYear.value) < minYear) {
+      minYear = parseInt(item.earliestYear.value)
     }
   });
-  return parseInt(minYear)
+  return minYear
 }
 
 const getMaxYear = bindings => {
-  let maxYear = -999999999
+  let maxYear = 0
   bindings.forEach(item => {
-    // console.log(item.earliestYear.value)
-    if (item.latestYear.value > maxYear) {
-      maxYear = item.latestYear.value
+    if (parseInt(item.latestYear.value) > maxYear) {
+      maxYear = parseInt(item.latestYear.value)
     }
   });
-  return parseInt(maxYear)
+  return maxYear
 }
 
 export const linearScale = ({ data, config }) => {

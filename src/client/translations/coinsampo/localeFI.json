@@ -64,7 +64,7 @@
       "export": "kysely",
       "migrations": "liikkeet",
       "findanimation": "löytöanimaatio",
-      "creationanimation": "löntivuosi animaatio",
+      "creationanimation": "lyöntivuosi animaatio",
       "timeline": "aikajana",
       "recommendation_links": "suositellut linkit",
       "statistics": "tilastoja",
@@ -97,7 +97,11 @@
         "findsByPeriod": "aikakausi",
         "findsByRuler": "auktoriteetti",
         "findsByContext": "konteksti",
-        "findsByMint": "lyöntipaikka"
+        "findsByMint": "lyöntipaikka",
+        "findsByAoristicTime10": "10 vuoden intervallit",
+        "findsByAoristicTime20": "20 vuoden intervallit",
+        "findsByAoristicTime50": "50 vuoden intervallit",
+        "findsByAoristicTime100": "100 vuoden intervallit"
       },
       "findsByWidthXaxis": "Leveys (mm)",
       "findsByLengthXaxis": "Pituus (mm)",
@@ -166,12 +170,12 @@
         }
       },
       "finds": {
-        "label": "Kolikkolöydöt",
-        "facetResultsType": "kolikkolöytöä",
-        "shortDescription": "Irtaimet kolikkolöydöt, jotka on reportoitu Suomessa 2013-2023",
+        "label": "Rahalöydöt",
+        "facetResultsType": "rahalöytöä",
+        "shortDescription": "Irtaimet rahalöydöt, jotka on reportoitu Suomessa 2013-2023",
         "longDescription": "",
         "instancePage": {
-          "label": "Kolikolöytö",
+          "label": "Rahalöytö",
           "description": ""
         },
         "properties": {

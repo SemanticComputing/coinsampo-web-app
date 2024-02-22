@@ -689,22 +689,62 @@ export const findsByContextQuery = `
   ORDER BY DESC(?instanceCount)
 `
 
-export const findsByTimeSpansQuery = `
-  SELECT DISTINCT ?find ?earliestYear ?latestYear
+export const findsByTimeSpansQuery10 = `
+  SELECT DISTINCT ?find ?earliestYear ?latestYear ?interval
   WHERE {
     <FILTER>
     {
       ?find a coin-schema:Coin .
-      ?find findsampo-core:has_creation_time_span ?span .
-      ?span crm:P82a_begin_of_the_begin ?earliestTime .
-      ?span crm:P82b_end_of_the_end ?latestTime .
-      BIND(xsd:integer(YEAR(xsd:dateTime(?earliestTime))) AS ?earliestYear)
-      BIND(xsd:integer(YEAR(xsd:dateTime(?latestTime))) AS ?latestYear)
+      ?find coin-schema:earliest_year ?earliestYear .
+      ?find coin-schema:latest_year ?latestYear .
+      BIND(10 AS ?interval)
     }
   }
   ORDER BY ?earliestYear
-
 `
+
+export const findsByTimeSpansQuery20 = `
+  SELECT DISTINCT ?find ?earliestYear ?latestYear ?interval
+  WHERE {
+    <FILTER>
+    {
+      ?find a coin-schema:Coin .
+      ?find coin-schema:earliest_year ?earliestYear .
+      ?find coin-schema:latest_year ?latestYear .
+      BIND(20 AS ?interval)
+    }
+  }
+  ORDER BY ?earliestYear
+`
+
+export const findsByTimeSpansQuery50 = `
+  SELECT DISTINCT ?find ?earliestYear ?latestYear ?interval
+  WHERE {
+    <FILTER>
+    {
+      ?find a coin-schema:Coin .
+      ?find coin-schema:earliest_year ?earliestYear .
+      ?find coin-schema:latest_year ?latestYear .
+      BIND(50 AS ?interval)
+    }
+  }
+  ORDER BY ?earliestYear
+`
+
+export const findsByTimeSpansQuery100 = `
+  SELECT DISTINCT ?find ?earliestYear ?latestYear ?interval
+  WHERE {
+    <FILTER>
+    {
+      ?find a coin-schema:Coin .
+      ?find coin-schema:earliest_year ?earliestYear .
+      ?find coin-schema:latest_year ?latestYear .
+      BIND(100 AS ?interval)
+    }
+  }
+  ORDER BY ?earliestYear
+`
+
 
 // # https://github.com/uber/deck.gl/blob/master/docs/layers/arc-layer.md
 export const migrationsQuery = `

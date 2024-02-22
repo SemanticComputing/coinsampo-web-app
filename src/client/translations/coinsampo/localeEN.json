@@ -127,7 +127,11 @@
       "findsByPeriod": "period",
       "findsByRuler": "authority",
       "findsByContext": "context",
-      "findsByMint": "mint"
+      "findsByMint": "mint",
+      "findsByAoristicTime10": "10 year intervals",
+      "findsByAoristicTime20": "20 year intervals",
+      "findsByAoristicTime50": "50 year intervals",
+      "findsByAoristicTime100": "100 year intervals"
     },
     "findsByWidthXaxis": "Leveys (mm)",
     "findsByLengthXaxis": "Pituus (mm)",
@@ -168,6 +172,8 @@
       "WFS_MV_Kulttuuriymparisto:Arkeologiset_kohteet_piste": "Register of Archaeological Sites, points (Finnish Heritage Agency)",
       "WFS_MV_KulttuuriymparistoSuojellut:Muinaisjaannokset_alue": "Register of Archaeological Sites, areas (Finnish Heritage Agency)",
       "WFS_MV_KulttuuriymparistoSuojellut:Muinaisjaannokset_piste": "Register of Archaeological Sites, points (Finnish Heritage Agency)",
+      "rajapinta_suojellut:muinaisjaannos_alue": "Register of Archaeological Sites, areas (Finnish Heritage Agency)",
+      "rajapinta_suojellut:muinaisjaannos_piste": "Register of Archaeological Sites, points (Finnish Heritage Agency)",
       "fhaLidar": "Elevation model (Finnish Heritage Agency)",
       "karelianMaps": "Karelian maps, 1:100 000 topographic (SeCo)",
       "senateAtlas": "Senate atlas, 1:21 000 topographic (SeCo)",

@@ -157,16 +157,55 @@
             "tabIcon": "BarChart",
             "facetClass": "finds",
             "dropdownForResultClasses": true,
-            "defaultResultClass": "findsByAoristicTime",
+            "defaultResultClass": "findsByAoristicTime50",
             "resultClasses": {
-                "findsByAoristicTime": {
-                    "sparqlQuery": "findsByTimeSpansQuery",
+                "findsByAoristicTime10": {
+                    "sparqlQuery": "findsByTimeSpansQuery10",
                     "filterTarget": "find",
                     "resultMapper": "mapAoristicChart",
                     "sliceVisibilityThreshold": false,
                     "dropdownForChartTypes": false,
                     "chartTypes": [
 
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartAoristictData"
+                        }
+                    ]
+                },
+                "findsByAoristicTime20": {
+                    "sparqlQuery": "findsByTimeSpansQuery20",
+                    "filterTarget": "find",
+                    "resultMapper": "mapAoristicChart",
+                    "sliceVisibilityThreshold": false,
+                    "dropdownForChartTypes": false,
+                    "chartTypes": [
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartAoristictData"
+                        }
+                    ]
+                },
+                "findsByAoristicTime50": {
+                    "sparqlQuery": "findsByTimeSpansQuery50",
+                    "filterTarget": "find",
+                    "resultMapper": "mapAoristicChart",
+                    "sliceVisibilityThreshold": false,
+                    "dropdownForChartTypes": false,
+                    "chartTypes": [
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartAoristictData"
+                        }
+                    ]
+                },
+                "findsByAoristicTime100": {
+                    "sparqlQuery": "findsByTimeSpansQuery100",
+                    "filterTarget": "find",
+                    "resultMapper": "mapAoristicChart",
+                    "sliceVisibilityThreshold": false,
+                    "dropdownForChartTypes": false,
+                    "chartTypes": [
                         {
                             "id": "bar",
                             "createChartData": "createApexBarChartAoristictData"
