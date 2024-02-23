@@ -44,6 +44,7 @@ export const findPropertiesInstancePage =
   {
     ?id coin-schema:period ?period__id .
     ?period__id skos:prefLabel ?period__prefLabel .
+    FILTER(LANG(?period__prefLabel) = '<LANG>')
     BIND(CONCAT("/periods/page/", REPLACE(STR(?period__id), "^.*\\\\/(.+)", "$1")) AS ?period__dataProviderUrl)
   }
   UNION
@@ -54,7 +55,8 @@ export const findPropertiesInstancePage =
   UNION
   {
     ?id coin-schema:country ?country__id .
-    ?country__id skos:prefLabel ?country__prefLabel
+    ?country__id skos:prefLabel ?country__prefLabel .
+    FILTER(LANG(?country__prefLabel) = '<LANG>')
   }
   UNION
   {
@@ -192,11 +194,13 @@ export const findPropertiesFacetResults = `
   {
     ?id coin-schema:country ?country__id .
     ?country__id skos:prefLabel ?country__prefLabel .
+    FILTER(LANG(?country__prefLabel) = '<LANG>')
   }
   UNION
   {
     ?id coin-schema:period ?period__id .
     ?period__id skos:prefLabel ?period__prefLabel .
+    FILTER(LANG(?period__prefLabel) = '<LANG>')
     BIND(CONCAT("/periods/page/", REPLACE(STR(?period__id), "^.*\\\\/(.+)", "$1")) AS ?period__dataProviderUrl)
   }
   UNION

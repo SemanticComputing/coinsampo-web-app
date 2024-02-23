@@ -536,6 +536,7 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "coin-schema:period/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
             "sortDirection": "desc",
             "pieChartButton": true
         },
@@ -560,6 +561,7 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "coin-schema:country/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
             "sortDirection": "desc",
             "pieChartButton": true
         },
