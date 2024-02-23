@@ -359,21 +359,29 @@
             "label": "Lyöntipaikat",
             "description": "Tämän auktoriteetin kolikkojen lyöntipaikat datassa."
           },
-          "mintCountry": {
+          "country": {
             "label": "Maa",
             "description": ""
           },
-          "material": {
-            "label": "Materiaalit",
+          "bs": {
+            "label": "Biografiasampo",
             "description": ""
           },
-          "type": {
-            "label": "Tyyppi",
+          "wikipedia": {
+            "label": "Wikipedia",
             "description": ""
           },
           "wikidata": {
-            "label": "Wikidata linkki",
+            "label": "Wikidata",
             "description": ""
+          },
+          "descriptionFI": {
+            "label": "Suomenkielinen kuvaus",
+            "description": "Suomenkielinen kuvaus (automaattisesti haettu Wikidatasta)"
+          },
+          "descriptionEN": {
+            "label": "Englanninkielinen kuvaus",
+            "description": "Englanninkielinen kuvaus (automaattisesti haettu Wikidatasta)"
           },
           "image": {
             "label": "Kuva",

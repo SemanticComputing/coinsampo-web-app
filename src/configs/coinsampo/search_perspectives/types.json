@@ -11,6 +11,7 @@
     "facetClass": "coin-schema:Coin_type",
     "frontPageImage": "main_page/thumb.png",
     "searchMode": "faceted-search",
+    "enableDynamicLanguageChange": true,
     "defaultActiveFacets": [
         "prefLabel"
     ],

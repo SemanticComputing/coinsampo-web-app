@@ -10,6 +10,7 @@
     "URITemplate": "<BASE_URI>/authorities/<LOCAL_ID>",
     "facetClass": "coin-schema:Authority",
     "frontPageImage": "main_page/kristiina4.png",
+    "enableDynamicLanguageChange": true,
     "searchMode": "faceted-search",
     "defaultActiveFacets": [
         "prefLabel"
@@ -29,7 +30,7 @@
                 "sortDirection": "asc"
             },
             "instanceConfig": {
-                "propertiesQueryBlock": "authorityPropertiesInstancePage",
+                "propertiesQueryBlock": "authorityPropertiesFacetResults",
                 "instancePageResultClasses": {
                     "instancePageTable": {
                         "tabID": 0,
@@ -96,6 +97,45 @@
             "minWidth": 140
         },
         {
+            "id": "descriptionFI",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 180
+        },
+        {
+            "id": "descriptionEN",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 180,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "wikipedia",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 140,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "bs",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 140,
+            "onlyOnInstancePage": true
+        },
+        {
             "id": "wikidata",
             "valueType": "object",
             "makeLink": true,
@@ -104,24 +144,6 @@
             "numberedList": false,
             "minWidth": 140,
             "onlyOnInstancePage": true
-        },
-        {
-            "id": "description",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 180
-        },
-        {
-            "id": "material",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 180
         },
         {
             "id": "denomination",
@@ -152,6 +174,7 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "^coin-schema:authority/coin-schema:denomination/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
             "sortDirection": "desc",
             "pieChartButton": true
         },
@@ -164,18 +187,7 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "^coin-schema:authority/coin-schema:period/skos:prefLabel",
-            "sortDirection": "desc",
-            "pieChartButton": true
-        },
-        "material": {
-            "containerClass": "ten",
-            "facetType": "list",
-            "filterType": "uriFilter",
-            "predicate": "^coin-schema:authority/coin-schema:material",
-            "searchField": true,
-            "sortButton": true,
-            "sortBy": "instanceCount",
-            "sortByPredicate": "^coin-schema:authority/coin-schema:material/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
             "sortDirection": "desc",
             "pieChartButton": true
         }

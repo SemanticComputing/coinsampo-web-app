@@ -38,6 +38,7 @@ export const findPropertiesInstancePage =
   {
     ?id coin-schema:authority ?authority__id .
     ?authority__id skos:prefLabel ?authority__prefLabel .
+    FILTER(LANG(?authority__prefLabel) = '<LANG>')
     BIND(CONCAT("/authorities/page/", REPLACE(STR(?authority__id), "^.*\\\\/(.+)", "$1")) AS ?authority__dataProviderUrl)
   }
   UNION
@@ -183,6 +184,7 @@ export const findPropertiesFacetResults = `
   {
     ?id coin-schema:authority ?authority__id .
     ?authority__id skos:prefLabel ?authority__prefLabel .
+    FILTER(LANG(?authority__prefLabel) = '<LANG>')
     BIND(CONCAT("/authorities/page/", REPLACE(STR(?authority__id), "^.*\\\\/(.+)", "$1")) AS ?authority__dataProviderUrl)
   }
   UNION

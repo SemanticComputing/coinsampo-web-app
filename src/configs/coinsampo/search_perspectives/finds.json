@@ -510,6 +510,7 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "coin-schema:authority/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
             "sortDirection": "desc",
             "pieChartButton": true
         },

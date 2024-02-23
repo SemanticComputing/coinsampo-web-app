@@ -461,40 +461,28 @@
           "label": "Material",
           "description": "The main material of the coin."
         },
-        "type": {
-          "label": "Type",
+        "bs": {
+          "label": "BiographySampo",
           "description": ""
         },
-        "earliestYear": {
-          "label": "Earliest year",
-          "description": ""
-        },
-        "latestYear": {
-          "label": "Latest year",
-          "description": ""
-        },
-        "note": {
-          "label": "Note",
-          "description": ""
-        },
-        "ascensionNumber": {
-          "label": "Ascension number",
+        "wikipedia": {
+          "label": "Wikipedia",
           "description": ""
         },
         "wikidata": {
-          "label": "Wikidata link",
+          "label": "Wikidata",
           "description": ""
+        },
+        "descriptionFI": {
+          "label": "Finnish description",
+          "description": "Finnish description (automatically from Wikidata)"
+        },
+        "descriptionEN": {
+          "label": "English description",
+          "description": "English description (automatically from Wikidata)"
         },
         "image": {
           "label": "Image",
-          "description": ""
-        },
-        "description": {
-          "label": "Description",
-          "description": ""
-        },
-        "registrationYear": {
-          "label": "Registration year",
           "description": ""
         }
       }
