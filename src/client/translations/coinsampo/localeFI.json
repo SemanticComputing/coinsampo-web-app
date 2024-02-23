@@ -245,6 +245,14 @@
             "label": "Myöhäisin vuosi",
             "description": "Arvioitu myöhäisin mahdollinen lyöntivuosi"
           },
+          "earliestYearFacet": {
+            "label": "Aikaisin vuosi",
+            "description": "Arvioitu aikaisin mahdollinen lyöntivuosi"
+          },
+          "latestYearFacet": {
+            "label": "Myöhäisin vuosi",
+            "description": "Arvioitu myöhäisin mahdollinen lyöntivuosi"
+          },
           "note": {
             "label": "Huomioita",
             "description": ""

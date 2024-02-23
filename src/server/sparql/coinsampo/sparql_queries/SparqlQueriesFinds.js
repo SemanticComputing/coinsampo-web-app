@@ -14,6 +14,7 @@ export const findPropertiesInstancePage =
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
   }
+  UNION
   {
     ?id coin-schema:denomination ?denomination__id .
     ?denomination__id skos:prefLabel ?denomination__prefLabel .
@@ -80,14 +81,19 @@ export const findPropertiesInstancePage =
     ?id coin-schema:number ?number .
     BIND(CONCAT(STR(?year),'-',STR(?number)) AS ?row)
   }
-
   UNION
   {
-    ?id coin-schema:earliest_year ?earliestYear .
+    ?id coin-schema:latest_year ?latestYear__id .
+    BIND(IF(STRLEN(STR(?latestYear__id)) < 4, CONCAT('0',STR(?latestYear__id)), STR(?latestYear__id)) AS ?latestYear__prefLabel)
+    #BIND(substr(concat(str(?latestYear__id),"0000"),1,4) AS ?latestYear__prefLabel)
+    BIND(CONCAT('https://<LANG>.wikipedia.org/wiki/',STR(?latestYear__id)) AS ?latestYear__dataProviderUrl)
   }
   UNION
   {
-    ?id coin-schema:latest_year ?latestYear .
+    ?id coin-schema:earliest_year ?earliestYear__id .
+    #BIND(SUBSTR(CONCAT(STR(?earliestYear__id),"0000"),1,4) AS ?earliestYear__prefLabel)
+    BIND(IF(STRLEN(STR(?earliestYear__id)) < 4, CONCAT('0',STR(?earliestYear__id)), STR(?earliestYear__id)) AS ?earliestYear__prefLabel)
+    BIND(CONCAT('https://<LANG>.wikipedia.org/wiki/',STR(?earliestYear__id)) AS ?earliestYear__dataProviderUrl)
   }
   UNION
   {
@@ -136,6 +142,7 @@ export const findPropertiesInstancePage =
 
 `
 
+// USe for all results
 export const findPropertiesFacetResults = `
   {
     BIND(?id as ?uri__id)
@@ -150,6 +157,7 @@ export const findPropertiesFacetResults = `
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
   }
+  UNION
   {
     ?id coin-schema:denomination ?denomination__id .
     ?denomination__id skos:prefLabel ?denomination__prefLabel .
@@ -206,11 +214,17 @@ export const findPropertiesFacetResults = `
   }
   UNION
   {
-    ?id coin-schema:earliest_year ?earliestYear .
+    ?id coin-schema:latest_year ?latestYear__id .
+    BIND(IF(STRLEN(STR(?latestYear__id)) < 4, CONCAT('0',STR(?latestYear__id)), STR(?latestYear__id)) AS ?latestYear__prefLabel)
+    #BIND(substr(concat(str(?latestYear__id),"0000"),1,4) AS ?latestYear__prefLabel)
+    BIND(CONCAT('https://<LANG>.wikipedia.org/wiki/',STR(?latestYear__id)) AS ?latestYear__dataProviderUrl)
   }
   UNION
   {
-    ?id coin-schema:latest_year ?latestYear .
+    ?id coin-schema:earliest_year ?earliestYear__id .
+    #BIND(SUBSTR(CONCAT(STR(?earliestYear__id),"0000"),1,4) AS ?earliestYear__prefLabel)
+    BIND(IF(STRLEN(STR(?earliestYear__id)) < 4, CONCAT('0',STR(?earliestYear__id)), STR(?earliestYear__id)) AS ?earliestYear__prefLabel)
+    BIND(CONCAT('https://<LANG>.wikipedia.org/wiki/',STR(?earliestYear__id)) AS ?earliestYear__dataProviderUrl)
   }
   UNION
   {
