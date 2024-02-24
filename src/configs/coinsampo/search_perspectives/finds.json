@@ -1,7 +1,7 @@
 {
     "id": "finds",
     "endpoint": {
-        "url": "https://ldf.fi/coinsampo/sparql",
+        "url": "http://localhost:3056/ds",
         "useAuth": true,
         "prefixesFile": "SparqlQueriesPrefixes.js"
     },
@@ -550,6 +550,7 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "coin-schema:mint/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
             "sortDirection": "desc",
             "pieChartButton": true
         },
@@ -616,6 +617,7 @@
             "parentProperty": "skos:broader",
             "sortBy": "instanceCount",
             "sortByPredicate": "coin-schema:context/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
             "sortDirection": "desc",
             "pieChartButton": true
         },

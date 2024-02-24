@@ -375,6 +375,14 @@
             "label": "Wikidata",
             "description": ""
           },
+          "nomisma": {
+            "label": "Nomisma",
+            "description": ""
+          },
+          "numista": {
+            "label": "Numista",
+            "description": ""
+          },
           "descriptionFI": {
             "label": "Suomenkielinen kuvaus",
             "description": "Suomenkielinen kuvaus (automaattisesti haettu Wikidatasta)"

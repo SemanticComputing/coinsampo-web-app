@@ -25,6 +25,7 @@ export const findPropertiesInstancePage =
   {
     ?id coin-schema:mint ?mint__id .
     ?mint__id skos:prefLabel ?mint__prefLabel .
+    FILTER(LANG(?mint__prefLabel) = '<LANG>')
     BIND(CONCAT("/mints/page/", REPLACE(STR(?mint__id), "^.*\\\\/(.+)", "$1")) AS ?mint__dataProviderUrl)
   }
   UNION
@@ -51,6 +52,7 @@ export const findPropertiesInstancePage =
   UNION
   {
     ?id coin-schema:context ?context__id .
+    FILTER(LANG(?context__prefLabel) = '<LANG>')
     ?context__id skos:prefLabel ?context__prefLabel
   }
   UNION
@@ -171,6 +173,7 @@ export const findPropertiesFacetResults = `
   {
     ?id coin-schema:mint ?mint__id .
     ?mint__id skos:prefLabel ?mint__prefLabel .
+    FILTER(LANG(?mint__prefLabel) = '<LANG>')
     BIND(CONCAT("/mints/page/", REPLACE(STR(?mint__id), "^.*\\\\/(.+)", "$1")) AS ?mint__dataProviderUrl)
   }
   UNION
@@ -190,6 +193,7 @@ export const findPropertiesFacetResults = `
   UNION
   {
     ?id coin-schema:context ?context__id .
+    FILTER(LANG(?context__prefLabel) = '<LANG>')
     ?context__id skos:prefLabel ?context__prefLabel .
   }
   UNION

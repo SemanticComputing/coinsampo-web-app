@@ -102,6 +102,18 @@ export const authorityPropertiesFacetResults = `
     }
     UNION
     {
+      ?id coin-schema:nomisma ?nomisma__id .
+      BIND (?nomisma__id AS ?nomisma__prefLabel)
+      BIND (?nomisma__id AS ?nomisma__dataProviderUrl)
+    }
+    UNION
+    {
+      ?id coin-schema:numista_id ?numista__id .
+      BIND (?numista__id AS ?numista__prefLabel)
+      BIND (CONCAT('https://en.numista.com/catalogue/ruler.php?id=',?numista__id) AS ?numista__dataProviderUrl)
+    }
+    UNION
+    {
       ?id coin-schema:biographySampo ?bs__id .
       BIND (?bs__id AS ?bs__prefLabel)
       BIND (CONCAT('https://biografiasampo.fi/henkilo/',?bs__id) AS ?bs__dataProviderUrl)

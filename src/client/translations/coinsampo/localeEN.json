@@ -473,6 +473,14 @@
           "label": "Wikidata",
           "description": ""
         },
+        "nomisma": {
+          "label": "Nomisma",
+          "description": ""
+        },
+        "numista": {
+          "label": "Numista",
+          "description": ""
+        },
         "descriptionFI": {
           "label": "Finnish description",
           "description": "Finnish description (automatically from Wikidata)"

@@ -146,6 +146,26 @@
             "onlyOnInstancePage": true
         },
         {
+            "id": "nomisma",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 140,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "numista",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 140,
+            "onlyOnInstancePage": true
+        },
+        {
             "id": "denomination",
             "valueType": "object",
             "makeLink": true,
