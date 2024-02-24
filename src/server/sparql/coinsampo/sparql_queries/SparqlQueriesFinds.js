@@ -10,7 +10,10 @@ export const findPropertiesInstancePage =
     ?id coin-schema:number ?number .
     BIND(CONCAT(STR(?year),'-',STR(?number)) AS ?row)
 
+
+    ?id skos:prefLabel ?prefLabel__id .
     ?id skos:prefLabel ?prefLabel__prefLabel .
+    FILTER(LANG(?prefLabel__prefLabel) = '<LANG>')
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
   }
@@ -114,12 +117,12 @@ export const findPropertiesInstancePage =
   }
   UNION
   {
-    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:image_description ?imageDescription .
+    ?id coin-schema:has_image/coin-schema:image_description ?imageDescription .
   }
   OPTIONAL
   {
-    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:finna_id ?imageidTemp .
-    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:image_description ?imagedescriptionTemp .
+    ?id coin-schema:has_image/coin-schema:finna_id ?imageidTemp .
+    ?id coin-schema:has_image/coin-schema:image_description ?imagedescriptionTemp .
     BIND(CONCAT('https://finna.fi/Cover/Show?source=Solr&id=', str(?imageidTemp), '&index=0&size=small') AS ?imageurlTemp)
   }
   BIND(COALESCE(?imageidTemp,"https://upload.wikimedia.org/wikipedia/commons/2/25/Icon-round-Question_mark.jpg") as ?image__id)
@@ -160,6 +163,7 @@ export const findPropertiesFacetResults = `
 
     ?id skos:prefLabel ?prefLabel__id .
     BIND(?prefLabel__id AS ?prefLabel__prefLabel)
+    FILTER(LANG(?prefLabel__prefLabel) = '<LANG>')
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
   }
   UNION
@@ -250,8 +254,8 @@ export const findPropertiesFacetResults = `
   }
   OPTIONAL
   {
-    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:finna_id ?imageidTemp .
-    ?id coin-schema:coin_type/coin-schema:has_image/coin-schema:image_description ?imagedescriptionTemp .
+    ?id coin-schema:has_image/coin-schema:finna_id ?imageidTemp .
+    ?id coin-schema:has_image/coin-schema:image_description ?imagedescriptionTemp .
     BIND(CONCAT('https://finna.fi/Cover/Show?source=Solr&id=', str(?imageidTemp), '&index=0&size=small') AS ?imageurlTemp)
   }
   BIND(COALESCE(?imageidTemp,"https://upload.wikimedia.org/wikipedia/commons/2/25/Icon-round-Question_mark.jpg") as ?image__id)

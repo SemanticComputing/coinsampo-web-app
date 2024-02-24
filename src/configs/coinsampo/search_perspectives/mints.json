@@ -30,7 +30,7 @@
                 "sortDirection": "asc"
             },
             "instanceConfig": {
-                "propertiesQueryBlock": "mintsPropertiesInstancePage",
+                "propertiesQueryBlock": "mintsPropertiesFacetResults",
                 "instancePageResultClasses": {
                     "instancePageTable": {
                         "tabID": 0,
@@ -167,11 +167,12 @@
             "containerClass": "ten",
             "facetType": "list",
             "filterType": "uriFilter",
-            "predicate": "^coin-schema:mint/coin-schema:municipality",
+            "predicate": "^coin-schema:mint/coin-schema:municipality/coin-schema:yso",
             "searchField": true,
             "sortButton": true,
             "sortBy": "instanceCount",
-            "sortByPredicate": "^coin-schema:mint/coin-schema:municipality/skos:prefLabel",
+            "sortByPredicate": "^coin-schema:mint/coin-schema:municipality/coin-schema:yso/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
             "sortDirection": "desc",
             "pieChartButton": true
         },
