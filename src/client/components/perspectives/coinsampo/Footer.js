@@ -8,6 +8,7 @@ import heldigLogo from '../../../img/logos/heldig-logo-transparent-black.png'
 import fnmLogo from '../../../img/logos/kansallismuseo-logo.png'
 import fhaLogo from '../../../img/logos/museovirasto-logo.png'
 import wihuriLogo from '../../../img/logos/wihuri-logo.png'
+import euLogo from '../../../img/logos/eu-flag.jpg'
 
 /**
  * A component for creating a footer. The logos are imported inside this component.
@@ -170,6 +171,29 @@ const Footer = props => {
           component='img'
           src={wihuriLogo}
           alt='Wihuri logo'
+          sx={{
+            height: '100%'
+          }}
+        />
+      </Box>
+      <Box
+        component='a'
+        href='https://marie-sklodowska-curie-actions.ec.europa.eu/'
+        target='_blank'
+        rel='noopener noreferrer'
+        sx={theme => ({
+          width: 155,
+          height: 40,
+          [theme.breakpoints.up(props.layoutConfig.reducedHeightBreakpoint)]: {
+            width: 168,
+            height: 45
+          }
+        })}
+      >
+        <Box
+          component='img'
+          src={euLogo}
+          alt='EU logo'
           sx={{
             height: '100%'
           }}
