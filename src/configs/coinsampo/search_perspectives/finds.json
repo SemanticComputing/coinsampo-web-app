@@ -30,7 +30,7 @@
                 "sortDirection": "asc"
             },
             "instanceConfig": {
-                "propertiesQueryBlock": "findPropertiesInstancePage",
+                "propertiesQueryBlock": "findPropertiesFacetResults",
                 "instancePageResultClasses": {
                     "instancePageTable": {
                         "tabID": 0,
@@ -54,7 +54,7 @@
             "facetClass": "finds",
             "resultMapper": "mapPlaces",
             "instanceConfig": {
-                "propertiesQueryBlock": "findPropertiesInstancePage",
+                "propertiesQueryBlock": "findPropertiesFacetResults",
                 "createPopUpContent": "createPopUpContentFindSampo"
             }
         },
