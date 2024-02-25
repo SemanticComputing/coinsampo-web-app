@@ -12,7 +12,7 @@
     },
     "appDescription1": "",
     "appDescription2": "",
-    "selectPerspective": "Valitse hakuperpektiivi:",
+    "selectPerspective": "Rahasampo on kulttuuriperintötietopalvelun prototyyppi, jolla avataan Museovirastolle vuosien 2013 ja 2023 välillä ilmoitetut numismaattiset kansalaislöydöt.",
     "mainPageImageLicence": "Alkuperäinen data: Kansallismuseo, Museovirasto",
     "backendErrorText": "Virhe taustajärjestelmässä. Voit kokeilla päittää sivun selaimen painikkeesta. Jos se ei toimi, taustapalvelin saattaa olla väliakaisesti poissa toimminnasta.",
     "infoHeader": {
@@ -193,6 +193,10 @@
             "description": "Löydön nimike. Muodostettu auktoriteesista, rahayksiköstä, ja paikallisesta tunnisteesta",
             "textFacetInputPlaceholder": "Hae..."
           },
+          "localId": {
+            "label": "ID",
+            "description": ""
+          },
           "image": {
             "label": "Tyypin kuva",
             "description": "Kolikon yleistä tyyppiä kuvaava kuva. Tämä on haettu automaattisesti Finna palvelusta ja eikä siksi välttämättä vastaa juuri tätä kolikkoa, eikä edes tarkkaa tyyppiä."
@@ -214,7 +218,7 @@
             "description": "Kunta josta kolikko on löydetty."
           },
           "denomination": {
-            "label": "Rahayksikkö",
+            "label": "Arvo",
             "description": ""
           },
           "mint": {
@@ -222,7 +226,7 @@
             "description": "Lyöntipaikka tai rahapaja, jossa kolikko on valmistettu. Yleensä kaupungin tarkkuudella."
           },
           "country": {
-            "label": "Maa tai alue",
+            "label": "Maa/alue",
             "description": "Maa tai alue jossa kolikko on löyty"
           },
           "material": {
@@ -230,27 +234,27 @@
             "description": "Kolikon materiaali"
           },
           "authority": {
-            "label": "Auktoriteetti",
+            "label": "Lyöttäjä",
             "description": ""
           },
           "qualifier": {
-            "label": "Tarkenne",
+            "label": "Rahalaji",
             "description": ""
           },
           "earliestYear": {
-            "label": "Aikaisin vuosi",
+            "label": "t.p.q.",
             "description": "Arvioitu aikaisin mahdollinen lyöntivuosi"
           },
           "latestYear": {
-            "label": "Myöhäisin vuosi",
+            "label": "t.a.q.",
             "description": "Arvioitu myöhäisin mahdollinen lyöntivuosi"
           },
           "earliestYearFacet": {
-            "label": "Aikaisin vuosi",
+            "label": "Aikaisin vuosi (t.p.q.)",
             "description": "Arvioitu aikaisin mahdollinen lyöntivuosi"
           },
           "latestYearFacet": {
-            "label": "Myöhäisin vuosi",
+            "label": "Myöhäisin vuosi (t.a.q.)",
             "description": "Arvioitu myöhäisin mahdollinen lyöntivuosi"
           },
           "note": {
@@ -258,7 +262,7 @@
             "description": ""
           },
           "ascensionNumber": {
-            "label": "Kokoelmanumero",
+            "label": "KM numero",
             "description": ""
           },
           "findSampo": {
@@ -268,10 +272,6 @@
           "registrationYear": {
             "label": "Löytövuosi",
             "description": "Vuosi jolloin kollikko on löydetty tai raportoitu."
-          },
-          "row": {
-            "label": "Paikallinen id",
-            "description": "Kolikon paikallinen tunniste tietokannassa"
           }
         }
       },
@@ -319,18 +319,18 @@
             "description": ""
           },
           "authority": {
-            "label": "Auktoriteetit",
+            "label": "Lyöttäjät",
             "description": "Tähän lyöntipaikkaan liittyvät auktoriteetit tässä datassa"
           }
         }
       },
       "authorities": {
-        "label": "Auktoriteetit",
-        "facetResultsType": "auktoriteettiä",
-        "shortDescription": "Authoriteetit (hallitsijat) joiden lyöttämiä kolikkoja on löydöissä",
+        "label": "Lyöttäjät",
+        "facetResultsType": "löyttäjää",
+        "shortDescription": "Datan kolikkojen lyöttäjät (hallitsijat)",
         "longDescription": "",
         "instancePage": {
-          "label": "Auktoriteetti (hallitsija)",
+          "label": "Lyöttäjä",
           "description": ""
         },
         "properties": {
@@ -446,7 +446,7 @@
             "description": ""
           },
           "authority": {
-            "label": "Auktoriteetti",
+            "label": "Lyöttäjä",
             "description": ""
           },
           "earliestYear": {
@@ -499,7 +499,7 @@
             "textFacetInputPlaceholder": ""
           },
           "authority": {
-            "label": "Auktoriteetit",
+            "label": "Lyöttäjät",
             "description": ""
           },
           "period": {
@@ -544,7 +544,7 @@
             "textFacetInputPlaceholder": ""
           },
           "authority": {
-            "label": "Auktoriteetit",
+            "label": "Lyöttäjät",
             "description": ""
           },
           "municipality": {
@@ -585,7 +585,7 @@
             "textFacetInputPlaceholder": ""
           },
           "authority": {
-            "label": "Auktoriteetit",
+            "label": "Lyöttäjät",
             "description": ""
           },
           "period": {
@@ -665,7 +665,7 @@
             "textFacetInputPlaceholder": ""
           },
           "authority": {
-            "label": "Authoriteetit",
+            "label": "Lyöttäjät",
             "description": ""
           },
           "context": {

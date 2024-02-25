@@ -12,7 +12,7 @@
   },
   "appDescription1": "Sampo is a web service for searching and studying place names. The search results can be viewed as a table, on maps, and as statistical distributions. Historical and current background maps are provided.",
   "appDescription2": "Start by choosing source dataset(s) and input a place name on the search field. Alternatively you can search by area.",
-  "selectPerspective": "Select a perspective to search and browse the knowledge graph:",
+  "selectPerspective": "CoinSampo is a prototype cultural heritage service that open data about the numismatic citizen finds reported in Finland in 2013-2023.",
   "mainPageImageLicence": "Images by Frida Ehrnsten, the National Museum of Finland",
   "backendErrorText": "One of the backend services is not available at the moment. Please try again later.",
   "infoHeader": {
@@ -246,6 +246,10 @@
           "description": "A short label describing the object.",
           "textFacetInputPlaceholder": "Search..."
         },
+        "localId": {
+          "label": "ID",
+          "description": ""
+        },
         "image": {
           "label": "Type image",
           "description": "An image illustrating the broad coin type. Automatically pulled from Finna",
@@ -257,30 +261,26 @@
         },
         "context": {
           "label": "Context",
-          "description": "The intellectual content (works) contained in the manuscript."
+          "description": ""
         },
         "period": {
           "label": "Period",
-          "description": "The linguistic versions of the works contained in the manuscript."
+          "description": "."
         },
         "municipality": {
           "label": "Municipality",
-          "description": "The linguistic versions of the works contained in the manuscript."
+          "description": "Municipality where the coin was found in."
         },
         "denomination": {
-          "label": "Denomination",
-          "description": "The linguistic versions of the works contained in the manuscript."
+          "label": "Value",
+          "description": ""
         },
         "mint": {
           "label": "Mint",
-          "description": "The source dataset(s) (Bibale, Bodleian, or SDBM) contributing the information on the manuscript. If two or more source datasets include the same manuscript and this has been manually verified, the information from the source datasets have been merged into one manuscript (table row). Click on the links to view the original record on the source’s website."
-        },
-        "mintLiteral": {
-          "label": "Mint literal",
           "description": ""
         },
         "country": {
-          "label": "Country / Region",
+          "label": "Country/Region",
           "description": ""
         },
         "material": {
@@ -292,23 +292,23 @@
           "description": ""
         },
         "qualifier": {
-          "label": "Qualifier",
+          "label": "Coin type",
           "description": ""
         },
         "earliestYear": {
-          "label": "Earliest year",
+          "label": "t.p.q.",
           "description": ""
         },
         "latestYear": {
-          "label": "Latest year",
+          "label": "t.a.q.",
           "description": ""
         },
         "earliestYearFacet": {
-          "label": "Earliest year",
+          "label": "Earliest year (t.p.q.)",
           "description": ""
         },
         "latestYearFacet": {
-          "label": "Latest year",
+          "label": "Latest year (t.a.q.)",
           "description": ""
         },
         "note": {
@@ -316,7 +316,7 @@
           "description": ""
         },
         "ascensionNumber": {
-          "label": "Ascension number",
+          "label": "Ascension nm",
           "description": ""
         },
         "findSampo": {

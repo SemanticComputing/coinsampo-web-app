@@ -330,50 +330,33 @@
     },
     "properties": [
         {
+            "id": "localId",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 70
+        },
+        {
             "id": "prefLabel",
             "valueType": "object",
             "makeLink": true,
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
-            "minWidth": 140
+            "minWidth": 100,
+            "onlyOnInstancePage": true
         },
         {
             "id": "image",
             "valueType": "image",
-            "previewImageHeight": 160,
+            "previewImageHeight": 100,
             "makeLink": true,
             "externalLink": true,
             "sortValues": false,
             "numberedList": false,
             "hideHeader": false
-        },
-        {
-            "id": "authority",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 130
-        },
-        {
-            "id": "mint",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 180
-        },
-        {
-            "id": "country",
-            "valueType": "object",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 180
         },
         {
             "id": "denomination",
@@ -382,79 +365,16 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 140
+            "minWidth": 80
         },
         {
-            "id": "period",
+            "id": "authority",
             "valueType": "object",
             "makeLink": true,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 130
-        },
-        {
-            "id": "material",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 130
-        },
-        {
-            "id": "municipality",
-            "valueType": "object",
-            "makeLink": true,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 130
-        },
-        {
-            "id": "context",
-            "valueType": "object",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 130
-        },
-        {
-            "id": "qualifier",
-            "valueType": "object",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 130
-        },
-        {
-            "id": "note",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": false,
-            "numberedList": false,
-            "minWidth": 130
-        },
-        {
-            "id": "registrationYear",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 130
-        },
-        {
-            "id": "ascensionNumber",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
-            "sortValues": true,
-            "numberedList": false,
-            "minWidth": 130
+            "minWidth": 90
         },
         {
             "id": "earliestYear",
@@ -463,7 +383,7 @@
             "externalLink": true,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 120
+            "minWidth": 65
         },
         {
             "id": "latestYear",
@@ -472,16 +392,97 @@
             "externalLink": true,
             "sortValues": true,
             "numberedList": false,
+            "minWidth": 65
+        },
+        {
+            "id": "period",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "material",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "qualifier",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "mint",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 110
+        },
+        {
+            "id": "country",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 110
+        },
+        {
+            "id": "municipality",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
             "minWidth": 120
         },
         {
-            "id": "row",
+            "id": "context",
+            "valueType": "object",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 80
+        },
+        {
+            "id": "registrationYear",
             "valueType": "string",
             "makeLink": false,
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 120
+            "minWidth": 100
+        },
+        {
+            "id": "note",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": false,
+            "numberedList": false,
+            "minWidth": 100
+        },
+        {
+            "id": "ascensionNumber",
+            "valueType": "string",
+            "makeLink": false,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 100
         },
         {
             "id": "imageDescription",
@@ -501,19 +502,6 @@
             "facetType": "text",
             "filterType": "textFilter"
         },
-        "authority": {
-            "containerClass": "ten",
-            "facetType": "list",
-            "filterType": "uriFilter",
-            "predicate": "coin-schema:authority",
-            "searchField": true,
-            "sortButton": true,
-            "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:authority/skos:prefLabel",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
-            "sortDirection": "desc",
-            "pieChartButton": true
-        },
         "denomination": {
             "containerClass": "ten",
             "facetType": "hierarchical",
@@ -528,6 +516,19 @@
             "sortDirection": "desc",
             "pieChartButton": true
         },
+        "qualifier": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "coin-schema:qualifier",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "coin-schema:qualifier/skos:prefLabel",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
         "period": {
             "containerClass": "ten",
             "facetType": "list",
@@ -537,6 +538,32 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "coin-schema:period/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "material": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "coin-schema:material",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "coin-schema:material/skos:prefLabel",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "authority": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "coin-schema:authority",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "coin-schema:authority/skos:prefLabel",
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
             "sortDirection": "desc",
             "pieChartButton": true
@@ -567,31 +594,21 @@
             "sortDirection": "desc",
             "pieChartButton": true
         },
-        "material": {
-            "containerClass": "ten",
-            "facetType": "list",
-            "filterType": "uriFilter",
-            "predicate": "coin-schema:material",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
-            "searchField": true,
-            "sortButton": true,
-            "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:material/skos:prefLabel",
-            "sortDirection": "desc",
-            "pieChartButton": true
+        "earliestYearFacet": {
+            "containerClass": "five",
+            "facetType": "integer",
+            "filterType": "integerFilterRange",
+            "predicate": "coin-schema:earliest_year",
+            "sortByPredicate": "coin-schema:earliest_year",
+            "unit": ""
         },
-        "qualifier": {
-            "containerClass": "ten",
-            "facetType": "list",
-            "filterType": "uriFilter",
-            "predicate": "coin-schema:qualifier",
-            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
-            "searchField": true,
-            "sortButton": true,
-            "sortBy": "instanceCount",
-            "sortByPredicate": "coin-schema:qualifier/skos:prefLabel",
-            "sortDirection": "desc",
-            "pieChartButton": true
+        "latestYearFacet": {
+            "containerClass": "five",
+            "facetType": "integer",
+            "filterType": "integerFilterRange",
+            "predicate": "coin-schema:latest_year",
+            "sortByPredicate": "coin-schema:latest_year",
+            "unit": ""
         },
         "municipality": {
             "containerClass": "ten",
@@ -634,27 +651,14 @@
             "pieChartButton": true,
             "literal": true
         },
+        "localId": {
+            "sortByPredicate": "coin-schema:id"
+        },
         "earliestYear": {
             "sortByPredicate": "coin-schema:earliest_year"
         },
         "latestYear": {
             "sortByPredicate": "coin-schema:latest_year"
-        },
-        "earliestYearFacet": {
-            "containerClass": "five",
-            "facetType": "integer",
-            "filterType": "integerFilterRange",
-            "predicate": "coin-schema:earliest_year",
-            "sortByPredicate": "coin-schema:earliest_year",
-            "unit": ""
-        },
-        "latestYearFacet": {
-            "containerClass": "five",
-            "facetType": "integer",
-            "filterType": "integerFilterRange",
-            "predicate": "coin-schema:latest_year",
-            "sortByPredicate": "coin-schema:latest_year",
-            "unit": ""
         }
     }
 }

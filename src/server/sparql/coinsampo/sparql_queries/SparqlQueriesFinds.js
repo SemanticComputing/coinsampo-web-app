@@ -156,9 +156,13 @@ export const findPropertiesFacetResults = `
     BIND(?id as ?uri__id)
     BIND(?id as ?uri__dataProviderUrl)
     BIND(?id as ?uri__prefLabel)
-    ?id coin-schema:registration_year ?year .
-    ?id coin-schema:number ?number .
-    BIND(CONCAT(STR(?year),':',STR(?number)) AS ?row)
+    #?id coin-schema:registration_year ?year .
+    #?id coin-schema:number ?number .
+    #BIND(CONCAT(STR(?year),':',STR(?number)) AS ?row)
+
+    ?id coin-schema:id ?localId__id .
+    BIND(?localId__id AS ?localId__prefLabel)
+    BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?localId__dataProviderUrl)
 
 
     ?id skos:prefLabel ?prefLabel__id .
@@ -251,6 +255,10 @@ export const findPropertiesFacetResults = `
   UNION
   {
     ?id coin-schema:registration_year ?registrationYear .
+  }
+  UNION
+  {
+    ?id coin-schema:has_image/coin-schema:image_description ?imageDescription .
   }
   OPTIONAL
   {
