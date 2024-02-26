@@ -66,22 +66,28 @@
             "hideLogoTextOnMobile": true,
             "showLanguageButton": true,
             "feedbackLink": "https://link.webropolsurveys.com/S/6A90F3FF5616C1B6",
-            "externalInstructions": false,
+            "externalInstructions": true,
             "externalAboutPage": false,
             "reducedHeight": 48,
             "defaultHeight": 64,
             "mobileMenuBreakpoint": 1360,
             "infoDropdown": [
                 {
-                    "id": "about",
-                    "translatedText": "aboutThePortal",
-                    "internalLink": "/about"
+                    "id": "aboutExternal",
+                    "externalLink": true,
+                    "translatedUrl": "aboutExternalUrl",
+                    "translatedText": "aboutExternal"
                 },
                 {
                     "id": "blog",
                     "externalLink": true,
                     "translatedUrl": "blogUrl",
                     "translatedText": "blog"
+                },
+                {
+                    "id": "about",
+                    "translatedText": "aboutThePortal",
+                    "internalLink": "/about"
                 }
             ]
         },
@@ -119,7 +125,7 @@
         "yasguiParams": {
             "contentTypeConstruct": "text/turtle",
             "contentTypeSelect": "application/sparql-results+json",
-            "endpoint": "https://ldf.fi/mmm/sparql",
+            "endpoint": "https://ldf.fi/coinsampo/sparql",
             "requestMethod": "POST",
             "tabTitle": "Exported query"
         }
