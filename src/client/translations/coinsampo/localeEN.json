@@ -240,7 +240,7 @@
         },
         "textSearch": {
           "label": "Text search",
-          "description": "Search text in label",
+          "description": "Search with free text from fields such as Mint, Authority or Material. Use quotation marks to search for terms that contain a space, such as \"Charles IX\". Some terms may be replaced with the wildcard operator, such as \"Christ*\" (Christina, Christian II, Christopher of Bavaria, etc).",
           "textFacetInputPlaceholder": "Search..."
         },
         "prefLabel": {
@@ -253,7 +253,7 @@
           "description": ""
         },
         "image": {
-          "label": "Type image",
+          "label": "Finna search",
           "description": "An image illustrating the broad coin type. Automatically pulled from Finna",
           "textFacetInputPlaceholder": "Search..."
         },
@@ -263,63 +263,63 @@
         },
         "context": {
           "label": "Context",
-          "description": ""
+          "description": "Modern, historical or natural environment context in which the coin was reported as discovered."
         },
         "period": {
           "label": "Period",
-          "description": "."
+          "description": "Period of coin manufacture."
         },
         "municipality": {
           "label": "Municipality",
-          "description": "Municipality where the coin was found in."
+          "description": "The municipality from which the coin was discovered. Not all finds have were reported with more precise findspot information (coordinate location), in which case they are not shown on the map tab."
         },
         "denomination": {
-          "label": "Value",
-          "description": ""
+          "label": "Denomination",
+          "description": "Coin denominations, such as marks, dirhems and kopeks, and their nominal values. This also includes other coin types, such as game money, copies and forgeries, and planchets."
         },
         "mint": {
           "label": "Mint",
-          "description": ""
+          "description": "City or mint in which the coin was struck. This level of precision is not known for all coins, in which case see Country or region."
         },
         "country": {
           "label": "Country/Region",
-          "description": ""
+          "description": "Country or region (including broader political concepts such as regions controlled by dynasties) in which the coin was struck."
         },
         "material": {
           "label": "Material",
-          "description": "The main material of the coin."
+          "description": "Material of manufacture."
         },
         "authority": {
           "label": "Authority",
-          "description": ""
+          "description": "The name of the authority that minted the coin, such as Queen Christina. It two or more authorities or regnal numbers are separated with a slash (e.g., Otto II/III) it is not possible to date the specific coin more precisely. If these are separeted with &, the coin was released jointly by two authorities such as a secular ruler and a bishop."
         },
         "qualifier": {
-          "label": "Coin type",
-          "description": ""
+          "label": "Numismatic type",
+          "description": "Qualifier based on the numismatic type of the coin, such as klippe, wire money, notgeld or standardized qualifiers for Viking Age coins (Long Cross, Otto Adelheid, Sachsenpfennig)."
         },
         "earliestYear": {
           "label": "t.p.q.",
-          "description": ""
+          "description": "Latest possible year of minting."
         },
         "latestYear": {
           "label": "t.a.q.",
-          "description": ""
+          "description": "Earliest possible year of minting."
         },
         "earliestYearFacet": {
           "label": "Earliest year (t.p.q.)",
-          "description": ""
+          "description": "Set the range of dates within which the earliest possible year of minting can fall."
         },
         "latestYearFacet": {
           "label": "Latest year (t.a.q.)",
-          "description": ""
+          "description": "Set the range of dates within which the earliest possible year of minting can fall."
         },
         "note": {
           "label": "Note",
           "description": ""
         },
         "ascensionNumber": {
-          "label": "Ascension nm",
-          "description": ""
+          "label": "Ascension no.",
+          "description": "The ID-value of the coin finds in CoinSampo. Composed of the year of reporting combined with the database record number."
         },
         "findSampo": {
           "label": "FindSampo",
@@ -327,11 +327,7 @@
         },
         "registrationYear": {
           "label": "Registration year",
-          "description": ""
-        },
-        "row": {
-          "label": "Year-Row",
-          "description": ""
+          "description": "The year the coin was reported to the Finnish Heritage Agency."
         }
       }
     },
@@ -396,18 +392,6 @@
         },
         "latestYear": {
           "label": "Latest year",
-          "description": ""
-        },
-        "note": {
-          "label": "Note",
-          "description": ""
-        },
-        "ascensionNumber": {
-          "label": "Ascension number",
-          "description": ""
-        },
-        "registrationYear": {
-          "label": "Registration year",
           "description": ""
         }
       }
@@ -493,7 +477,7 @@
         },
         "image": {
           "label": "Image",
-          "description": ""
+          "description": "Image representing the authority. Source: wikidata."
         }
       }
     },

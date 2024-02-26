@@ -188,7 +188,7 @@
           },
           "textSearch": {
             "label": "Tekstihaku",
-            "description": "Etsi...",
+            "description": "Vapaa tekstihaku hakee sanoja ja merkkejä sarakkeista, kuten Lyöttäjä, Lyöntipaikka tai Materiaali. Hakeaksesi termeillä joissa on välilyöntejä, kuten “Kaarle IX” voit käyttää lainausmerkkejä. Osa hausta on mahdollista korvata jokerimerkillä, kuten “Krist*” (Kristiina, Kristian II, Kristoffer Baijerilainen, jne).",
             "textFacetInputPlaceholder": "Etsi..."
           },
           "prefLabel": {
@@ -198,11 +198,11 @@
           },
           "localId": {
             "label": "ID",
-            "description": ""
+            "description": "Rahan ID-tunnus Rahasammossa. Tunnus koostuu löytövuodesta ja tietokannan järjestysnumerosta."
           },
           "image": {
-            "label": "Tyypin kuva",
-            "description": "Kolikon yleistä tyyppiä kuvaava kuva. Tämä on haettu automaattisesti Finna palvelusta ja eikä siksi välttämättä vastaa juuri tätä kolikkoa, eikä edes tarkkaa tyyppiä."
+            "label": "Finna-haku",
+            "description": "Kolikon yleistä tyyppiä kuvaava kuva. Kuva on ladattu automaattisesti Finna.fi-tietopalvelusta rahan ominaisuuksien perusteella, eikä siksi välttämättä vastaa täysin tätä yksittäistä rahaa."
           },
           "imageDescription": {
             "label": "Kuvan tiedot",
@@ -210,63 +210,63 @@
           },
           "context": {
             "label": "Konteksti",
-            "description": "Löydön konteksti. Irtolöydöillä konteksti on hyvin epämääräinen: esimerkiksi pelto tai metsä."
+            "description": "Nykyinen tai historiallinen kulttuuriympäristö, tai luonnon muodostama alue, mistä raha ilmoitettiin löytyneen."
           },
           "period": {
             "label": "Aikakausi",
-            "description": "Löydön arvioitu aikakausi."
+            "description": "Aikakausi, jolloin raha on valmistettu."
           },
           "municipality": {
             "label": "Löytökunta",
-            "description": "Kunta josta kolikko on löydetty."
+            "description": "Kunnan nimi löydön ilmoituksessa. Kaikille löydöillä ei ole annettu tarkempaa paikkatetoa (löytöpisteen koordinaatteja), jolloin ne eivät näy karttavälilehdessä."
           },
           "denomination": {
-            "label": "Arvo",
-            "description": ""
+            "label": "Rahayksikkö",
+            "description": "Rahan yksikkö tai yleinen tyyppi, kuten markka, dirhemi tai kopeekka, ja näiden käyttämät nimellisarvot. Käsite sisältää myös muita numismaattisia yksiköitä, kuten pelirahat, rahojen kopiot ja jäljitelmät, ja raha-aihiot."
           },
           "mint": {
             "label": "Lyöntipaikka",
-            "description": "Lyöntipaikka tai rahapaja, jossa kolikko on valmistettu. Yleensä kaupungin tarkkuudella."
+            "description": "Rahan lyöntipaikka rahapajan tai kaupungin mukaan. Kaikkien rahojen tarkka lyöntipaikka ei ole tiedossa, tällöin ks. Maa tai alue."
           },
           "country": {
             "label": "Maa/alue",
-            "description": "Maa tai alue jossa kolikko on löyty"
+            "description": "Maa tai alue (mukaan lukien laajemmat poliittiset käsitteet kuten dynastin hallitseman alue) jossa raha on lyöty."
           },
           "material": {
             "label": "Materiaali",
-            "description": "Kolikon materiaali"
+            "description": "Rahan valmistusmateriaali."
           },
           "authority": {
             "label": "Lyöttäjä",
-            "description": ""
+            "description": "Lyöttäjän nimi, kuten kuningatar Kristiina. Jos lyöttäjänä on kaksi tai useampi hallitsijanimeä tai numeroa erotettuna vinoviivalla (kuten Otto II/III), rahayksilöä ei voi ajoittaa tarkemmin. Jos nimet tai numerot on erotettu “&”-merkillä, raha on kahden auktoriteetin kuten hallitsijan ja piispan yhteisesti lyöttämä."
           },
           "qualifier": {
             "label": "Rahalaji",
-            "description": ""
+            "description": "Rahan ominaisuuksiin perustuva tarkenne kuten klippinki, tipparaha, hätäraha tai vakiintuneessa käytössä olevat määritelmät viikinkiaikaisille rahatyypeille (Long Cross, Otto Adelheid, Sachsenpfennig)."
           },
           "earliestYear": {
             "label": "t.p.q.",
-            "description": "Arvioitu aikaisin mahdollinen lyöntivuosi"
+            "description": "Arvioitu aikaisin mahdollinen lyöntivuosi (terminus ante quem)."
           },
           "latestYear": {
             "label": "t.a.q.",
-            "description": "Arvioitu myöhäisin mahdollinen lyöntivuosi"
+            "description": "Arvioitu myöhäisin mahdollinen lyöntivuosi (terminus ante quem)."
           },
           "earliestYearFacet": {
             "label": "Aikaisin vuosi (t.p.q.)",
-            "description": "Arvioitu aikaisin mahdollinen lyöntivuosi"
+            "description": "Aseta vuosiluvut joiden välissä aikaisen lyöntivuosi (terminus post quem) voi olla."
           },
           "latestYearFacet": {
             "label": "Myöhäisin vuosi (t.a.q.)",
-            "description": "Arvioitu myöhäisin mahdollinen lyöntivuosi"
+            "description": "Aseta vuosiluvut joiden välissä myöhäisin (terminus ante quem) lyöntivuosi voi olla."
           },
           "note": {
             "label": "Huomioita",
-            "description": ""
+            "description": "Lisätietoa rahalöydöstä vapaatekstikenttänä."
           },
           "ascensionNumber": {
-            "label": "KM numero",
-            "description": ""
+            "label": "Kokoelmanumero",
+            "description": "Museoviraston (KM) tai Numismaattisten kokoelmien, aikaisemmin Rahakammion  (RK) kokoelmanumero jos raha on lunastettu kansallisiin kokoelmiin."
           },
           "findSampo": {
             "label": "Löytösampo",
@@ -274,7 +274,7 @@
           },
           "registrationYear": {
             "label": "Löytövuosi",
-            "description": "Vuosi jolloin kollikko on löydetty tai raportoitu."
+            "description": "Vuosi jolloin rahalöytö ilmoitettiin Museovirastolle."
           }
         }
       },
@@ -294,7 +294,7 @@
           },
           "denomination": {
             "label": "Rahayksikkö",
-            "description": ""
+            "description": "Rahan yksikkö tai yleinen tyyppi, kuten markka, dirhemi tai kopeekka, ja näiden käyttämät nimellisarvot. Käsite sisältää myös muita numismaattisia yksiköitä, kuten pelirahat, rahojen kopiot ja jäljitelmät, ja raha-aihiot."
           },
           "prefLabel": {
             "label": "Nimike",
@@ -388,15 +388,15 @@
           },
           "descriptionFI": {
             "label": "Suomenkielinen kuvaus",
-            "description": "Suomenkielinen kuvaus (automaattisesti haettu Wikidatasta)"
+            "description": "Lyöttäjän yleinen kuvaus suomeksi, useimmiten liittyen henkilön poliittiseen asemaansa. Lähde: wikidata."
           },
           "descriptionEN": {
             "label": "Englanninkielinen kuvaus",
-            "description": "Englanninkielinen kuvaus (automaattisesti haettu Wikidatasta)"
+            "description": "Lyöttäjän yleinen kuvaus englanniksi, useimmiten liittyen henkilön poliittiseen asemaansa. Lähde: wikidata."
           },
           "image": {
             "label": "Kuva",
-            "description": ""
+            "description": "Lyöttäjää esittävä kuva. Lähde: wikidata."
           }
         }
       },
