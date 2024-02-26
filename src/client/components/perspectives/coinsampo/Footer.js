@@ -8,7 +8,7 @@ import heldigLogo from '../../../img/logos/heldig-logo-transparent-black.png'
 import fnmLogo from '../../../img/logos/kansallismuseo-logo.png'
 import fhaLogo from '../../../img/logos/museovirasto-logo.png'
 import wihuriLogo from '../../../img/logos/wihuri-logo.png'
-import euLogo from '../../../img/logos/eu-flag.jpg'
+import euLogo from '../../../img/logos/eu-c.jpg'
 
 /**
  * A component for creating a footer. The logos are imported inside this component.

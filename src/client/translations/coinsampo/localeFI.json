@@ -24,8 +24,8 @@
         "info": "Info",
         "aboutFindSampo": "Tietoa Löytösammosta",
         "aboutFindSampoUrl": "https://seco.cs.aalto.fi/projects/sualt/fs/about-fi.php",
-        "blog": "Projektin blogi",
-        "blogUrl": "https://blogs.helsinki.fi/sualt-project",
+        "blog": "Projektin sivu",
+        "blogUrl": "https://seco.cs.aalto.fi/projects/diginuma/",
         "guides": "Arkeologisia oppaita"
       },
       "searchBarPlaceHolder": "Hae kaikesta sisällöstä",
@@ -278,7 +278,7 @@
       "mints": {
         "label": "Lyöntipaikat",
         "facetResultsType": "lyöntipaikkaa",
-        "shortDescription": "Datan sisältämät lyöntipaikat",
+        "shortDescription": "Datan rahojen lyöntipaikat",
         "longDescription": "",
         "instancePage": {
           "label": "Lyöntipaikka",
@@ -327,7 +327,7 @@
       "authorities": {
         "label": "Lyöttäjät",
         "facetResultsType": "löyttäjää",
-        "shortDescription": "Datan kolikkojen lyöttäjät (hallitsijat)",
+        "shortDescription": "Datan rahojen lyöttäjät (hallitsijat)",
         "longDescription": "",
         "instancePage": {
           "label": "Lyöttäjä",
