@@ -877,6 +877,7 @@ export const migrationsDialogQuery = `
     ?id coin-schema:mint <FROM_ID> ;
               coin-schema:municipality <TO_ID> ;
               skos:prefLabel ?prefLabel .
+    FILTER (LANG(?prefLabel) = '<LANG>')
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?dataProviderUrl)
   }
 `
