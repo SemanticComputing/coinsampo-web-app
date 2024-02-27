@@ -109,7 +109,7 @@ export const findPropertiesInstancePage =
   }
   UNION
   {
-    ?id coin-schema:ascension_number ?ascensionNumber .
+    ?id coin-schema:ascension_number ?ascensionNumber__id .
   }
   UNION
   {
@@ -250,7 +250,18 @@ export const findPropertiesFacetResults = `
   }
   UNION
   {
-    ?id coin-schema:ascension_number ?ascensionNumber .
+    ?id coin-schema:ascension_number ?ascensionNumber__id .
+    BIND (?ascensionNumber__id AS ?ascensionNumber__prefLabel)
+  }
+  UNION
+  {
+    ?id coin-schema:ascension_number ?ascensionNumber__id .
+    BIND (?ascensionNumber__id AS ?ascensionNumber__prefLabel) .
+    OPTIONAL {
+      FILTER (CONTAINS(?ascensionNumber__prefLabel, 'KM'))
+      BIND("https://www.kyppi.fi/palveluikkuna/kmloyto/read/asp/r_default.aspx" AS ?ascensionNumber__dataProviderUrl)
+      #BIND(IF(CONTAINS(?ascensionNumber__prefLabel, 'KM'), "https://www.kyppi.fi/palveluikkuna/kmloyto/read/asp/r_default.aspx", "") AS ?ascensionNumber__dataProviderUrl)
+    }
   }
   UNION
   {

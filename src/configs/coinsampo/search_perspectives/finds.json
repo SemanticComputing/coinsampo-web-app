@@ -477,9 +477,9 @@
         },
         {
             "id": "ascensionNumber",
-            "valueType": "string",
-            "makeLink": false,
-            "externalLink": false,
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": true,
             "sortValues": true,
             "numberedList": false,
             "minWidth": 140
@@ -659,6 +659,9 @@
         },
         "latestYear": {
             "sortByPredicate": "coin-schema:latest_year"
+        },
+        "ascensionNumber": {
+            "sortByPredicate": "coin-schema:ascension_number"
         }
     }
 }
