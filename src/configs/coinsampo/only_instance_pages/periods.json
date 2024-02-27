@@ -7,6 +7,7 @@
     },
     "sparqlQueriesFile": "SparqlQueriesPeriods.js",
     "baseURI": "http://ldf.fi/coinsampo",
+    "enableDynamicLanguageChange": true,
     "URITemplate": "<BASE_URI>/periods/<LOCAL_ID>",
     "resultClasses": {
       "periods": {

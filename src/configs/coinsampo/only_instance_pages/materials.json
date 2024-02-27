@@ -7,6 +7,7 @@
     },
     "sparqlQueriesFile": "SparqlQueriesMaterials.js",
     "baseURI": "http://ldf.fi/coinsampo",
+    "enableDynamicLanguageChange": true,
     "URITemplate": "<BASE_URI>/materials/<LOCAL_ID>",
     "resultClasses": {
       "materials": {

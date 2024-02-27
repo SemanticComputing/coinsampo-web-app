@@ -51,6 +51,7 @@ export const mintsPropertiesFacetResults = `
 {
     ?id skos:prefLabel ?prefLabel__id .
     BIND (?prefLabel__id as ?prefLabel__prefLabel)
+    FILTER(LANG(?prefLabel__prefLabel) = '<LANG>')
     BIND(CONCAT("/${perspectiveID}/page/", REPLACE(STR(?id), "^.*\\\\/(.+)", "$1")) AS ?prefLabel__dataProviderUrl)
     BIND(?id as ?uri__id)
     BIND(?id as ?uri__dataProviderUrl)
@@ -61,7 +62,7 @@ export const mintsPropertiesFacetResults = `
     ?id ^coin-schema:mint/coin-schema:material ?material__id .
     ?material__id skos:prefLabel ?material__prefLabel .
     FILTER(LANG(?material__prefLabel) = '<LANG>')
-    BIND(CONCAT("materials/page/", REPLACE(STR(?material__id), "^.*\\\\/(.+)", "$1")) AS ?material__dataProviderUrl)
+    BIND(CONCAT("/materials/page/", REPLACE(STR(?material__id), "^.*\\\\/(.+)", "$1")) AS ?material__dataProviderUrl)
     }
     UNION
     {

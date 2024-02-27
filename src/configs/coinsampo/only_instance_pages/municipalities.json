@@ -7,6 +7,7 @@
     },
     "sparqlQueriesFile": "SparqlQueriesMunicipalities.js",
     "baseURI": "http://ldf.fi/coinsampo",
+    "enableDynamicLanguageChange": true,
     "URITemplate": "<BASE_URI>/municipalities/<LOCAL_ID>",
     "resultClasses": {
       "municipalities": {
