@@ -13,7 +13,7 @@
     "enableDynamicLanguageChange": true,
     "searchMode": "faceted-search",
     "defaultActiveFacets": [
-        "prefLabel"
+        "textSearch"
     ],
     "defaultTab": "table",
     "defaultInstancePageTab": "table",
