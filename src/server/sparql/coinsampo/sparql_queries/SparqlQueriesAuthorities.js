@@ -121,13 +121,14 @@ export const authorityPropertiesFacetResults = `
       BIND (?bs__id AS ?bs__prefLabel)
       BIND (CONCAT('https://biografiasampo.fi/henkilo/',?bs__id) AS ?bs__dataProviderUrl)
     }
-    UNION
+    OPTIONAL
     {
-      ?id coin-schema:image ?image__id .
-      BIND("Image from wikimedia" AS ?image__description)
-      BIND("Image from wikimedia" AS ?image__title)
-      BIND(?image__id AS ?image__url)
+      ?id coin-schema:image ?imageurlTemp .
     }
+    BIND(COALESCE(?imageurlTemp,"https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Profile_Silhouette_02.svg/240px-Profile_Silhouette_02.svg.png") as ?image__id)
+    BIND(COALESCE(?imageurlTemp,"https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Profile_Silhouette_02.svg/240px-Profile_Silhouette_02.svg.png") as ?image__url)
+    BIND("Image from Wikimedia commons" as ?image__description)
+    BIND(?image__description AS ?image__title)
 `
 
 export const authoritiesPlacesQuery = `
