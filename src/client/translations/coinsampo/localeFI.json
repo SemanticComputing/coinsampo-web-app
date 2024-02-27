@@ -194,7 +194,7 @@
           },
           "textSearch": {
             "label": "Tekstihaku",
-            "description": "Vapaa tekstihaku hakee sanoja ja merkkejä sarakkeista, kuten Lyöttäjä, Lyöntipaikka tai Materiaali. Hakeaksesi termeillä joissa on välilyöntejä, kuten “Kaarle IX” voit käyttää lainausmerkkejä. Osa hausta on mahdollista korvata jokerimerkillä, kuten “Krist*” (Kristiina, Kristian II, Kristoffer Baijerilainen, jne).",
+            "description": "Vapaa tekstihaku hakee sanoja ja merkkejä kentistä, kuten Nimike, huomia ja luettelointinumero. Hakeaksesi termeillä joissa on välilyöntejä, kuten “Kaarle IX” voit käyttää lainausmerkkejä. Osa hausta on mahdollista korvata jokerimerkillä, kuten “Krist*” (Kristiina, Kristian II, Kristoffer Baijerilainen, jne).",
             "textFacetInputPlaceholder": "Etsi..."
           },
           "prefLabel": {
@@ -347,6 +347,23 @@
             "label": "URI",
             "description": "Resurssin tunniste (Uniform Resource Identifier)"
           },
+          "textSearch": {
+            "label": "Tekstihaku",
+            "description": "Vapaa tekstihaku hakee sanoja ja merkkejä kentistä, kuten Nimike, huomia ja luettelointinumero. Hakeaksesi termeillä joissa on välilyöntejä, kuten “Kaarle IX” voit käyttää lainausmerkkejä. Osa hausta on mahdollista korvata jokerimerkillä, kuten “Krist*” (Kristiina, Kristian II, Kristoffer Baijerilainen, jne).",
+            "textFacetInputPlaceholder": "Etsi..."
+          },
+          "qualifier": {
+            "label": "Rahalajit",
+            "description": "Rahan ominaisuuksiin perustuva tarkenne kuten klippinki, tipparaha, hätäraha tai vakiintuneessa käytössä olevat määritelmät viikinkiaikaisille rahatyypeille (Long Cross, Otto Adelheid, Sachsenpfennig)."
+          },
+          "material": {
+            "label": "Materiaalit",
+            "description": "Rahan valmistusmateriaali."
+          },
+          "country": {
+            "label": "Maat/alueet",
+            "description": "Maa tai alue (mukaan lukien laajemmat poliittiset käsitteet kuten dynastin hallitseman alue) jossa raha on lyöty."
+          },
           "prefLabel": {
             "label": "Nimike",
             "description": "",
@@ -367,10 +384,6 @@
           "mint": {
             "label": "Lyöntipaikat",
             "description": "Tämän auktoriteetin kolikkojen lyöntipaikat datassa."
-          },
-          "country": {
-            "label": "Maa",
-            "description": ""
           },
           "bs": {
             "label": "Biografiasampo",

@@ -194,6 +194,11 @@
         }
     ],
     "facets": {
+        "textSearch": {
+            "containerClass": "one",
+            "facetType": "text",
+            "filterType": "textFilter"
+        },
         "denomination": {
             "containerClass": "ten",
             "facetType": "list",
@@ -203,6 +208,58 @@
             "sortButton": true,
             "sortBy": "instanceCount",
             "sortByPredicate": "^coin-schema:authority/coin-schema:denomination/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "material": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "^coin-schema:authority/coin-schema:material",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "^coin-schema:authority/coin-schema:denomination/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "municipality": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "^coin-schema:authority/coin-schema:municipality/:yso",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "^coin-schema:authority/coin-schema:municipality/:yso/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "country": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "^coin-schema:authority/coin-schema:country",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "^coin-schema:authority/coin-schema:country/skos:prefLabel",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
+        "qualifier": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "^coin-schema:authority/coin-schema:qualifier",
+            "searchField": true,
+            "sortButton": true,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "^coin-schema:authority/coin-schema:qualifier/skos:prefLabel",
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
             "sortDirection": "desc",
             "pieChartButton": true
