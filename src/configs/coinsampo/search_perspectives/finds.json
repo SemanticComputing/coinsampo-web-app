@@ -542,6 +542,22 @@
             "sortDirection": "desc",
             "pieChartButton": true
         },
+        "earliestYearFacet": {
+            "containerClass": "five",
+            "facetType": "integer",
+            "filterType": "integerFilterRange",
+            "predicate": "coin-schema:earliest_year",
+            "sortByPredicate": "coin-schema:earliest_year",
+            "unit": ""
+        },
+        "latestYearFacet": {
+            "containerClass": "five",
+            "facetType": "integer",
+            "filterType": "integerFilterRange",
+            "predicate": "coin-schema:latest_year",
+            "sortByPredicate": "coin-schema:latest_year",
+            "unit": ""
+        },
         "material": {
             "containerClass": "ten",
             "facetType": "list",
@@ -593,22 +609,6 @@
             "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
             "sortDirection": "desc",
             "pieChartButton": true
-        },
-        "earliestYearFacet": {
-            "containerClass": "five",
-            "facetType": "integer",
-            "filterType": "integerFilterRange",
-            "predicate": "coin-schema:earliest_year",
-            "sortByPredicate": "coin-schema:earliest_year",
-            "unit": ""
-        },
-        "latestYearFacet": {
-            "containerClass": "five",
-            "facetType": "integer",
-            "filterType": "integerFilterRange",
-            "predicate": "coin-schema:latest_year",
-            "sortByPredicate": "coin-schema:latest_year",
-            "unit": ""
         },
         "municipality": {
             "containerClass": "ten",
