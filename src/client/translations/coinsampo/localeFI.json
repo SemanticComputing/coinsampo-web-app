@@ -152,11 +152,11 @@
       "coinsMigrations": {
         "legendTitle": "Kaaren väritys",
         "legendFrom": "Lyöntipaikka",
-        "legendTo": "Löytöpaikka",
+        "legendTo": "Löytökunta",
         "from": "Lyöntipaikka:",
-        "to": "Löytöpaikka:",
-        "count": "Manuscript count",
-        "listHeadingSingleInstance": "öytö:",
+        "to": "Löytökunta:",
+        "count": "count",
+        "listHeadingSingleInstance": "Löytö:",
         "listHeadingMultipleInstances": "Löydöt:"
       }
     },
@@ -252,7 +252,7 @@
           },
           "earliestYear": {
             "label": "t.p.q.",
-            "description": "Arvioitu aikaisin mahdollinen lyöntivuosi (terminus ante quem)."
+            "description": "Arvioitu aikaisin mahdollinen lyöntivuosi (terminus post quem)."
           },
           "latestYear": {
             "label": "t.a.q.",
@@ -325,7 +325,7 @@
           },
           "material": {
             "label": "Materiaalit",
-            "description": ""
+            "description": "Materiaalit joista valmistettuja kolikkoja on datassa tällä lyöntipaikalla."
           },
           "authority": {
             "label": "Lyöttäjät",
@@ -379,7 +379,7 @@
           },
           "denomination": {
             "label": "Rahayksiköt",
-            "description": "TÄmän auktoriteetin kolikkojen rahayksiköt datassa."
+            "description": "Tämän auktoriteetin kolikkojen rahayksiköt datassa."
           },
           "mint": {
             "label": "Lyöntipaikat",
@@ -407,7 +407,7 @@
           },
           "descriptionFI": {
             "label": "Suomenkielinen kuvaus",
-            "description": "Lyöttäjän yleinen kuvaus suomeksi, useimmiten liittyen henkilön poliittiseen asemaansa. Lähde: wikidata."
+            "description": "Lyöttäjän yleinen kuvaus, useimmiten liittyen henkilön poliittiseen asemaan. Lähde: wikidata."
           },
           "descriptionEN": {
             "label": "Englanninkielinen kuvaus",

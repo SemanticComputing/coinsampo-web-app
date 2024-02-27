@@ -207,9 +207,9 @@
     "coinsMigrations": {
       "legendTitle": "Arc colouring",
       "legendFrom": "Mint",
-      "legendTo": "Find place",
+      "legendTo": "Find municipality",
       "from": "Mint",
-      "to": "Find place:",
+      "to": "Find municipality:",
       "count": "Coin count",
       "listHeadingSingleInstance": "Find:",
       "listHeadingMultipleInstances": "Finds:"
@@ -255,7 +255,7 @@
         },
         "localId": {
           "label": "ID",
-          "description": ""
+          "description": "The ID-value of the coin finds in CoinSampo. Composed of the year of reporting combined with the database record number."
         },
         "image": {
           "label": "Finna search",
@@ -264,7 +264,7 @@
         },
         "imageDescription": {
           "label": "Image description",
-          "description": ""
+          "description": "The local ID-value of the coin finds in CoinSampo. Composed of the year of reporting combined with the database record number."
         },
         "context": {
           "label": "Context",
@@ -304,27 +304,27 @@
         },
         "earliestYear": {
           "label": "t.p.q.",
-          "description": "Latest possible year of minting."
+          "description": "Terminus post quem, or earliest possible year of minting."
         },
         "latestYear": {
           "label": "t.a.q.",
-          "description": "Earliest possible year of minting."
+          "description": "Terminus ante quem, or earliest possible year of minting."
         },
         "earliestYearFacet": {
           "label": "Earliest year (t.p.q.)",
-          "description": "Set the range of dates within which the earliest possible year of minting can fall."
+          "description": "Set the range of dates within which the earliest possible year (terminus post quem) of minting can fall."
         },
         "latestYearFacet": {
           "label": "Latest year (t.a.q.)",
-          "description": "Set the range of dates within which the earliest possible year of minting can fall."
+          "description": "Set the range of dates within which the latest possible year (terminus ante quem) of minting can fall."
         },
         "note": {
           "label": "Note",
-          "description": ""
+          "description": "Further information about the coin find as a free text field. In Finnish only"
         },
         "ascensionNumber": {
           "label": "Ascension no.",
-          "description": "The ID-value of the coin finds in CoinSampo. Composed of the year of reporting combined with the database record number."
+          "description": "The Finnish Heritage Agency (KM) or Numismatic collections (RK) ascension number if the coin has been claimed into the national collections. More recent (c. 2021 onwards) finds that have been claimed do not yet have a KM number."
         },
         "findSampo": {
           "label": "FindSampo",
@@ -357,7 +357,7 @@
         },
         "authority": {
           "label": "Authority",
-          "description": ""
+          "description": "Authorities associated with the mint in the data."
         },
         "context": {
           "label": "Context",
@@ -365,27 +365,27 @@
         },
         "period": {
           "label": "Period",
-          "description": ""
+          "description": "Periods associated with the mint in the data."
         },
         "municipality": {
-          "label": "Find municipality",
-          "description": ""
+          "label": "Municipality found in",
+          "description": "Municipalities where coins from the mint have been found in the data."
         },
         "denomination": {
           "label": "Denomination",
-          "description": ""
+          "description": "Denominations from this mint in the data."
         },
         "country": {
           "label": "Country",
-          "description": ""
+          "description": "Country associated this mint in the data."
         },
         "material": {
           "label": "Material",
-          "description": "The main material of the coin."
+          "description": "The materials of the coins from this mint in the data"
         },
         "qualifier": {
           "label": "Qualifier",
-          "description": ""
+          "description": "Numismatic types associated with this mint in the data"
         },
         "earliestYear": {
           "label": "Earliest year",
@@ -422,16 +422,12 @@
         },
         "country": {
           "label": "Country/Area",
-          "description": "Country or area."
+          "description": "Country or area associated with the authority in the data."
         },
         "prefLabel": {
           "label": "Label",
-          "description": "A short label describing the object.",
+          "description": "A short label describing this authority.",
           "textFacetInputPlaceholder": "Search..."
-        },
-        "authority": {
-          "label": "Authority",
-          "description": ""
         },
         "context": {
           "label": "Context",
@@ -439,27 +435,19 @@
         },
         "period": {
           "label": "Period",
-          "description": ""
+          "description": "Periods associated with the authority in the data."
         },
         "municipality": {
           "label": "Municipality found in",
-          "description": ""
+          "description": "Municipalities where coins from this authority have been found in the data."
         },
         "denomination": {
           "label": "Denomination",
-          "description": ""
-        },
-        "mint": {
-          "label": "Mint",
-          "description": ""
-        },
-        "mintCountry": {
-          "label": "Country",
-          "description": ""
+          "description": "Denominations of the coins associated with this authority in the data."
         },
         "material": {
           "label": "Material",
-          "description": "The main material of the coin."
+          "description": "The materials of the coins from this authority in the data"
         },
         "bs": {
           "label": "BiographySampo",
