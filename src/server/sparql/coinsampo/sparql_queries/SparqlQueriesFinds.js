@@ -878,9 +878,10 @@ export const creationYearFindPlacesAnimationQuery = `
     <FILTER>
     ?id a coin-schema:Coin .
     ?id skos:prefLabel ?prefLabel .
-    ?id coin-schema:latest_year ?date .
-    BIND(REPLACE(?date,' ','','i') AS ?startDate)
-    FILTER (xsd:integer(?startDate) > 999)
+    ?id coin-schema:earliest_year_literal ?date .
+    BIND(REPLACE(?date,' ','','i') AS ?year)
+    BIND(IF(STRLEN(STR(?year)) < 4, CONCAT('0',STR(?year)), STR(?year)) AS ?startDate)
+    FILTER (xsd:integer(?startDate) > 699)
     FILTER (xsd:integer(?startDate) < 2000)
     BIND(?startDate AS ?endDate )
     ?id coin-schema:find_site_coordinates/wgs84:lat ?lat .
