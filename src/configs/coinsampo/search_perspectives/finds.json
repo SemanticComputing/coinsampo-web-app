@@ -130,6 +130,74 @@
                         }
                     ]
                 },
+                "findsByMaterial": {
+                    "sparqlQuery": "findsByMaterialQuery",
+                    "filterTarget": "find",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "findsByMunicipality": {
+                    "sparqlQuery": "findsByMunicipalityQuery",
+                    "filterTarget": "find",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "findsByProvince": {
+                    "sparqlQuery": "findsByProvinceQuery",
+                    "filterTarget": "find",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
+                "findsByDenomination": {
+                    "sparqlQuery": "findsByDenominationQuery",
+                    "filterTarget": "find",
+                    "resultMapper": "mapPieChart",
+                    "sliceVisibilityThreshold": 0.01,
+                    "dropdownForChartTypes": "true",
+                    "chartTypes": [
+                        {
+                            "id": "pie",
+                            "createChartData": "createApexPieChartData"
+                        },
+                        {
+                            "id": "bar",
+                            "createChartData": "createApexBarChartData"
+                        }
+                    ]
+                },
                 "findsByContext": {
                     "sparqlQuery": "findsByContextQuery",
                     "filterTarget": "find",

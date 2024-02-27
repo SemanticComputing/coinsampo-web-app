@@ -92,6 +92,8 @@
       "bar": "pylväskaavio",
       "resultClasses": {
         "findsByProvince": "maakunta",
+        "findsByMunicipality": "löytökunta",
+        "findsByDenomination": "nimelliosarvo",
         "findsByMaterial": "materiaali",
         "findsByObjectName": "esineen nimi",
         "findsByWidth": "leveys",

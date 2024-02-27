@@ -592,42 +592,6 @@ WHERE {
 GROUP BY ?id ?local_id ?denomination ?material ?mint ?country ?municipality ?coin_type ?ascension_number ?earliest_year ?latest_year ?period ?registration_year ?weight ?n_coordinate ?e_coordinate ?note
 `
 
-export const findsByProvinceQuery = `
- SELECT ?category ?prefLabel
- (COUNT(DISTINCT ?find) as ?instanceCount)
-  WHERE {
-    <FILTER>
-    ?find :found_in_province ?category ;
-        a :Find .
-    ?category skos:prefLabel ?prefLabel .
-  }
-  GROUP BY ?category ?prefLabel
-  ORDER BY DESC(?instanceCount)
-`
-
-export const findsByMaterialQuery = `
- SELECT ?category ?prefLabel
- (COUNT(DISTINCT ?find) as ?instanceCount)
-  WHERE {
-    <FILTER>
-    {
-      ?find :material ?category ;
-        a :Find .
-      ?category skos:prefLabel ?prefLabel .
-    }
-    UNION
-    {
-      ?find a :Find .
-      FILTER NOT EXISTS {
-        ?find :material [] .
-      }
-      BIND("unknown" as ?category)
-      BIND("unknown" as ?prefLabel)
-    }
-  }
-  GROUP BY ?category ?prefLabel
-  ORDER BY DESC(?instanceCount)
-`
 export const findsByObjectNameQuery = `
  SELECT ?category ?prefLabel
  (COUNT(DISTINCT ?find) as ?instanceCount)
@@ -701,6 +665,7 @@ export const findsByPeriodQuery = `
       ?find a coin-schema:Coin .
       ?find coin-schema:period ?category .
       ?category skos:prefLabel ?prefLabel .
+      FILTER(LANG(?prefLabel) = '<LANG>')
     }
     UNION
     {
@@ -724,6 +689,7 @@ export const findsByRulerQuery = `
       ?find a coin-schema:Coin .
       ?find coin-schema:authority ?category .
       ?category skos:prefLabel ?prefLabel .
+      FILTER(LANG(?prefLabel) = '<LANG>')
     }
     UNION
     {
@@ -747,6 +713,7 @@ export const findsByMintQuery = `
       ?find a coin-schema:Coin .
       ?find coin-schema:mint ?category .
       ?category skos:prefLabel ?prefLabel .
+      FILTER(LANG(?prefLabel) = '<LANG>')
     }
     UNION
     {
@@ -770,6 +737,7 @@ export const findsByContextQuery = `
       ?find a coin-schema:Coin .
       ?find coin-schema:context ?category .
       ?category skos:prefLabel ?prefLabel .
+      FILTER(LANG(?prefLabel) = '<LANG>')
     }
     UNION
     {
@@ -784,6 +752,104 @@ export const findsByContextQuery = `
   GROUP BY ?category ?prefLabel
   ORDER BY DESC(?instanceCount)
 `
+
+export const findsByMaterialQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?find) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?find a coin-schema:Coin .
+      ?find coin-schema:material ?category .
+      ?category skos:prefLabel ?prefLabel .
+      FILTER(LANG(?prefLabel) = '<LANG>')
+    }
+    UNION
+    {
+      ?find a coin-schema:Coin .
+      FILTER NOT EXISTS {
+        ?find coin-schema:material [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown " as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const findsByMunicipalityQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?find) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?find a coin-schema:Coin .
+      ?find coin-schema:municipality/:yso ?category .
+      ?category skos:prefLabel ?prefLabel .
+      FILTER(LANG(?prefLabel) = '<LANG>')
+    }
+    UNION
+    {
+      ?find a coin-schema:Coin .
+      FILTER NOT EXISTS {
+        ?find coin-schema:municipality/:yso [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown " as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const findsByProvinceQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?find) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?find a coin-schema:Coin .
+      ?find coin-schema:municipality/:yso/skos:broader ?category .
+      FILTER NOT EXISTS { ?category skos:broader ?any}
+      ?category skos:prefLabel ?prefLabel .
+      FILTER(LANG(?prefLabel) = '<LANG>')
+    }
+    UNION
+    {
+      ?find a coin-schema:Coin .
+      FILTER NOT EXISTS {
+        ?find coin-schema:municipality/:yso [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown " as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
+export const findsByDenominationQuery = `
+  SELECT ?category ?prefLabel (COUNT(DISTINCT ?find) as ?instanceCount)
+  WHERE {
+    <FILTER>
+    {
+      ?find a coin-schema:Coin .
+      ?find coin-schema:denomination ?category .
+      ?category skos:prefLabel ?prefLabel .
+      FILTER(LANG(?prefLabel) = '<LANG>')
+    }
+    UNION
+    {
+      ?find a coin-schema:Coin .
+      FILTER NOT EXISTS {
+        ?find coin-schema:denomination [] .
+      }
+      BIND("Unknown" as ?category)
+      BIND("Unknown " as ?prefLabel)
+    }
+  }
+  GROUP BY ?category ?prefLabel
+  ORDER BY DESC(?instanceCount)
+`
+
 
 export const findsByTimeSpansQuery10 = `
   SELECT DISTINCT ?find ?earliestYear ?latestYear ?interval
