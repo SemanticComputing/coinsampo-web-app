@@ -260,7 +260,7 @@ export const findPropertiesFacetResults = `
     OPTIONAL {
       FILTER (CONTAINS(?ascensionNumber__prefLabel, 'KM'))
       BIND("https://www.kyppi.fi/palveluikkuna/kmloyto/read/asp/r_default.aspx" AS ?ascensionNumber__dataProviderUrl)
-      #BIND(IF(CONTAINS(?ascensionNumber__prefLabel, 'KM'), "https://www.kyppi.fi/palveluikkuna/kmloyto/read/asp/r_default.aspx", "") AS ?ascensionNumber__dataProviderUrl)
+      #BIND(IF(CONTAINS(?ascensionNumber__prefLabel, 'KM'), "https://www.kyppi.fi/palveluikkuna/kmloyto/", "") AS ?ascensionNumber__dataProviderUrl)
     }
   }
   UNION
@@ -516,31 +516,80 @@ export const knowledgeGraphMetadataQuery = `
 `
 
 export const findsCSVQuery = `
-  SELECT DISTINCT ?id ?authority ?denomination ?material ?mint ?find_municipality
-  WHERE {
+
+SELECT DISTINCT ?id ?local_id ?denomination ?material (GROUP_CONCAT(?authorityTemp;separator=" & ") AS ?authority) ?mint ?country ?municipality ?coin_type ?ascension_number ?earliest_year ?latest_year ?period ?registration_year ?weight ?n_coordinate ?e_coordinate ?note
+WHERE {
   <FILTER>
-    ?id a coin-schema:Coin .
-    ?id skos:prefLabel ?prefLabel .
-    OPTIONAL {
-      ?id coin-schema:material/skos:prefLabel ?material .
-    }
-    OPTIONAL {
-      ?id coin-schema:denomination/skos:prefLabel ?denomination .
-    }
-    OPTIONAL {
-      ?id coin-schema:authority/skos:prefLabel ?authority .
-    }
-    OPTIONAL {
-      ?id coin-schema:mint/skos:prefLabel ?mint .
-    }
-    OPTIONAL {
-      ?id coin-schema:municipality/skos:prefLabel ?find_municipality .
-    }
-    OPTIONAL {
-      ?id :material/skos:prefLabel ?material_label .
-    }
+  ?id a coin-schema:Coin .
+  OPTIONAL {
+    ?id coin-schema:material/skos:prefLabel ?material .
+    FILTER(LANG(?material) = 'fi')
   }
-  ORDER BY ASC(?id)
+  OPTIONAL {
+    ?id coin-schema:denomination/skos:prefLabel ?denomination .
+    FILTER(LANG(?denomination) = 'fi')
+  }
+  OPTIONAL {
+    ?id coin-schema:authority/skos:prefLabel ?authorityTemp .
+    FILTER(LANG(?authorityTemp) = 'fi')
+  }
+  OPTIONAL {
+    ?id coin-schema:mint/skos:prefLabel ?mint .
+    FILTER(LANG(?mint) = 'fi')
+  }
+  OPTIONAL {
+    ?id coin-schema:municipality/coin-schema:yso/skos:prefLabel ?municipality .
+    FILTER(LANG(?municipality) = 'fi')
+  }
+  OPTIONAL {
+    ?id :qualifier/skos:prefLabel ?coin_type .
+    FILTER(LANG(?coin_type) = 'fi')
+  }
+  OPTIONAL {
+    ?id :country/skos:prefLabel ?country .
+    FILTER(LANG(?country) = 'fi')
+  }
+  OPTIONAL {
+    ?id :country/skos:prefLabel ?country .
+    FILTER(LANG(?country) = 'fi')
+  }
+  OPTIONAL {
+    ?id :context/skos:prefLabel ?context .
+    FILTER(LANG(?context) = 'fi')
+  }
+  OPTIONAL {
+    ?id :period/skos:prefLabel ?period .
+    FILTER(LANG(?period) = 'fi')
+  }
+  OPTIONAL {
+    ?id :registration_year ?registration_year .
+  }
+  OPTIONAL {
+    ?id :earliest_year ?earliest_year .
+  }
+  OPTIONAL {
+    ?id :latest_year ?latest_year .
+  }
+  OPTIONAL {
+    ?id :id ?local_id .
+  }
+  OPTIONAL {
+    ?id :note ?note .
+  }
+  OPTIONAL {
+    ?id :ascension_number ?ascension_number .
+  }
+  OPTIONAL {
+    ?id :weight ?weight .
+  }
+  OPTIONAL {
+    ?id :n_coordinate ?n_coordinate .
+  }
+  OPTIONAL {
+    ?id :e_coordinate ?e_coordinate .
+  }
+}
+GROUP BY ?id ?local_id ?denomination ?material ?mint ?country ?municipality ?coin_type ?ascension_number ?earliest_year ?latest_year ?period ?registration_year ?weight ?n_coordinate ?e_coordinate ?note
 `
 
 export const findsByProvinceQuery = `
