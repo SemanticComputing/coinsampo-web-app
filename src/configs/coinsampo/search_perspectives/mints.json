@@ -54,7 +54,7 @@
             "facetClass": "mints",
             "resultMapper": "mapPlaces",
             "instanceConfig": {
-                "propertiesQueryBlock": "mintsPropertiesInstancePage",
+                "propertiesQueryBlock": "mintPropertiesInstancePage",
                 "createPopUpContent": "createPopUpContentFindSampo"
             }
         },
