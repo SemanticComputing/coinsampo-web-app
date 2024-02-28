@@ -25,7 +25,7 @@
                 "tabPath": "table",
                 "tabIcon": "CalendarViewDay",
                 "propertiesQueryBlock": "mintsPropertiesFacetResults",
-                "pagesize": 20,
+                "pagesize": 10,
                 "sortBy": null,
                 "sortDirection": "asc"
             },
