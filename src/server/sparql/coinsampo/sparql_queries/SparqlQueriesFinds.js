@@ -988,15 +988,8 @@ export const findPlacesAnimationQuery = `
     <FILTER>
     ?id a coin-schema:Coin .
     ?id skos:prefLabel ?prefLabel .
+    FILTER (LANG(?prefLabel) = '<LANG>')
     ?id coin-schema:registration_year ?startDate .
-    #BIND(
-    #  IF(?year='2013', "2013-01-01",
-    #  IF(?year='2014', "2013-01-02",
-    #  IF(?year='2015', "2013-01-03",
-    #  IF(?year='2016', "2013-01-04",
-    #  IF(?year='2017', "2013-01-05",
-    #  "2013-01-06")))))
-    #  AS ?startDate)
     BIND(?startDate AS ?endDate )
     ?id coin-schema:find_site_coordinates/wgs84:lat ?lat .
     ?id coin-schema:find_site_coordinates/wgs84:long ?long .
@@ -1010,12 +1003,15 @@ export const creationYearFindPlacesAnimationQuery = `
     <FILTER>
     ?id a coin-schema:Coin .
     ?id skos:prefLabel ?prefLabel .
+    FILTER (LANG(?prefLabel) = '<LANG>')
     ?id coin-schema:earliest_year_literal ?date .
+    ?id coin-schema:latest_year_literal ?dateEnd .
     BIND(REPLACE(?date,' ','','i') AS ?year)
+    BIND(REPLACE(?dateEnd,' ','','i') AS ?yearEnd)
+    BIND(IF(STRLEN(STR(?yearEnd)) < 4, CONCAT('0',STR(?yearEnd)), STR(?yearEnd)) AS ?endDate)
     BIND(IF(STRLEN(STR(?year)) < 4, CONCAT('0',STR(?year)), STR(?year)) AS ?startDate)
     FILTER (xsd:integer(?startDate) > 699)
     FILTER (xsd:integer(?startDate) < 2000)
-    BIND(?startDate AS ?endDate )
     ?id coin-schema:find_site_coordinates/wgs84:lat ?lat .
     ?id coin-schema:find_site_coordinates/wgs84:long ?long .
   }
