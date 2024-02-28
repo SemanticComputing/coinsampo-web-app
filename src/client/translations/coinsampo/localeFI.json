@@ -327,6 +327,10 @@
             "label": "Materiaalit",
             "description": "Materiaalit joista valmistettuja kolikkoja on datassa tällä lyöntipaikalla."
           },
+          "find": {
+            "label": "Rahalöydöt",
+            "description": "Tämän lyöntipaikan rahoja."
+          },
           "authority": {
             "label": "Lyöttäjät",
             "description": "Tähän lyöntipaikkaan liittyvät auktoriteetit tässä datassa"
@@ -359,6 +363,10 @@
           "material": {
             "label": "Materiaalit",
             "description": "Rahan valmistusmateriaali."
+          },
+          "find": {
+            "label": "Rahalöydöt",
+            "description": "Tämän lyöttäjän rahoja."
           },
           "country": {
             "label": "Maat/alueet",

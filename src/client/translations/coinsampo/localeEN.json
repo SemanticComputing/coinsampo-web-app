@@ -367,6 +367,10 @@
           "label": "Period",
           "description": "Periods associated with the mint in the data."
         },
+        "find": {
+          "label": "Finds",
+          "description": "Coin finds minted in this place."
+        },
         "municipality": {
           "label": "Municipality found in",
           "description": "Municipalities where coins from the mint have been found in the data."
@@ -420,6 +424,10 @@
           "label": "Numismatic type",
           "description": "Qualifier based on the numismatic type of the coin, such as klippe, wire money, notgeld or standardized qualifiers for Viking Age coins (Long Cross, Otto Adelheid, Sachsenpfennig)."
         },
+        "find": {
+          "label": "Finds",
+          "description": "Coin finds associated with this authority."
+        },
         "country": {
           "label": "Country/Area",
           "description": "Country or area associated with the authority in the data."
@@ -443,7 +451,7 @@
         },
         "denomination": {
           "label": "Denomination",
-          "description": "Denominations of the coins associated with this authority in the data."
+          "description": "Denominations issued by the authority in the data, such as marks, disherms or kopeks. This also includes other coin types, such as game money, copies and forgeries, and planchets."
         },
         "material": {
           "label": "Material",

@@ -30,7 +30,7 @@
                 "sortDirection": "asc"
             },
             "instanceConfig": {
-                "propertiesQueryBlock": "authorityPropertiesFacetResults",
+                "propertiesQueryBlock": "authorityPropertiesInstancePage",
                 "instancePageResultClasses": {
                     "instancePageTable": {
                         "tabID": 0,
@@ -112,8 +112,7 @@
             "externalLink": false,
             "sortValues": false,
             "numberedList": false,
-            "minWidth": 180,
-            "onlyOnInstancePage": true
+            "minWidth": 180
         },
         {
             "id": "wikipedia",
@@ -172,7 +171,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 130
+            "minWidth": 130,
+            "onlyOnInstancePage": true
         },
         {
             "id": "period",
@@ -181,7 +181,8 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 130
+            "minWidth": 130,
+            "onlyOnInstancePage": true
         },
         {
             "id": "material",
@@ -190,7 +191,18 @@
             "externalLink": false,
             "sortValues": true,
             "numberedList": false,
-            "minWidth": 130
+            "minWidth": 130,
+            "onlyOnInstancePage": true
+        },
+        {
+            "id": "find",
+            "valueType": "object",
+            "makeLink": true,
+            "externalLink": false,
+            "sortValues": true,
+            "numberedList": false,
+            "minWidth": 130,
+            "onlyOnInstancePage": true
         }
     ],
     "facets": {
