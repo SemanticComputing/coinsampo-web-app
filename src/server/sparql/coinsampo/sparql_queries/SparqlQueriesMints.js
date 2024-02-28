@@ -70,6 +70,13 @@ export const mintsPropertiesFacetResults = `
     ?period__id skos:prefLabel ?period__prefLabel .
     FILTER(LANG(?period__prefLabel) = '<LANG>')
     }
+    UNION
+    {
+      ?id ^coin-schema:mint/coin-schema:authority ?authority__id .
+      ?authority__id skos:prefLabel ?authority__prefLabel .
+      FILTER(LANG(?authority__prefLabel) = '<LANG>')
+      BIND(CONCAT("/authorities/page/", REPLACE(STR(?authority__id), "^.*\\\\/(.+)", "$1")) AS ?authority__dataProviderUrl)
+    }
 `
 
 export const mintsPlacesQuery = `
