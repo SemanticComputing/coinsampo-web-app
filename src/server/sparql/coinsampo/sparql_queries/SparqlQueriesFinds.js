@@ -286,6 +286,10 @@ export const findPropertiesFacetResults = `
     FILTER(LANG(?materialTemp) = 'fi')
   }
   OPTIONAL {
+    ?id coin-schema:qualifier/skos:prefLabel ?qualifierTemp .
+    FILTER(LANG(?qualifierTemp) = 'fi')
+  }
+  OPTIONAL {
     ?id coin-schema:authority/skos:prefLabel ?authorityTemp .
     FILTER(LANG(?authorityTemp) = 'fi')
   }
@@ -295,9 +299,10 @@ export const findPropertiesFacetResults = `
   }
   BIND(COALESCE(?authorityTemp,"") as ?authorityLabel)
   BIND(COALESCE(?denominationTemp,"") as ?denominationLabel)
-  BIND(CONCAT(?authorityLabel, ' ', ?denominationLabel) AS ?searchTermTemp)
+  BIND(COALESCE(?qualifierTemp,"") as ?qualifierLabel)
+  BIND(CONCAT(?authorityLabel, ' ', ?denominationLabel, ' ', ?qualifierLabel) AS ?searchTermTemp)
   BIND(REPLACE(?searchTermTemp, " ","+","i") AS ?searchTerm)
-  BIND(CONCAT("https://finna.fi/Search/Results?lookfor=", ?searchTerm, "&type=AllFields") AS ?image__finnasearch)
+  BIND(CONCAT('https://finna.fi/Search/Results?limit=0&lookfor=', ?searchTerm, '&type=AllFields&filter%5B%5D=~format_ext_str_mv%3A\"0%2FPhysicalObject%2F\"') AS ?image__finnasearch)
 
 `
 
