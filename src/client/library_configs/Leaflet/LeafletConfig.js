@@ -253,6 +253,12 @@ export const createPopUpContentFindSampo = ({ data }) => {
       value: data.municipality.prefLabel
     }))
   }
+  if (has(data, 'localId')) {
+    container.appendChild(createPopUpElement({
+      label: intl.get('perspectives.finds.properties.localId.label'),
+      value: data.localId.prefLabel
+    }))
+  }
   return container
 }
 

@@ -69,6 +69,7 @@ export const mintsPropertiesFacetResults = `
     ?id ^coin-schema:mint/coin-schema:period ?period__id .
     ?period__id skos:prefLabel ?period__prefLabel .
     FILTER(LANG(?period__prefLabel) = '<LANG>')
+    BIND(CONCAT("/periods/page/", REPLACE(STR(?period__id), "^.*\\\\/(.+)", "$1")) AS ?period__dataProviderUrl)
     }
     UNION
     {
