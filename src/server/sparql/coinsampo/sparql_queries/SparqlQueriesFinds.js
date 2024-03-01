@@ -582,12 +582,12 @@ WHERE {
   OPTIONAL {
     ?id :weight ?weight .
   }
-  OPTIONAL {
-    ?id :n_coordinate ?n_coordinate .
-  }
-  OPTIONAL {
-    ?id :e_coordinate ?e_coordinate .
-  }
+  #OPTIONAL {
+  #  ?id :n_coordinate ?n_coordinate .
+  #}
+  #OPTIONAL {
+  #  ?id :e_coordinate ?e_coordinate .
+  #}
 }
 GROUP BY ?id ?local_id ?denomination ?material ?mint ?country ?municipality ?coin_type ?ascension_number ?earliest_year ?latest_year ?period ?registration_year ?weight ?n_coordinate ?e_coordinate ?note
 `
