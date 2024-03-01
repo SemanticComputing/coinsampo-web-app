@@ -37,6 +37,19 @@
                         "component": "InstancePageTable",
                         "tabPath": "table",
                         "tabIcon": "CalendarViewDay"
+                    },
+                    "findSpotMap": {
+                        "tabID": 1,
+                        "tabPath": "map",
+                        "tabIcon": "LocationOn",
+                        "component": "LeafletMap",
+                        "pageType": "instancePage",
+                        "mapMode": "marker",
+                        "showInstanceCountInClusters": false,
+                        "sparqlQuery": "findInstancePageMapQuery",
+                        "instanceConfig": {
+                            "createPopUpContent": "createPopUpContentFindSampo"
+                        }
                     }
                 }
             }           
@@ -366,6 +379,13 @@
                 27.314050
             ],
             "zoom": 4
+        },
+        "findSpotMap": {
+            "center": [
+                64.184809,
+                27.314050
+            ],
+            "zoom": 5
         },
         "mintsPlacesHeatmap": {
             "center": [

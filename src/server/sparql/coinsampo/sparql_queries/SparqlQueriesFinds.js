@@ -251,11 +251,6 @@ export const findPropertiesFacetResults = `
   UNION
   {
     ?id coin-schema:ascension_number ?ascensionNumber__id .
-    BIND (?ascensionNumber__id AS ?ascensionNumber__prefLabel)
-  }
-  UNION
-  {
-    ?id coin-schema:ascension_number ?ascensionNumber__id .
     BIND (?ascensionNumber__id AS ?ascensionNumber__prefLabel) .
     OPTIONAL {
       FILTER (CONTAINS(?ascensionNumber__prefLabel, 'KM'))
@@ -362,7 +357,7 @@ export const findInstancePageMapQuery = `
     ?id :find_site_coordinates/wgs84:lat ?lat ;
         :find_site_coordinates/wgs84:long ?long .
     BIND("red" AS ?markerColor)
-    ${findPropertiesInstancePage}
+    ${findPropertiesFacetResults}
   }
 `
 
