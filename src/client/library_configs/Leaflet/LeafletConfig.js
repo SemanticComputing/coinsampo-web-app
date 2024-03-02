@@ -218,6 +218,12 @@ export const createPopUpContentFindSampo = ({ data }) => {
   headingLink.addEventListener('click', () => history.push(data.prefLabel.dataProviderUrl))
   heading.appendChild(headingLink)
   container.appendChild(heading)
+  if (has(data, 'point')) {
+    container.appendChild(createPopUpElement({
+      label: intl.get('perspectives.finds.properties.placeAccuracy.label'),
+      value: data.point
+    }))
+  }
   if (has(data, 'objectType')) {
     container.appendChild(createPopUpElement({
       label: intl.get('perspectives.finds.properties.objectType.label'),

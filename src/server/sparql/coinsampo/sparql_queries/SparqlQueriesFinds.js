@@ -298,14 +298,14 @@ export const findPropertiesFacetResults = `
   BIND(CONCAT(?authorityLabel, ' ', ?denominationLabel, ' ', ?qualifierLabel) AS ?searchTermTemp)
   BIND(REPLACE(?searchTermTemp, " ","+","i") AS ?searchTerm)
   BIND(CONCAT('https://finna.fi/Search/Results?limit=0&lookfor=', ?searchTerm, '&type=AllFields&filter%5B%5D=~format_ext_str_mv%3A\"0%2FPhysicalObject%2F\"') AS ?image__finnasearch)
-  #OPTIONAL {
-  #  ?id coin-schema:find_site_coordinates/wgs84:lat ?latPoint .
-  #  ?id coin-schema:find_site_coordinates/wgs84:long ?longTPoint .
-  #  BIND(SUBSTR(?latPoint, 4, 1) AS ?lat)
-  #  BIND(SUBSTR(?longPoint, 4, 1) AS ?long)
-  #  BIND(CONCAT('N ', ?lat, ' E ', ?long) AS ?pointTextTemp)
-  #}
-  #BIND(COALESCE(?pointTextTemp, "Tarkkaa sijaintia ei saatavilla") AS ?point)
+  OPTIONAL {
+    ?id coin-schema:find_site_coordinates/wgs84:lat ?latPoint .
+    ?id coin-schema:find_site_coordinates/wgs84:long ?longTPoint .
+    #BIND(SUBSTR(?latPoint, 4, 1) AS ?lat)
+    #BIND(SUBSTR(?longPoint, 4, 1) AS ?long)
+    BIND("Löytöpaikan koordinaatti löytäjän ilmoituksen mukaan." AS ?pointTextTemp)
+  }
+  BIND(COALESCE(?pointTextTemp, "Löytöpaikka laskettu löytökunnan perusteella (epätarkka).") AS ?point)
 `
 
 export const findsPlacesQuery = `
