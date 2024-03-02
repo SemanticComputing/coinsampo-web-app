@@ -739,6 +739,20 @@
             "pieChartButton": true,
             "literal": true
         },
+        "placeAccuracy": {
+            "containerClass": "ten",
+            "facetType": "list",
+            "filterType": "uriFilter",
+            "predicate": "coin-schema:find_site_coordinates/rdf:type",
+            "facetLabelPredicate": "rdfs:label",
+            "searchField": false,
+            "sortButton": false,
+            "sortBy": "instanceCount",
+            "sortByPredicate": "coin-schema:find_site_coordinates/rdf:type/rdfs:label",
+            "facetLabelFilter": "FILTER(LANG(?prefLabel_) = '<LANG>')",
+            "sortDirection": "desc",
+            "pieChartButton": true
+        },
         "localId": {
             "sortByPredicate": "coin-schema:id"
         },

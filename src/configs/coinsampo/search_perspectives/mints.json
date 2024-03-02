@@ -52,6 +52,7 @@
             "sparqlQuery": "mintsPlacesQuery",
             "filterTarget": "id",
             "facetClass": "mints",
+            "mapMode": "marker",
             "resultMapper": "mapPlaces",
             "instanceConfig": {
                 "propertiesQueryBlock": "mintPropertiesInstancePage",

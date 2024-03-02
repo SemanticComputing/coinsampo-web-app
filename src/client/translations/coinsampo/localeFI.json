@@ -204,7 +204,11 @@
           },
           "localId": {
             "label": "ID",
-            "description": "Rahan ID-tunnus Rahasammossa. Tunnus koostuu löytövuodesta ja tietokannan järjestysnumerosta."
+            "description": "Rahan paikallinen ID-tunnus Rahasammossa. Tunnus koostuu löytövuodesta ja tietokannan järjestysnumerosta."
+          },
+          "placeAccuracy": {
+            "label": "Paikkatiedon tarkkuus",
+            "description": "Rahojen paikkatiedon tarkkuus vaihtelee. Osakke rahoista ei ole ilmoitettu löytöpaikkojen koordinaattia, ja joskus se on epämääräinen. Uudemmissa löydöissä tarkka löytöpaikka ei välttämättä ole vielä saatavilla. Useimmille löydöille voidaan osoittaa jonkinlainen koordinaatti kartalla löytökunnan perusteella."
           },
           "image": {
             "label": "Finna-haku",

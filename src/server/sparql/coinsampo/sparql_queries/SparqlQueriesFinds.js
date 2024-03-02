@@ -298,17 +298,37 @@ export const findPropertiesFacetResults = `
   BIND(CONCAT(?authorityLabel, ' ', ?denominationLabel, ' ', ?qualifierLabel) AS ?searchTermTemp)
   BIND(REPLACE(?searchTermTemp, " ","+","i") AS ?searchTerm)
   BIND(CONCAT('https://finna.fi/Search/Results?limit=0&lookfor=', ?searchTerm, '&type=AllFields&filter%5B%5D=~format_ext_str_mv%3A\"0%2FPhysicalObject%2F\"') AS ?image__finnasearch)
-
+  #OPTIONAL {
+  #  ?id coin-schema:find_site_coordinates/wgs84:lat ?latPoint .
+  #  ?id coin-schema:find_site_coordinates/wgs84:long ?longTPoint .
+  #  BIND(SUBSTR(?latPoint, 4, 1) AS ?lat)
+  #  BIND(SUBSTR(?longPoint, 4, 1) AS ?long)
+  #  BIND(CONCAT('N ', ?lat, ' E ', ?long) AS ?pointTextTemp)
+  #}
+  #BIND(COALESCE(?pointTextTemp, "Tarkkaa sijaintia ei saatavilla") AS ?point)
 `
 
 export const findsPlacesQuery = `
-  SELECT DISTINCT ?id ?lat ?long
+  SELECT DISTINCT ?id ?lat ?long ?markerColor
   (1 as ?instanceCount) # for heatmap
   WHERE {
     <FILTER>
     ?id a coin-schema:Coin .
-    ?id coin-schema:find_site_coordinates/wgs84:lat ?lat ;
-        coin-schema:find_site_coordinates/wgs84:long ?long .
+    OPTIONAL
+    {
+      ?id coin-schema:find_site_coordinates/wgs84:lat ?latPoint ;
+      coin-schema:find_site_coordinates/wgs84:long ?longPoint .
+      BIND("green" AS ?markerColorTemp)
+    }
+    ?id coin-schema:municipality ?municipality .
+    ?municipality :yso/wgs84:lat ?latM .
+    ?municipality :yso/wgs84:long ?longM .
+
+    BIND(COALESCE(?latPoint,?latM) AS ?lat)
+    BIND(COALESCE(?longPoint,?longM) AS ?long)
+
+    BIND(COALESCE(?markerColorTemp,"red") AS ?markerColor)
+
   }
 `
 
@@ -356,7 +376,7 @@ export const findInstancePageMapQuery = `
     VALUES ?id { <ID> }
     ?id :find_site_coordinates/wgs84:lat ?lat ;
         :find_site_coordinates/wgs84:long ?long .
-    BIND("red" AS ?markerColor)
+    BIND("green" AS ?markerColor)
     ${findPropertiesFacetResults}
   }
 `
@@ -517,7 +537,7 @@ export const knowledgeGraphMetadataQuery = `
 
 export const findsCSVQuery = `
 
-SELECT DISTINCT ?id ?local_id ?denomination ?material (GROUP_CONCAT(?authorityTemp;separator=" & ") AS ?authority) ?mint ?country ?municipality ?coin_type ?ascension_number ?earliest_year ?latest_year ?period ?registration_year ?weight ?n_coordinate ?e_coordinate ?note
+SELECT DISTINCT ?id ?local_id ?denomination ?material (GROUP_CONCAT(?authorityTemp;separator=" & ") AS ?authority) ?mint ?country ?municipality ?coin_type ?ascension_number ?earliest_year ?latest_year ?period ?registration_year ?weight ?note
 WHERE {
   <FILTER>
   ?id a coin-schema:Coin .
@@ -589,7 +609,7 @@ WHERE {
   #  ?id :e_coordinate ?e_coordinate .
   #}
 }
-GROUP BY ?id ?local_id ?denomination ?material ?mint ?country ?municipality ?coin_type ?ascension_number ?earliest_year ?latest_year ?period ?registration_year ?weight ?n_coordinate ?e_coordinate ?note
+GROUP BY ?id ?local_id ?denomination ?material ?mint ?country ?municipality ?coin_type ?ascension_number ?earliest_year ?latest_year ?period ?registration_year ?weight ?note
 `
 
 export const findsByObjectNameQuery = `
@@ -986,8 +1006,16 @@ export const findPlacesAnimationQuery = `
     FILTER (LANG(?prefLabel) = '<LANG>')
     ?id coin-schema:registration_year ?startDate .
     BIND(?startDate AS ?endDate )
-    ?id coin-schema:find_site_coordinates/wgs84:lat ?lat .
-    ?id coin-schema:find_site_coordinates/wgs84:long ?long .
+    OPTIONAL {
+      ?id coin-schema:find_site_coordinates/wgs84:lat ?latPoint .
+      ?id coin-schema:find_site_coordinates/wgs84:long ?longTPoint .
+    }
+    ?id coin-schema:municipality ?municipality .
+    ?municipality :yso/wgs84:lat ?latM .
+    ?municipality :yso/wgs84:long ?longM .
+
+    BIND(COALESCE(?latPoint,?latM) AS ?lat)
+    BIND(COALESCE(?longPoint,?longM) AS ?long)
   }
   ORDER BY ?startDate
 `
@@ -1007,8 +1035,17 @@ export const creationYearFindPlacesAnimationQuery = `
     BIND(IF(STRLEN(STR(?year)) < 4, CONCAT('0',STR(?year)), STR(?year)) AS ?startDate)
     FILTER (xsd:integer(?startDate) > 699)
     FILTER (xsd:integer(?startDate) < 2000)
-    ?id coin-schema:find_site_coordinates/wgs84:lat ?lat .
-    ?id coin-schema:find_site_coordinates/wgs84:long ?long .
+    OPTIONAL {
+      ?id coin-schema:find_site_coordinates/wgs84:lat ?latPoint .
+      ?id coin-schema:find_site_coordinates/wgs84:long ?longTPoint .
+    }
+    ?id coin-schema:municipality ?municipality .
+    ?municipality :yso/wgs84:lat ?latM .
+    ?municipality :yso/wgs84:long ?longM .
+
+    BIND(COALESCE(?latPoint,?latM) AS ?lat)
+    BIND(COALESCE(?longPoint,?longM) AS ?long)
+
   }
   ORDER BY ?startDate
 `
