@@ -9,7 +9,7 @@
     "baseURI": "http://ldf.fi/coinsampo",
     "URITemplate": "<BASE_URI>/authorities/<LOCAL_ID>",
     "facetClass": "coin-schema:Authority",
-    "frontPageImage": "main_page/kristiina4.png",
+    "frontPageImage": "main_page/kristiina_front.jpg",
     "enableDynamicLanguageChange": true,
     "searchMode": "faceted-search",
     "defaultActiveFacets": [

@@ -26,4 +26,5 @@ export const prefixes = `
   PREFIX findsampo-core: <http://ldf.fi/schema/findsampo/core/>
   PREFIX : <http://ldf.fi/schema/coinsampo/>
 
+
 `

@@ -9,7 +9,7 @@
     "baseURI": "http://ldf.fi/coinsampo",
     "URITemplate": "<BASE_URI>/coins/<LOCAL_ID>",
     "facetClass": "coin-schema:Coin",
-    "frontPageImage": "main_page/kuusinainen.png",
+    "frontPageImage": "main_page/kuusinainen.jpg",
     "enableDynamicLanguageChange": true,
     "searchMode": "faceted-search",
     "defaultActiveFacets": [

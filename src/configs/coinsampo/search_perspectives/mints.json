@@ -9,7 +9,7 @@
     "baseURI": "http://ldf.fi/coinsampo",
     "URITemplate": "<BASE_URI>/mints/<LOCAL_ID>",
     "facetClass": "coin-schema:Mint",
-    "frontPageImage": "main_page/taonta.png",
+    "frontPageImage": "main_page/taonta.jpg",
     "searchMode": "faceted-search",
     "enableDynamicLanguageChange": true,
     "defaultActiveFacets": [
