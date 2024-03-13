@@ -333,13 +333,14 @@ export const findsPlacesQuery = `
 `
 
 export const mintsPlacesQuery = `
-  SELECT DISTINCT ?id ?lat ?long
+  SELECT DISTINCT ?id ?lat ?long ?markerColor
   (1 as ?instanceCount) # for heatmap
   WHERE {
     <FILTER>
     ?id a coin-schema:Coin .
     ?id coin-schema:mint/wgs84:lat ?lat ;
         coin-schema:mint/wgs84:long ?long .
+    BIND("red" AS ?markerColor)
   }
 `
 

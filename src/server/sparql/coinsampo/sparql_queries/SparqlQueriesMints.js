@@ -81,12 +81,13 @@ export const mintsPropertiesFacetResults = `
 `
 
 export const mintsPlacesQuery = `
-  SELECT DISTINCT ?id ?lat ?long
+  SELECT DISTINCT ?id ?lat ?long ?markerColor
   (1 as ?instanceCount) # for heatmap
   WHERE {
     <FILTER>
     ?id a coin-schema:Mint .
     ?id wgs84:lat ?lat ;
         wgs84:long ?long .
+    BIND("Green" AS ?markerColor)
   }
 `
