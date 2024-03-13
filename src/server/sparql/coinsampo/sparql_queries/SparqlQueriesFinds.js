@@ -1008,7 +1008,7 @@ export const findPlacesAnimationQuery = `
     BIND(?startDate AS ?endDate )
     OPTIONAL {
       ?id coin-schema:find_site_coordinates/wgs84:lat ?latPoint .
-      ?id coin-schema:find_site_coordinates/wgs84:long ?longTPoint .
+      ?id coin-schema:find_site_coordinates/wgs84:long ?longPoint .
     }
     ?id coin-schema:municipality ?municipality .
     ?municipality :yso/wgs84:lat ?latM .
@@ -1037,7 +1037,7 @@ export const creationYearFindPlacesAnimationQuery = `
     FILTER (xsd:integer(?startDate) < 2000)
     OPTIONAL {
       ?id coin-schema:find_site_coordinates/wgs84:lat ?latPoint .
-      ?id coin-schema:find_site_coordinates/wgs84:long ?longTPoint .
+      ?id coin-schema:find_site_coordinates/wgs84:long ?longPoint .
     }
     ?id coin-schema:municipality ?municipality .
     ?municipality :yso/wgs84:lat ?latM .
