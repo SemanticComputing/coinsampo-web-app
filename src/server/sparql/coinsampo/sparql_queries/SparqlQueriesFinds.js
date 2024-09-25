@@ -538,7 +538,7 @@ export const knowledgeGraphMetadataQuery = `
 
 export const findsCSVQuery = `
 
-SELECT DISTINCT ?id ?local_id ?denomination ?material (GROUP_CONCAT(?authorityTemp;separator=" & ") AS ?authority) ?mint ?country ?municipality ?coin_type ?ascension_number ?earliest_year ?latest_year ?period ?registration_year ?weight ?lat ?long ?note
+SELECT DISTINCT ?id ?local_id ?denomination ?material (GROUP_CONCAT(?authorityTemp;separator=" & ") AS ?authority) ?mint ?country ?municipality ?coin_type ?ascension_number ?earliest_year ?latest_year ?period ?registration_year ?context ?weight ?lat ?long ?note
 WHERE {
   <FILTER>
   ?id a coin-schema:Coin .
@@ -615,7 +615,7 @@ WHERE {
   #  ?id :e_coordinate ?e_coordinate .
   #}
 }
-GROUP BY ?id ?local_id ?denomination ?material ?mint ?country ?municipality ?coin_type ?ascension_number ?earliest_year ?latest_year ?period ?registration_year ?weight ?note ?lat ?long
+GROUP BY ?id ?local_id ?denomination ?material ?mint ?country ?municipality ?coin_type ?ascension_number ?earliest_year ?latest_year ?period ?registration_year ?context ?weight ?note ?lat ?long
 ORDER BY ASC(?id)
 `
 
